@@ -36,6 +36,7 @@ export function layout(meta: PageMeta, body: string): string {
 <title>${meta.title}</title>
 <meta name="description" content="${meta.description}">
 <link rel="canonical" href="${meta.canonical}">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
