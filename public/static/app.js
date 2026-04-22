@@ -80,25 +80,36 @@
     var revealSections = document.querySelectorAll('.section, .stats-bar, .cta-band, .trust-strip');
     var revealCards = document.querySelectorAll('.service-card, .service-detail-card, .cert-badge, .cert-detail-card, .value-card, .about-service, .license-card, .process-step, .team-card, .career-card, .info-block, .cap-list__item, .territory-map__state');
 
-    // Add reveal class to sections
+    // Only animate elements below the initial viewport
+    var viewH = window.innerHeight;
+    function shouldAnimate(el) {
+      var rect = el.getBoundingClientRect();
+      return rect.top > viewH - 50; // only hide things below fold
+    }
+
+    // Add reveal-init class to sections below fold
     revealSections.forEach(function(el) {
-      el.classList.add('reveal');
+      if (shouldAnimate(el)) {
+        el.classList.add('reveal-init');
+      }
     });
-    // Add reveal class to cards with stagger delay
+    // Add reveal-init class to cards with stagger delay
     var cardGroups = {};
     revealCards.forEach(function(el) {
-      el.classList.add('reveal');
-      // Group cards by parent for stagger
-      var parent = el.parentElement;
-      if (parent) {
-        var id = parent.getAttribute('data-reveal-group') || ('rg-' + Math.random().toString(36).substr(2, 5));
-        parent.setAttribute('data-reveal-group', id);
-        if (!cardGroups[id]) cardGroups[id] = [];
-        var idx = cardGroups[id].length;
-        cardGroups[id].push(el);
-        if (idx === 1) el.classList.add('reveal-delay-1');
-        else if (idx === 2) el.classList.add('reveal-delay-2');
-        else if (idx >= 3) el.classList.add('reveal-delay-3');
+      if (shouldAnimate(el)) {
+        el.classList.add('reveal-init');
+        // Group cards by parent for stagger
+        var parent = el.parentElement;
+        if (parent) {
+          var id = parent.getAttribute('data-reveal-group') || ('rg-' + Math.random().toString(36).substr(2, 5));
+          parent.setAttribute('data-reveal-group', id);
+          if (!cardGroups[id]) cardGroups[id] = [];
+          var idx = cardGroups[id].length;
+          cardGroups[id].push(el);
+          if (idx === 1) el.classList.add('reveal-delay-1');
+          else if (idx === 2) el.classList.add('reveal-delay-2');
+          else if (idx >= 3) el.classList.add('reveal-delay-3');
+        }
       }
     });
 
@@ -110,11 +121,11 @@
         }
       });
     }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.08,
+      rootMargin: '0px 0px -30px 0px'
     });
 
-    document.querySelectorAll('.reveal').forEach(function(el) {
+    document.querySelectorAll('.reveal-init').forEach(function(el) {
       observer.observe(el);
     });
   }
