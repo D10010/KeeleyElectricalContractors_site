@@ -6,8 +6,8 @@
   'use strict';
 
   // ── Mobile Nav ──
-  const hamburger = document.getElementById('nav-hamburger');
-  const drawer = document.getElementById('mobile-drawer');
+  var hamburger = document.getElementById('nav-hamburger');
+  var drawer = document.getElementById('mobile-drawer');
   if (hamburger && drawer) {
     hamburger.addEventListener('click', function() {
       hamburger.classList.toggle('active');
@@ -22,16 +22,43 @@
         document.body.style.overflow = '';
       });
     });
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && drawer.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        drawer.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
   }
 
   // ── Active Nav Link ──
-  var path = window.location.pathname;
+  var path = window.location.pathname.replace(/\/$/, '') || '/';
   document.querySelectorAll('.nav__link').forEach(function(link) {
     var href = link.getAttribute('href');
     if (path === href || (href !== '/' && path.startsWith(href))) {
       link.classList.add('active');
     }
   });
+  // Mobile drawer active links
+  document.querySelectorAll('.mobile-drawer__links a').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (path === href || (href !== '/' && path.startsWith(href))) {
+      link.style.color = '#fff';
+    }
+  });
+
+  // ── Sticky Nav Shadow on Scroll ──
+  var nav = document.getElementById('main-nav');
+  if (nav) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 10) {
+        nav.style.boxShadow = '0 4px 20px rgba(0,0,0,.25)';
+      } else {
+        nav.style.boxShadow = 'none';
+      }
+    }, { passive: true });
+  }
 
   // ── Scroll to Top ──
   var scrollBtn = document.getElementById('scroll-top');
@@ -42,11 +69,74 @@
       } else {
         scrollBtn.classList.remove('visible');
       }
-    });
+    }, { passive: true });
     scrollBtn.addEventListener('click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+
+  // ── Scroll Reveal (IntersectionObserver) ──
+  if ('IntersectionObserver' in window) {
+    var revealSections = document.querySelectorAll('.section, .stats-bar, .cta-band, .trust-strip');
+    var revealCards = document.querySelectorAll('.service-card, .service-detail-card, .cert-badge, .cert-detail-card, .value-card, .about-service, .license-card, .process-step, .team-card, .career-card, .info-block, .cap-list__item, .territory-map__state');
+
+    // Add reveal class to sections
+    revealSections.forEach(function(el) {
+      el.classList.add('reveal');
+    });
+    // Add reveal class to cards with stagger delay
+    var cardGroups = {};
+    revealCards.forEach(function(el) {
+      el.classList.add('reveal');
+      // Group cards by parent for stagger
+      var parent = el.parentElement;
+      if (parent) {
+        var id = parent.getAttribute('data-reveal-group') || ('rg-' + Math.random().toString(36).substr(2, 5));
+        parent.setAttribute('data-reveal-group', id);
+        if (!cardGroups[id]) cardGroups[id] = [];
+        var idx = cardGroups[id].length;
+        cardGroups[id].push(el);
+        if (idx === 1) el.classList.add('reveal-delay-1');
+        else if (idx === 2) el.classList.add('reveal-delay-2');
+        else if (idx >= 3) el.classList.add('reveal-delay-3');
+      }
+    });
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      observer.observe(el);
+    });
+  }
+
+  // ── Smooth anchor scrolling for legal page sidebars ──
+  document.querySelectorAll('.legal-toc a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        var target = document.getElementById(href.substring(1));
+        if (target) {
+          var offset = 80; // account for sticky nav
+          var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+          // Update active state
+          document.querySelectorAll('.legal-toc a').forEach(function(a) { a.style.color = ''; });
+          link.style.color = 'var(--accent)';
+        }
+      }
+    });
+  });
 
   // ══════════════════════════════════════════
   // CONTACT FORM — Multi-step with validation
@@ -100,38 +190,42 @@
     });
     currentStep = n;
     updateProgress();
-    window.scrollTo({ top: form.offsetTop - 120, behavior: 'smooth' });
+    // Smooth scroll to form top
+    var formWrap = document.querySelector('.contact-form-wrap');
+    if (formWrap) {
+      var top = formWrap.getBoundingClientRect().top + window.pageYOffset - 100;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }
   }
 
   // ── Progress Bar ──
   function updateProgress() {
-    var fields = form.querySelectorAll('input, select, textarea');
-    var total = 0;
-    var filled = 0;
-    fields.forEach(function(f) {
-      if (f.type === 'hidden' || f.type === 'submit' || f.type === 'button') return;
-      if (f.type === 'radio') {
-        var name = f.name;
-        if (!f.parentElement.closest('.form-step--active,.conditional-section[style*="block"],.size-select,.radio-row')) return;
-        var group = form.querySelectorAll('input[name="' + name + '"]');
-        // Only count once per group
-        if (f !== group[0]) return;
-        total++;
-        var checked = form.querySelector('input[name="' + name + '"]:checked');
-        if (checked) filled++;
-        return;
-      }
-      if (f.type === 'checkbox') {
-        return; // Don't count checkboxes in progress
-      }
-      total++;
-      if (f.value.trim()) filled++;
-    });
-
-    var pct = total > 0 ? Math.round((filled / total) * 100) : 0;
-    // Bias by step completion
-    var stepBias = ((currentStep - 1) / totalSteps) * 40;
-    pct = Math.min(100, Math.round(stepBias + pct * 0.6));
+    // Simple step-based progress
+    var pct;
+    if (currentStep === 1) {
+      var serviceSelected = form.querySelector('input[name="service_type"]:checked');
+      var sizeSelected = form.querySelector('input[name="project_size"]:checked');
+      pct = 0;
+      if (serviceSelected) pct += 15;
+      if (sizeSelected) pct += 15;
+    } else if (currentStep === 2) {
+      pct = 33;
+      var name = form.querySelector('#f-name');
+      var company = form.querySelector('#f-company');
+      var email = form.querySelector('#f-email');
+      var phone = form.querySelector('#f-phone');
+      if (name && name.value.trim().length >= 2) pct += 5;
+      if (company && company.value.trim().length >= 2) pct += 5;
+      if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) pct += 5;
+      if (phone && phone.value.trim().replace(/\D/g, '').length >= 7) pct += 5;
+    } else if (currentStep === 3) {
+      pct = 66;
+      var desc = form.querySelector('#f-description');
+      if (desc && desc.value.trim().length > 10) pct += 20;
+      var terms = form.querySelector('#f-terms');
+      if (terms && terms.checked) pct += 14;
+    }
+    pct = Math.min(100, pct);
 
     if (progressFill) progressFill.style.width = pct + '%';
     if (progressText) progressText.textContent = pct + '% complete';
@@ -216,6 +310,33 @@
     }
   });
 
+  // ── Phone number auto-format ──
+  var phoneField = document.getElementById('f-phone');
+  if (phoneField) {
+    phoneField.addEventListener('input', function(e) {
+      var val = this.value.replace(/\D/g, '');
+      if (val.length > 0) {
+        if (val.length <= 3) {
+          this.value = '(' + val;
+        } else if (val.length <= 6) {
+          this.value = '(' + val.substring(0,3) + ') ' + val.substring(3);
+        } else {
+          this.value = '(' + val.substring(0,3) + ') ' + val.substring(3,6) + '-' + val.substring(6,10);
+        }
+      }
+    });
+  }
+
+  // ── Step 3 description and terms listeners ──
+  var descField = document.getElementById('f-description');
+  if (descField) {
+    descField.addEventListener('input', function() { updateProgress(); });
+  }
+  var termsField = document.getElementById('f-terms');
+  if (termsField) {
+    termsField.addEventListener('change', function() { updateProgress(); });
+  }
+
   // ── Navigation Buttons ──
   if (btnNext1) btnNext1.addEventListener('click', function() { showStep(2); });
   if (btnNext2) btnNext2.addEventListener('click', function() { showStep(3); });
@@ -259,10 +380,14 @@
     .then(function(result) {
       // Show thank you
       form.style.display = 'none';
-      document.querySelector('.form-progress').style.display = 'none';
-      document.querySelector('.step-indicator').style.display = 'none';
-      document.querySelector('.contact-form-wrap h2').style.display = 'none';
-      document.querySelector('.contact-form-wrap > p').style.display = 'none';
+      var progressEl = document.querySelector('.form-progress');
+      var stepEl = document.querySelector('.step-indicator');
+      var formTitle = document.querySelector('.contact-form-wrap h2');
+      var formDesc = document.querySelector('.contact-form-wrap > p');
+      if (progressEl) progressEl.style.display = 'none';
+      if (stepEl) stepEl.style.display = 'none';
+      if (formTitle) formTitle.style.display = 'none';
+      if (formDesc) formDesc.style.display = 'none';
       if (thankYou) thankYou.style.display = 'block';
       if (progressFill) progressFill.style.width = '100%';
       if (progressText) progressText.textContent = '100% complete';

@@ -76,7 +76,7 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .nav { background: var(--ink); position: sticky; top: 0; z-index: 100; height: var(--nav-h); border-bottom: 2px solid var(--accent); }
 .nav__inner { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 100%; }
 .nav__logo { display: flex; align-items: center; gap: .75rem; flex-shrink: 0; }
-.nav__logo-mark { width: 36px; height: 36px; background: #c8c8c8; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-family: var(--ff-head); font-size: 1.1rem; font-weight: 800; color: var(--white); }
+.nav__logo-mark { width: 36px; height: 36px; background: var(--accent); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-family: var(--ff-head); font-size: 1.1rem; font-weight: 800; color: var(--white); }
 .nav__logo-text-wrap { line-height: 1.1; }
 .nav__logo-text { font-family: var(--ff-head); font-size: .95rem; font-weight: 700; color: var(--white); letter-spacing: .04em; display: block; }
 .nav__logo-sub { font-family: var(--ff-body); font-size: .65rem; color: #888; letter-spacing: .05em; text-transform: uppercase; display: block; }
@@ -422,6 +422,57 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; background: var(--accent); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; box-shadow: var(--shadow-lg); opacity: 0; visibility: hidden; transition: all .3s; z-index: 50; }
 .scroll-top.visible { opacity: 1; visibility: visible; }
 .scroll-top:hover { background: #28964a; transform: translateY(-2px); }
+
+/* Section Reveal Animation */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+
+/* Nav link hover underline */
+.nav__link { position: relative; }
+.nav__link::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transition: transform .25s ease; }
+.nav__link:hover::after, .nav__link.active::after { transform: scaleX(1); }
+
+/* Focus states for accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px;
+}
+
+/* Logo mark gradient */
+.nav__logo-mark { background: var(--accent); color: var(--white); }
+.footer__logo .nav__logo-mark { background: var(--accent); }
+
+/* Scroll Reveal Animations */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+
+/* Hover lift for interactive cards */
+.service-detail-card { transition: transform .25s, box-shadow .25s; }
+.service-detail-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.license-card { transition: transform .25s, box-shadow .25s; }
+.license-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.cert-detail-card { transition: transform .25s, box-shadow .25s; }
+.cert-detail-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.value-card { transition: transform .25s, box-shadow .25s; }
+.value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.about-service { transition: transform .25s, box-shadow .25s; }
+.about-service:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+
+/* Focus styles for accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.btn:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; }
+
+/* Active nav link underline */
+.nav__link.active { color: var(--white); position: relative; }
+.nav__link.active::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px; background: var(--accent); border-radius: 1px; }
 
 /* Responsive */
 @media (max-width: 1024px) {
