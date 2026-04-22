@@ -31,9 +31,11 @@
 
 ### Global Components
 - **Emergency Bar**: Red banner with 24/7 service and phone number, pulsing dot
-- **Navigation**: Sticky 58px dark nav with logo, links (Services, Capabilities, About, Careers, Contact), phone, green "Get a Quote" CTA, mobile hamburger drawer
+- **Navigation**: Sticky 58px dark nav with logo, links (Services, Capabilities, About, Careers, Contact), phone, green "Get a Quote" CTA, mobile hamburger drawer with backdrop overlay
 - **Footer**: Dark 4-column grid (Brand/NAP, Services, Company, Contact), license states, bottom bar with copyright and legal links
 - **Scroll-to-top**: Green floating button appears after 400px scroll
+- **Section Reveals**: Intersection-observer animations fade-in sections as user scrolls
+- **Smooth Scroll**: Anchor links scroll smoothly to targets
 
 ### Home Page Sections
 - Dark hero with headline, trust stats, CTAs
@@ -88,7 +90,7 @@
 - **Build**: Vite + @hono/vite-cloudflare-pages
 - **Runtime**: Cloudflare Workers / Pages
 - **CSS**: Custom design system with CSS variables
-- **JS**: Vanilla JS for form logic, mobile nav, scroll-to-top
+- **JS**: Vanilla JS for form logic, mobile nav, scroll-to-top, intersection-observer section reveals
 - **Fonts**: Google Fonts (Barlow, Barlow Condensed)
 - **Icons**: Font Awesome 6.5
 
