@@ -1,0 +1,242 @@
+import { layout } from '../components/layout'
+
+interface ServiceData {
+  name: string
+  icon: string
+  h1: string
+  title: string
+  metaDesc: string
+  intro: string[]
+  scopeItems: string[]
+  whoWeWorkWith: string[]
+  projectTypes: string[]
+}
+
+const services: Record<string, ServiceData> = {
+  electrical: {
+    name: 'Electrical',
+    icon: 'fa-bolt',
+    h1: 'Commercial & Industrial Electrical Services',
+    title: 'Electrical Services | Keeley Electrical Contractors',
+    metaDesc: 'Full-service commercial and industrial electrical contractor in Maine. Design-build, generators, fire alarm, medium voltage, service upgrades. Licensed ME, NH, MA.',
+    intro: [
+      'Keeley Electrical delivers comprehensive electrical services for commercial and industrial projects throughout Maine, New Hampshire, and Massachusetts. From new construction to complex renovations, our licensed electricians bring decades of experience to every job.',
+      'We self-perform the majority of our electrical work, giving us direct control over quality, safety, and schedule. Whether you need a full design-build or support on a specific scope, our team is equipped to handle projects of any scale.',
+      'Our design-assist capability means we can join your project during the design phase, working alongside architects and engineers to optimize the electrical scope for constructability and cost efficiency.'
+    ],
+    scopeItems: [
+      'Commercial &amp; Industrial New Construction',
+      'Renovation &amp; Tenant Fit-Outs',
+      'Design-Build &amp; Design-Assist',
+      'Generators &amp; Emergency Power Systems',
+      'Fire Alarm System Installation',
+      'Medium Voltage Distribution',
+      'Service Upgrades &amp; Panel Replacements',
+      'Lighting Design &amp; Installation',
+      'Power Distribution Systems',
+      'Data &amp; Low Voltage Cabling'
+    ],
+    whoWeWorkWith: [
+      'General Contractors',
+      'Property &amp; Facility Managers',
+      'Building Owners &amp; Developers',
+      'Architects &amp; Engineers'
+    ],
+    projectTypes: [
+      'Office buildings &amp; corporate campuses',
+      'Retail spaces &amp; shopping centers',
+      'Healthcare &amp; medical facilities',
+      'Educational institutions',
+      'Municipal &amp; government buildings',
+      'Industrial &amp; manufacturing facilities',
+      'Warehouse &amp; distribution centers'
+    ]
+  },
+  'site-work': {
+    name: 'Site Work',
+    icon: 'fa-truck-pickup',
+    h1: 'Commercial Site Work & Civil Earthwork',
+    title: 'Site Work Services | Keeley Electrical Contractors',
+    metaDesc: 'Excavation, grading, underground conduit, and site lighting for commercial and industrial projects. Serving Maine, New Hampshire, and Massachusetts.',
+    intro: [
+      'Keeley Electrical provides civil site work services to complement our electrical capabilities, offering a single-source solution for projects that require both underground infrastructure and above-grade electrical systems.',
+      'Our site work division handles everything from initial excavation and grading to underground conduit installation and finished site lighting. By self-performing both electrical and site work, we eliminate coordination gaps and keep your project on schedule.',
+      'Whether it\'s a new parking lot lighting system or a full site development package, our crews bring the same commitment to safety and quality that has defined Keeley for over four decades.'
+    ],
+    scopeItems: [
+      'Excavation &amp; Trenching',
+      'Grading &amp; Earthwork',
+      'Underground Conduit Installation',
+      'Parking Lot Lighting',
+      'Perimeter &amp; Security Lighting',
+      'Roadway &amp; Pathway Lighting',
+      'Ductbank Construction',
+      'Site Restoration'
+    ],
+    whoWeWorkWith: [
+      'General Contractors',
+      'Site Development Companies',
+      'Property Developers',
+      'Municipal Agencies'
+    ],
+    projectTypes: [
+      'Commercial site development',
+      'Parking lot construction &amp; lighting',
+      'Campus &amp; roadway lighting',
+      'Underground utility corridors',
+      'Industrial site preparation',
+      'Infrastructure upgrades'
+    ]
+  },
+  utility: {
+    name: 'Utility',
+    icon: 'fa-plug-circle-bolt',
+    h1: 'Utility Line Work & Coordination Services',
+    title: 'Utility Services | Keeley Electrical Contractors',
+    metaDesc: 'Private utility line extensions, energized line work, and utility coordination for CMP and Eversource. CIAC process guidance. Maine, New Hampshire, Massachusetts.',
+    intro: [
+      'Keeley Electrical specializes in private utility line work, providing aerial and underground primary line extensions for commercial and industrial clients throughout New England.',
+      'Our utility division manages the full scope of private utility infrastructure, from initial coordination with CMP, Eversource, and Portland Water District through final energization. We guide clients through the CIAC (Contribution in Aid of Construction) process, helping navigate the requirements and timelines involved in utility extensions.',
+      'Whether your project requires de-energized maintenance or energized line work, our experienced line crews are trained, equipped, and certified for safe execution.'
+    ],
+    scopeItems: [
+      'Private Primary Line Extensions (Aerial)',
+      'Private Primary Line Extensions (Underground)',
+      'De-Energized Line Work',
+      'Energized Line Work',
+      'CMP Utility Coordination',
+      'Eversource Utility Coordination',
+      'Portland Water District Coordination',
+      'CIAC Process Guidance &amp; Management'
+    ],
+    whoWeWorkWith: [
+      'Utility Companies (CMP, Eversource)',
+      'Portland Water District',
+      'General Contractors',
+      'Property Developers &amp; Owners',
+      'Facility Managers'
+    ],
+    projectTypes: [
+      'New development utility connections',
+      'Commercial service upgrades',
+      'Industrial power supply extensions',
+      'Campus distribution systems',
+      'Utility relocation projects',
+      'Emergency utility restoration'
+    ]
+  }
+}
+
+export function servicePage(slug: string): string {
+  const svc = services[slug]
+  if (!svc) {
+    return layout({
+      title: '404 | Keeley Electrical Contractors',
+      description: 'Page not found.',
+      canonical: 'https://keeleyelectrical.com/services'
+    }, '<section class="section" style="text-align:center;padding:6rem 2rem;"><h1>Service Not Found</h1><p>Please visit our <a href="/services">Services page</a>.</p></section>')
+  }
+
+  const body = `
+<!-- Page Header -->
+<section class="page-header page-header--blue">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a> <span>/</span> <a href="/services">Services</a> <span>/</span> <span class="breadcrumb__current">${svc.name}</span>
+    </nav>
+    <h1 class="page-header__title">${svc.h1}</h1>
+    <div class="page-header__tags">
+      <span class="pill">Licensed ME &middot; NH &middot; MA</span>
+      <span class="pill">ISN Certified</span>
+      <span class="pill">Since 1978</span>
+    </div>
+  </div>
+</section>
+
+<!-- Content -->
+<section class="section">
+  <div class="container">
+    <div class="content-sidebar">
+      <div class="content-main">
+        <!-- Intro -->
+        <div class="prose">
+          ${svc.intro.map(p => `<p>${p}</p>`).join('\n          ')}
+        </div>
+
+        <!-- Scope -->
+        <h2 class="h2" style="margin-top:3rem;">Services We Provide</h2>
+        <div class="scope-grid">
+          ${svc.scopeItems.map(item => `<div class="scope-item"><i class="fas fa-check"></i> ${item}</div>`).join('\n          ')}
+        </div>
+
+        <!-- Who We Work With -->
+        <h2 class="h2" style="margin-top:3rem;">Who We Work With</h2>
+        <div class="client-tags">
+          ${svc.whoWeWorkWith.map(w => `<span class="pill pill--outline">${w}</span>`).join('\n          ')}
+        </div>
+
+        <!-- Project Types -->
+        <h2 class="h2" style="margin-top:3rem;">Representative Project Types</h2>
+        <ul class="project-list">
+          ${svc.projectTypes.map(p => `<li>${p}</li>`).join('\n          ')}
+        </ul>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Start a Conversation</h3>
+          <p>Tell us about your project and we'll respond within one business day.</p>
+          <a href="/contact" class="btn btn--primary" style="width:100%;text-align:center;">Get a Quote</a>
+        </div>
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Call or Text</h3>
+          <a href="tel:+12077973772" class="sidebar-phone">
+            <div class="sidebar-phone__icon"><i class="fas fa-phone"></i></div>
+            <span>(207) 797-3772</span>
+          </a>
+        </div>
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Service Territory</h3>
+          <div class="footer__territory" style="margin-top:.5rem;">
+            <span class="pill">ME</span>
+            <span class="pill">NH</span>
+            <span class="pill">MA</span>
+          </div>
+        </div>
+        <div class="sidebar-card sidebar-card--accent">
+          <h3 class="sidebar-card__title" style="color:#fff;">Why Keeley?</h3>
+          <ul class="sidebar-trust-list">
+            <li><i class="fas fa-check-circle"></i> ISN Network Certified</li>
+            <li><i class="fas fa-check-circle"></i> Zero OSHA Recordables</li>
+            <li><i class="fas fa-check-circle"></i> Family-Owned Since 1978</li>
+            <li><i class="fas fa-check-circle"></i> Self-Performing Crews</li>
+            <li><i class="fas fa-check-circle"></i> 1-Day Response Guarantee</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="cta-band__inner" style="text-align:center;flex-direction:column;align-items:center;">
+    <h2 class="h2 h2--light">Start a Conversation</h2>
+    <p class="cta-band__desc" style="max-width:560px;">Tell us about your ${svc.name.toLowerCase()} project. We respond to all inquiries within one business day.</p>
+    <a href="/contact" class="btn btn--primary btn--lg">Contact Us</a>
+  </div>
+</section>
+`
+
+  return layout({
+    title: svc.title,
+    description: svc.metaDesc,
+    canonical: `https://keeleyelectrical.com/services/${slug}`,
+    breadcrumbs: [
+      { name: 'Home', url: 'https://keeleyelectrical.com/' },
+      { name: 'Services', url: 'https://keeleyelectrical.com/services' },
+      { name: svc.name, url: `https://keeleyelectrical.com/services/${slug}` }
+    ]
+  }, body)
+}
