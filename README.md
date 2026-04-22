@@ -92,7 +92,8 @@
 - **Active link underline**: Green accent underline on current nav link
 - **Phone auto-format**: Contact form phone field formats as (xxx) xxx-xxxx
 - **Staggered card animations**: Cards within a group reveal with 0.1s stagger delays
-- **Print/no-JS fallback**: `reveal-init` content is visible in print and when JS is disabled
+- **Print/no-JS fallback**: `reveal-init` content is visible in print and when JS is disabled (via `<noscript>` style tag and CSS rule)
+- **Accessibility**: Focus-visible outlines on all interactive elements, semantic HTML, ARIA labels
 
 ## Tech Stack
 - **Framework**: Hono (edge-first web framework)
