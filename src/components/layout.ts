@@ -63,11 +63,7 @@ ${breadcrumbLd}
 <nav class="nav" id="main-nav">
   <div class="nav__inner">
     <a href="/" class="nav__logo" aria-label="${COMPANY} Home">
-      <img src="/favicon.png" alt="Keeley Electrical" class="nav__logo-mark">
-      <div class="nav__logo-text-wrap">
-        <span class="nav__logo-text">KEELEY ELECTRICAL</span>
-        <span class="nav__logo-sub">Contractors, Inc. &middot; Est. 1978</span>
-      </div>
+      <img src="/static/logo-full.png" alt="Keeley Electrical Contractors" class="nav__logo-img">
     </a>
     <div class="nav__links" id="nav-links">
       <a href="/services" class="nav__link">Services</a>
@@ -109,11 +105,7 @@ ${body}
     <div class="footer__grid">
       <div class="footer__brand">
         <a href="/" class="footer__logo">
-          <img src="/favicon.png" alt="Keeley Electrical" class="nav__logo-mark">
-          <div>
-            <span class="nav__logo-text">KEELEY ELECTRICAL</span>
-            <span class="nav__logo-sub">${TAGLINE}</span>
-          </div>
+          <img src="/static/logo-full.png" alt="Keeley Electrical Contractors" class="footer__logo-img">
         </a>
         <p class="footer__tagline">Maine's trusted commercial and industrial electrical contractor since 1978. Family-owned, third generation.</p>
         <div class="footer__nap">
