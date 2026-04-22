@@ -1,104 +1,154 @@
-# Keeley Electrical Contractors — Website
+# Keeley Electrical Contractors Website
 
 ## Project Overview
-- **Name:** Keeley Electrical Contractors, Inc.
-- **Goal:** Professional commercial/industrial contractor website serving as lead intake and credibility infrastructure
-- **Tagline:** Electrical · Site · Utility
-- **Founded:** 1978 · Family-owned, third generation
-- **Location:** Portland, ME · Licensed in ME, NH, MA
+- **Name**: Keeley Electrical Contractors, Inc.
+- **Tagline**: Electrical - Site - Utility
+- **Goal**: Lead-generation website for a commercial/industrial electrical contractor based in Portland, ME
+- **Brand**: Family-owned since 1978, third generation, licensed in ME, NH, MA
 
-## URLs
-- **Sandbox:** https://3000-i3tfead6cuphbcu52newi-2e1b9533.sandbox.novita.ai
-- **Phone:** (207) 797-3772
-- **Email:** info@keeleyelectrical.com
+## Live Preview
+- **Development URL**: (available when sandbox is running on port 3000)
 
 ## Completed Features (Phase 1)
 
 ### Pages
-| Page | URL | Status |
-|------|-----|--------|
-| Home | `/` | ✅ Complete |
-| Services Index | `/services` | ✅ Complete |
-| Electrical Service | `/services/electrical` | ✅ Complete |
-| Site Work Service | `/services/site-work` | ✅ Complete |
-| Utility Service | `/services/utility` | ✅ Complete |
-| Capabilities | `/capabilities` | ✅ Complete |
-| About | `/about` | ✅ Complete |
-| Contact | `/contact` | ✅ Complete |
-| 404 | (any unknown URL) | ✅ Complete |
-| Privacy Policy | `/privacy` | ✅ Complete |
-| Terms & Conditions | `/terms` | ✅ Complete |
-
-### SEO
-| Feature | Status |
-|---------|--------|
-| Unique `<title>` per page | ✅ |
-| Unique `<meta description>` per page | ✅ |
-| One `<h1>` per page | ✅ |
-| `<link rel="canonical">` | ✅ |
-| JSON-LD LocalBusiness (Home + Contact) | ✅ |
-| JSON-LD BreadcrumbList (interior pages) | ✅ |
-| NAP in footer (every page) | ✅ |
-| `robots.txt` | ✅ |
-| `sitemap.xml` | ✅ |
+| Page | Route | Status |
+|------|-------|--------|
+| Home | `/` | Complete |
+| Services Index | `/services` | Complete |
+| Electrical (service detail) | `/services/electrical` | Complete |
+| Site Work (service detail) | `/services/site-work` | Complete |
+| Utility (service detail) | `/services/utility` | Complete |
+| Capabilities | `/capabilities` | Complete |
+| About | `/about` | Complete |
+| Careers | `/careers` | Complete |
+| Contact | `/contact` | Complete |
+| 404 | (any invalid route) | Complete |
+| Privacy Policy | `/privacy` | Complete |
+| Terms & Conditions | `/terms` | Complete |
+| robots.txt | `/robots.txt` | Complete |
+| sitemap.xml | `/sitemap.xml` | Complete |
 
 ### Global Components
-- **Emergency Bar:** Red bar with 24/7 service notice + phone number
-- **Navigation:** Sticky dark nav (58px) with green accent border, responsive hamburger menu
-- **Footer:** 4-column grid with full NAP, license states, privacy/terms links
-- **Scroll-to-top button**
+- **Emergency Bar**: Red banner with 24/7 service and phone number, pulsing dot
+- **Navigation**: Sticky 58px dark nav with logo, links (Services, Capabilities, About, Careers, Contact), phone, green "Get a Quote" CTA, mobile hamburger drawer
+- **Footer**: Dark 4-column grid (Brand/NAP, Services, Company, Contact), license states, bottom bar with copyright and legal links
+- **Scroll-to-top**: Green floating button appears after 400px scroll
 
-### Contact Form Features
-- 3-step multi-step form with progress bar
-- Step 1: Service type selection (Electrical / Site Work / Utility) with conditional sub-services
-- Step 1: Project size selector (Small / Medium+)
-- Step 1: Utility-specific education blocks (CMP CIAC, Portland Water District)
-- Step 2: Contact fields with live validation (green checkmarks)
-- Step 3: Project details (address, state, timeline, GC involvement, contract type, description, financing)
-- Step 3: Referral source tracking (multi-select with conditional detail)
-- Step 3: Terms & Conditions checkbox
-- Thank-you page with 3-step next-steps sequence
-- Sidebar: Why Keeley trust signals, phone, email, service territory, emergency CTA
+### Home Page Sections
+- Dark hero with headline, trust stats, CTAs
+- Trust strip (45+ Years, ISN Certified, 900+ Projects, ME-NH-MA, Zero OSHA)
+- 3-column service cards
+- About strip with image placeholder
+- Stats bar (Founded 1978, ISN Certified, Zero OSHA, 3 States)
+- Certifications grid
+- Featured project placeholder
+- Process strip (Inquiry > Budget > Build)
+- CTA band
 
-### Design Tokens
-```css
---ink:       #141414   /* primary text, nav background */
---ink-2:     #3a3a3a   /* secondary text */
---ink-3:     #6b6b6b   /* muted text, labels */
---rule:      #d8d5cf   /* borders, dividers */
---surface:   #f7f6f3   /* light section backgrounds */
---white:     #ffffff
---bg:        #eeece7   /* page background */
---accent:    #30AE67   /* green — CTAs, active states */
---accent-2:  #0660B6   /* blue — secondary CTAs, phone icons */
---emergency: #c0392b   /* red — emergency bar only */
-```
+### Contact Page Features
+- Multi-step form with 3 steps (Service Type > Your Info > Project Details)
+- Progress bar with percentage
+- Step indicator
+- Conditional logic: electrical/site-work/utility sub-service checkboxes
+- Project size selector (Under $25K / $25K+)
+- Validation with check-mark icons
+- Referral source with "Other" reveal
+- Terms acceptance
+- Thank-you page with next steps
+- Sidebar: trust signals, phone, email, territory pills, emergency card
+- API endpoint at POST `/api/contact`
 
-### Fonts
-- **Heading:** Barlow Condensed (400, 600, 700, 800)
-- **Body:** Barlow (300, 400, 500, 600)
+### SEO
+- Unique `<title>` (50-60 chars) and `<meta description>` (140-160 chars) per page
+- Single `<h1>` per page with primary keyword
+- Canonical links
+- JSON-LD: `LocalBusiness` on Home and Contact, `BreadcrumbList` on all interior pages
+- NAP consistent in footer on every page
+- `robots.txt` and `sitemap.xml` at root
+
+### Design System
+- **Colors**: `--ink:#141414`, `--accent:#30AE67` (green), `--accent-2:#0660B6` (blue), `--emergency:#c0392b`
+- **Fonts**: Barlow Condensed (headings 400-800), Barlow (body 300-600)
+- **Responsive**: 3 breakpoints (1024px, 768px, 480px)
+
+### Trust Signals (used throughout)
+- Zero OSHA recordables (3 years)
+- ISN Network certified
+- In business since 1978
+- Family-owned, third generation
+- TWIC cards
+- Licensed ME, NH, MA
+- 900+ projects
+- Design-assist capability
+- 1-day response guarantee
 
 ## Tech Stack
-- **Framework:** Hono (TypeScript)
-- **Build:** Vite + @hono/vite-build
-- **Deployment Target:** Cloudflare Pages
-- **Frontend:** Vanilla CSS + JS, Google Fonts CDN, Font Awesome CDN
-- **No frameworks/libraries** beyond Hono
+- **Framework**: Hono (edge-first web framework)
+- **Build**: Vite + @hono/vite-cloudflare-pages
+- **Runtime**: Cloudflare Workers / Pages
+- **CSS**: Custom design system with CSS variables
+- **JS**: Vanilla JS for form logic, mobile nav, scroll-to-top
+- **Fonts**: Google Fonts (Barlow, Barlow Condensed)
+- **Icons**: Font Awesome 6.5
 
-## Features Not Yet Implemented (Phase 2)
-- Portfolio / Projects showcase
-- Blog / Resources
-- Careers page
-- Equipment page
-- Booking system
-- Location page with Google Maps integration
-- E-commerce / Products & Rates
-- Social Hub
-- Real images (currently using placeholders)
-- Google Analytics / Tag Manager integration
-- Real contact form backend (email/CRM)
+## Project Structure
+```
+webapp/
+  src/
+    index.tsx           # Hono router and API
+    components/
+      layout.ts         # Shared layout, nav, footer
+    pages/
+      home.ts           # Home page
+      services.ts       # Services index
+      service.ts        # Service detail template
+      capabilities.ts   # Capabilities page
+      about.ts          # About page
+      careers.ts        # Careers page
+      contact.ts        # Contact page with multi-step form
+      notfound.ts       # 404 page
+      privacy.ts        # Privacy policy
+      terms.ts          # Terms & conditions
+      robots.ts         # robots.txt and sitemap.xml
+  public/
+    _routes.json        # Cloudflare Pages routing config
+    favicon.svg         # Green K favicon
+    static/
+      styles.css        # Complete design system CSS
+      app.js            # Client-side JS (form, nav, scroll)
+```
+
+## Development
+```bash
+npm run build              # Build for production
+pm2 start ecosystem.config.cjs  # Start dev server
+curl http://localhost:3000  # Test
+```
 
 ## Deployment
-- **Platform:** Cloudflare Pages
-- **Status:** ✅ Dev server running
-- **Last Updated:** April 22, 2026
+- **Platform**: Cloudflare Pages
+- **Production Branch**: main
+
+## Not Yet Implemented
+- Real photo assets (currently using placeholders)
+- Actual project/portfolio content
+- Real staff photos and bios
+- Blog/Resources section
+- CRM/email integration for contact form
+- Analytics integration
+- Google Maps embed on contact page
+- PDF download for capabilities statement
+
+## Recommended Next Steps
+1. Replace image placeholders with real photos
+2. Add actual team member names and photos
+3. Integrate contact form with CRM or email service
+4. Add Google Analytics / Tag Manager
+5. Set up Cloudflare D1 for form submission storage
+6. Add real project portfolio with photos and case studies
+7. Implement blog/resources section
+8. Connect to actual domain (keeleyelectrical.com)
+
+## Last Updated
+April 22, 2026
