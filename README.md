@@ -7,7 +7,7 @@
 - **Brand**: Family-owned since 1978, third generation, licensed in ME, NH, MA
 
 ## Live Preview
-- **Development URL**: (available when sandbox is running on port 3000)
+- **Development URL**: https://3000-i3tfead6cuphbcu52newi-2e1b9533.sandbox.novita.ai
 
 ## Completed Features (Phase 1)
 
@@ -84,6 +84,15 @@
 - 900+ projects
 - Design-assist capability
 - 1-day response guarantee
+
+### Visual Polish
+- **Scroll-reveal animations**: Below-fold sections and cards fade in via IntersectionObserver; above-fold content remains immediately visible for fast LCP and bot accessibility
+- **Hover effects**: Cards lift on hover with shadow transitions (service cards, license cards, cert cards, value cards)
+- **Sticky nav shadow**: Navigation gains drop shadow on scroll
+- **Active link underline**: Green accent underline on current nav link
+- **Phone auto-format**: Contact form phone field formats as (xxx) xxx-xxxx
+- **Staggered card animations**: Cards within a group reveal with 0.1s stagger delays
+- **Print/no-JS fallback**: `reveal-init` content is visible in print and when JS is disabled
 
 ## Tech Stack
 - **Framework**: Hono (edge-first web framework)

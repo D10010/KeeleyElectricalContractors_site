@@ -42,6 +42,7 @@ export function layout(meta: PageMeta, body: string): string {
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" rel="stylesheet">
 <link href="/static/styles.css" rel="stylesheet">
+<noscript><style>.reveal-init{opacity:1!important;transform:none!important}</style></noscript>
 ${meta.jsonLd || ''}
 ${breadcrumbLd}
 </head>

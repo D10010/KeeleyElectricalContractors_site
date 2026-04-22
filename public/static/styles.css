@@ -47,7 +47,7 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .container { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
 .section { padding: 4rem 0; }
 .section--surface { background: var(--surface); }
-.section__header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; }
+.section__header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; flex-wrap: wrap; gap: .5rem; }
 .section__view-all { font-family: var(--ff-head); font-size: .85rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
 .section__view-all i { margin-left: .25rem; transition: transform .2s; }
 .section__view-all:hover i { transform: translateX(4px); }
@@ -435,6 +435,7 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .reveal-delay-3 { transition-delay: .3s; }
 /* Fallback: if JS doesn't load, no hiding */
 @media print { .reveal-init { opacity: 1 !important; transform: none !important; } }
+noscript ~ * .reveal-init, .no-js .reveal-init { opacity: 1 !important; transform: none !important; }
 
 /* Hover lift for interactive cards */
 .service-detail-card { transition: transform .25s, box-shadow .25s; }
@@ -512,6 +513,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .step-indicator__label { display: none; }
   .trust-strip__inner { gap: 1rem; }
   .trust-strip__pill { font-size: .65rem; }
+  .section__header { flex-direction: column; align-items: flex-start; }
   .callout-box { flex-direction: column; }
   .emergency-bar__text { font-size: .7rem; }
 }
