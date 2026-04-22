@@ -25,9 +25,9 @@ export function contactPage(): string {
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/">Home</a> <span>/</span> <span class="breadcrumb__current">Contact</span>
     </nav>
-    <span class="eyebrow eyebrow--light">Get In Touch</span>
-    <h1 class="page-header__title">Let's Talk About Your Project</h1>
-    <p class="page-header__desc">Tell us about your project and we'll respond within one business day. Commercial, industrial, and utility inquiries welcome.</p>
+    <span class="eyebrow eyebrow--light">Project Inquiry</span>
+    <h1 class="page-header__title">Start a Conversation.</h1>
+    <p class="page-header__desc">Tell us what you're working on. We'll route your inquiry to the right person and follow up within one business day.</p>
   </div>
 </section>
 
@@ -37,192 +37,205 @@ export function contactPage(): string {
     <div class="contact-layout">
       <!-- Form -->
       <div class="contact-form-wrap">
-        <h2 class="h2" style="margin-bottom:.5rem;">Project Inquiry Form</h2>
-        <p class="text-muted" style="margin-bottom:1.5rem;">Complete the form below and we'll get back to you within one business day.</p>
-
         <!-- Progress Bar -->
         <div class="form-progress" id="form-progress">
+          <div class="form-progress__meta">
+            <span class="form-progress__label">Completion</span>
+            <span class="form-progress__pct" id="progress-pct">0%</span>
+          </div>
           <div class="form-progress__bar"><div class="form-progress__fill" id="progress-fill" style="width:0%"></div></div>
-          <span class="form-progress__text" id="progress-text">0% complete</span>
-        </div>
-
-        <!-- Step Indicator -->
-        <div class="step-indicator" id="step-indicator">
-          <div class="step-indicator__step step-indicator__step--active" data-step="1">
-            <span class="step-indicator__num">1</span>
-            <span class="step-indicator__label">Service Type</span>
-          </div>
-          <div class="step-indicator__step" data-step="2">
-            <span class="step-indicator__num">2</span>
-            <span class="step-indicator__label">Your Info</span>
-          </div>
-          <div class="step-indicator__step" data-step="3">
-            <span class="step-indicator__num">3</span>
-            <span class="step-indicator__label">Project Details</span>
-          </div>
         </div>
 
         <form id="contact-form" class="contact-form" novalidate>
-          <!-- STEP 1: Service Type -->
-          <div class="form-step form-step--active" id="step-1">
-            <h3 class="form-step__title">What type of service do you need?</h3>
+
+          <!-- ═══ SECTION 1: Type of Work ═══ -->
+          <div class="form-section" id="section-1">
+            <div class="section-head">
+              <div class="section-head__num">1</div>
+              <span class="section-head__title">Type of work<span class="required">*</span></span>
+            </div>
 
             <!-- Service Type Cards -->
-            <div class="service-select" id="service-select">
-              <label class="service-select__card">
-                <input type="radio" name="service_type" value="electrical">
-                <div class="service-select__inner">
-                  <i class="fas fa-bolt"></i>
-                  <strong>Electrical</strong>
-                  <span>Commercial &amp; Industrial</span>
-                </div>
-              </label>
-              <label class="service-select__card">
-                <input type="radio" name="service_type" value="site-work">
-                <div class="service-select__inner">
-                  <i class="fas fa-truck-pickup"></i>
-                  <strong>Site Work</strong>
-                  <span>Excavation &amp; Lighting</span>
-                </div>
-              </label>
-              <label class="service-select__card">
-                <input type="radio" name="service_type" value="utility">
-                <div class="service-select__inner">
-                  <i class="fas fa-plug-circle-bolt"></i>
-                  <strong>Utility</strong>
-                  <span>Line Work &amp; Coordination</span>
-                </div>
-              </label>
+            <div class="service-grid" id="service-grid">
+              <div class="service-card" id="svc-electrical" role="button" tabindex="0">
+                <div class="svc-icon"><i class="fas fa-bolt"></i></div>
+                <span class="svc-name">Electrical</span>
+                <span class="svc-desc">Commercial, industrial, design-build, generators, fire alarm, medium voltage</span>
+              </div>
+              <div class="service-card" id="svc-sitework" role="button" tabindex="0">
+                <div class="svc-icon"><i class="fas fa-truck-pickup"></i></div>
+                <span class="svc-name">Site Work</span>
+                <span class="svc-desc">Excavation, grading, underground conduit, site lighting, civil earthwork</span>
+              </div>
+              <div class="service-card" id="svc-utility" role="button" tabindex="0">
+                <div class="svc-icon"><i class="fas fa-plug-circle-bolt"></i></div>
+                <span class="svc-name">Utility</span>
+                <span class="svc-desc">Primary line extensions, overhead and underground, utility coordination</span>
+              </div>
             </div>
+            <input type="hidden" name="service_type" id="h-service-type" value="">
 
-            <!-- Conditional: Electrical sub-services -->
-            <div class="conditional-section" id="cond-electrical" style="display:none;">
-              <h4>Electrical services needed:</h4>
-              <div class="checkbox-grid">
-                <label class="form-check"><input type="checkbox" name="sub_electrical" value="new-construction"> New Construction</label>
-                <label class="form-check"><input type="checkbox" name="sub_electrical" value="renovation"> Renovation / Tenant Fit-Out</label>
-                <label class="form-check"><input type="checkbox" name="sub_electrical" value="design-build"> Design-Build / Design-Assist</label>
-                <label class="form-check"><input type="checkbox" name="sub_electrical" value="generators"> Generators / Emergency Power</label>
-                <label class="form-check"><input type="checkbox" name="sub_electrical" value="fire-alarm"> Fire Alarm Systems</label>
-                <label class="form-check"><input type="checkbox" name="sub_electrical" value="medium-voltage"> Medium Voltage</label>
-                <label class="form-check"><input type="checkbox" name="sub_electrical" value="service-upgrade"> Service Upgrades</label>
-                <label class="form-check"><input type="checkbox" name="sub_electrical" value="lighting"> Lighting / Power Distribution</label>
+            <!-- Conditional: Electrical -->
+            <div class="conditional" id="cond-electrical">
+              <div class="cond-label">Electrical details</div>
+              <div class="field-label">Project type<span class="required">*</span></div>
+              <div class="radio-group">
+                <label class="radio-row"><input type="radio" name="elec_type" value="new"> New construction</label>
+                <label class="radio-row"><input type="radio" name="elec_type" value="renovation"> Renovation or existing structure</label>
+              </div>
+              <div class="field-label">Additional context</div>
+              <div class="check-group">
+                <label class="check-row"><input type="checkbox" name="sub_electrical" value="service-upgrade"> Service upgrade anticipated &mdash; utility coordination and inspections will be required</label>
+                <label class="check-row"><input type="checkbox" name="sub_electrical" value="mech-plumb"> Working for a mechanical or plumbing contractor &mdash; equipment cut sheets will be needed</label>
               </div>
             </div>
 
-            <!-- Conditional: Site Work sub-services -->
-            <div class="conditional-section" id="cond-site-work" style="display:none;">
-              <h4>Site work services needed:</h4>
-              <div class="checkbox-grid">
-                <label class="form-check"><input type="checkbox" name="sub_sitework" value="excavation"> Excavation &amp; Grading</label>
-                <label class="form-check"><input type="checkbox" name="sub_sitework" value="conduit"> Underground Conduit</label>
-                <label class="form-check"><input type="checkbox" name="sub_sitework" value="parking-lighting"> Parking Lot Lighting</label>
-                <label class="form-check"><input type="checkbox" name="sub_sitework" value="perimeter-lighting"> Perimeter / Security Lighting</label>
-                <label class="form-check"><input type="checkbox" name="sub_sitework" value="roadway-lighting"> Roadway Lighting</label>
-                <label class="form-check"><input type="checkbox" name="sub_sitework" value="earthwork"> Civil Earthwork</label>
+            <!-- Conditional: Site Work -->
+            <div class="conditional" id="cond-sitework">
+              <div class="cond-label">Site work details</div>
+              <div class="field-label">Scope involved &mdash; select all that apply</div>
+              <div class="check-group">
+                <label class="check-row"><input type="checkbox" name="sub_sitework" value="trenching"> Trenching and underground conduit installation</label>
+                <label class="check-row"><input type="checkbox" name="sub_sitework" value="site-lighting"> Site lighting &mdash; parking lot, perimeter, or roadway</label>
+                <label class="check-row"><input type="checkbox" name="sub_sitework" value="grading"> Grading, excavation, or land clearing</label>
+                <label class="check-row"><input type="checkbox" name="sub_sitework" value="civil-earthwork"> Civil earthwork</label>
               </div>
             </div>
 
-            <!-- Conditional: Utility sub-services -->
-            <div class="conditional-section" id="cond-utility" style="display:none;">
-              <h4>Utility services needed:</h4>
-              <div class="checkbox-grid">
-                <label class="form-check"><input type="checkbox" name="sub_utility" value="aerial-line"> Aerial Line Extension</label>
-                <label class="form-check"><input type="checkbox" name="sub_utility" value="underground-line"> Underground Line Extension</label>
-                <label class="form-check"><input type="checkbox" name="sub_utility" value="energized"> Energized Line Work</label>
-                <label class="form-check"><input type="checkbox" name="sub_utility" value="de-energized"> De-Energized Line Work</label>
-                <label class="form-check"><input type="checkbox" name="sub_utility" value="cmp-coord"> CMP Coordination</label>
-                <label class="form-check"><input type="checkbox" name="sub_utility" value="ciac"> CIAC Process Guidance</label>
+            <!-- Conditional: Utility -->
+            <div class="conditional" id="cond-utility">
+              <div class="cond-label">Utility details</div>
+              <div class="field-label">Line work type<span class="required">*</span></div>
+              <div class="radio-group">
+                <label class="radio-row"><input type="radio" name="line_work" value="de-energized"> De-energized line work</label>
+                <label class="radio-row"><input type="radio" name="line_work" value="energized"> Energized line work</label>
+              </div>
+              <div class="field-label">Extension type</div>
+              <div class="radio-group">
+                <label class="radio-row"><input type="radio" name="ext_type" value="aerial"> Private primary line extension &mdash; aerial</label>
+                <label class="radio-row"><input type="radio" name="ext_type" value="underground"> Private primary line extension &mdash; underground</label>
+                <label class="radio-row"><input type="radio" name="ext_type" value="na"> Not applicable</label>
+              </div>
+              <div class="field-label">Have you already initiated a work order with your utility (CMP, Eversource)?<span class="required">*</span></div>
+              <div class="radio-group">
+                <label class="radio-row"><input type="radio" name="work_order" value="yes"> Yes &mdash; work order submitted</label>
+                <label class="radio-row"><input type="radio" name="work_order" value="no"> No &mdash; not yet initiated</label>
+                <label class="radio-row"><input type="radio" name="work_order" value="unsure"> Not sure</label>
               </div>
 
-              <!-- Utility Education Blocks -->
-              <div class="utility-info">
-                <div class="utility-info__card">
-                  <h4><i class="fas fa-info-circle"></i> CMP CIAC Process</h4>
-                  <p>The Contribution in Aid of Construction (CIAC) is CMP's process for extending primary utility service to new developments. Keeley guides clients through the application, engineering review, and construction phases.</p>
+              <!-- Utility Alert / Education Blocks -->
+              <div class="utility-alert" id="utility-alert">
+                <div class="utility-alert__head">
+                  <div class="utility-alert__icon"><i class="fas fa-circle-info"></i></div>
+                  <div class="utility-alert__title">Utility coordination is required before your project can move forward.</div>
                 </div>
-                <div class="utility-info__card">
-                  <h4><i class="fas fa-info-circle"></i> Portland Water District</h4>
-                  <p>Projects requiring coordination with Portland Water District for water/sewer infrastructure benefit from Keeley's established relationships and understanding of PWD permitting requirements.</p>
+                <div class="utility-alert__body">
+                  <p>Before construction can begin on a utility project, most clients need to complete one or more steps directly with their utility provider. This is standard &mdash; it protects your budget and timeline. We guide clients through this process regularly and can help once you submit your inquiry.</p>
+
+                  <div class="edu-block">
+                    <div class="edu-block__title"><i class="fas fa-file-lines"></i> CMP customers &mdash; CIAC cost allocation</div>
+                    <p>The Contribution in Aid of Construction (CIAC) is CMP's process for extending primary utility service to new developments. Keeley guides clients through the application, engineering review, and construction phases.</p>
+                    <p>The process works like this: a contractor submits a proposal, CMP schedules a field planner appointment, a hand sketch is produced, and Keeley prices against that scope. None of this can begin without CMP's involvement &mdash; which is why initiating the work order early matters.</p>
+                    <a href="https://www.cmpco.com/en/for-your-home/new-service/line-extensions" target="_blank" rel="noopener" class="edu-link">CMP line extension information <i class="fas fa-arrow-up-right-from-square"></i></a>
+                  </div>
+
+                  <div class="edu-block">
+                    <div class="edu-block__title"><i class="fas fa-file-lines"></i> Portland Water District &mdash; ability to serve</div>
+                    <p>If your project is in Portland Water District territory and involves any water service connection, PWD requires you to submit project sketches and receive an official <strong>ability-to-serve letter</strong> before design work can be priced or started.</p>
+                    <p>Without it, neither Keeley nor any other contractor can provide an accurate proposal &mdash; and the project cannot move through the permit process.</p>
+                    <a href="https://www.pwd.org/development-services" target="_blank" rel="noopener" class="edu-link">Portland Water District development services <i class="fas fa-arrow-up-right-from-square"></i></a>
+                  </div>
+
+                  <p class="utility-alert__note"><em>Not sure which applies to your project? Submit your inquiry and we'll sort it out with you.</em></p>
                 </div>
               </div>
-            </div>
-
-            <!-- Project Size -->
-            <h4 style="margin-top:1.5rem;">Estimated project size:</h4>
-            <div class="size-select" id="size-select">
-              <label class="size-select__card">
-                <input type="radio" name="project_size" value="small">
-                <div class="size-select__inner">
-                  <strong>Small</strong>
-                  <span>Under $25K</span>
-                </div>
-              </label>
-              <label class="size-select__card">
-                <input type="radio" name="project_size" value="medium-plus">
-                <div class="size-select__inner">
-                  <strong>Medium+</strong>
-                  <span>$25K and above</span>
-                </div>
-              </label>
-            </div>
-
-            <button type="button" class="btn btn--primary btn--lg form-nav-btn" id="btn-next-1" style="width:100%;margin-top:1.5rem;" disabled>Continue to Your Info <i class="fas fa-arrow-right"></i></button>
-          </div>
-
-          <!-- STEP 2: Contact Info -->
-          <div class="form-step" id="step-2">
-            <h3 class="form-step__title">Your Contact Information</h3>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="f-name">Full Name <span class="required">*</span></label>
-                <input type="text" id="f-name" name="name" required placeholder="John Smith">
-                <span class="form-check-icon" id="check-name"><i class="fas fa-check-circle"></i></span>
-              </div>
-              <div class="form-group">
-                <label for="f-company">Company <span class="required">*</span></label>
-                <input type="text" id="f-company" name="company" required placeholder="Acme Construction">
-                <span class="form-check-icon" id="check-company"><i class="fas fa-check-circle"></i></span>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="f-email">Email <span class="required">*</span></label>
-                <input type="email" id="f-email" name="email" required placeholder="john@acme.com">
-                <span class="form-check-icon" id="check-email"><i class="fas fa-check-circle"></i></span>
-              </div>
-              <div class="form-group">
-                <label for="f-phone">Phone <span class="required">*</span></label>
-                <input type="tel" id="f-phone" name="phone" required placeholder="(207) 555-0100">
-                <span class="form-check-icon" id="check-phone"><i class="fas fa-check-circle"></i></span>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Are you a returning Keeley client?</label>
-              <div class="radio-row">
-                <label class="form-radio"><input type="radio" name="returning" value="yes"> Yes</label>
-                <label class="form-radio"><input type="radio" name="returning" value="no"> No</label>
-                <label class="form-radio"><input type="radio" name="returning" value="not-sure"> Not Sure</label>
-              </div>
-            </div>
-            <div class="form-step__nav">
-              <button type="button" class="btn btn--secondary form-nav-btn" id="btn-back-2"><i class="fas fa-arrow-left"></i> Back</button>
-              <button type="button" class="btn btn--primary form-nav-btn" id="btn-next-2" disabled>Continue to Project Details <i class="fas fa-arrow-right"></i></button>
             </div>
           </div>
 
-          <!-- STEP 3: Project Details -->
-          <div class="form-step" id="step-3">
-            <h3 class="form-step__title">Project Details</h3>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="f-address">Project Address</label>
-                <input type="text" id="f-address" name="address" placeholder="123 Main St, Portland, ME">
+          <hr class="form-divider">
+
+          <!-- ═══ SECTION 2: Estimated Project Size ═══ -->
+          <div class="form-section" id="section-2">
+            <div class="section-head">
+              <div class="section-head__num">2</div>
+              <span class="section-head__title">Estimated project size<span class="required">*</span></span>
+            </div>
+            <div class="size-grid" id="size-grid">
+              <div class="size-card" id="size-small" role="button" tabindex="0">
+                <div class="sz-name">Small / service call</div>
+                <div class="sz-sub">Up to approximately $25,000</div>
               </div>
-              <div class="form-group">
-                <label for="f-state">State</label>
-                <select id="f-state" name="state">
-                  <option value="">Select state...</option>
+              <div class="size-card" id="size-medium" role="button" tabindex="0">
+                <div class="sz-name">Medium or large project</div>
+                <div class="sz-sub">$25,000 and above</div>
+              </div>
+            </div>
+            <input type="hidden" name="project_size" id="h-project-size" value="">
+            <p class="size-note">All submissions are reviewed &mdash; no inquiry is automatically declined.</p>
+          </div>
+
+          <hr class="form-divider">
+
+          <!-- ═══ SECTION 3: Contact Information ═══ -->
+          <div class="form-section" id="section-3">
+            <div class="section-head">
+              <div class="section-head__num">3</div>
+              <span class="section-head__title">Contact information</span>
+            </div>
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="f-firstname">First name<span class="required">*</span></label>
+                <input type="text" id="f-firstname" name="first_name" placeholder="Michael" required>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="f-lastname">Last name<span class="required">*</span></label>
+                <input type="text" id="f-lastname" name="last_name" placeholder="Donnelly" required>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="f-company">Company name</label>
+                <input type="text" id="f-company" name="company" placeholder="Donnelly Construction">
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="f-email">Email address<span class="required">*</span></label>
+                <input type="email" id="f-email" name="email" placeholder="m.donnelly@company.com" required>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="f-phone">Phone number<span class="required">*</span></label>
+                <input type="tel" id="f-phone" name="phone" placeholder="(207) 555-0100" required>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="f-returning">Have we worked together before?</label>
+                <select id="f-returning" name="returning">
+                  <option value="">Select</option>
+                  <option value="yes">Yes &mdash; returning client</option>
+                  <option value="no">No &mdash; first project with Keeley</option>
+                  <option value="unsure">Not sure</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <hr class="form-divider">
+
+          <!-- ═══ SECTION 4: Project Details ═══ -->
+          <div class="form-section" id="section-4">
+            <div class="section-head">
+              <div class="section-head__num">4</div>
+              <span class="section-head__title">Project details</span>
+            </div>
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="f-address">Project / service address</label>
+                <input type="text" id="f-address" name="address" placeholder="123 Industrial Dr, Portland, ME">
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="f-state">State<span class="required">*</span></label>
+                <select id="f-state" name="state" required>
+                  <option value="">Select</option>
                   <option value="ME">Maine</option>
                   <option value="NH">New Hampshire</option>
                   <option value="MA">Massachusetts</option>
@@ -230,106 +243,123 @@ export function contactPage(): string {
                 </select>
               </div>
             </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="f-timeline">Project Timeline</label>
-                <select id="f-timeline" name="timeline">
-                  <option value="">Select timeline...</option>
-                  <option value="immediate">Immediate (within 30 days)</option>
-                  <option value="1-3-months">1 &ndash; 3 Months</option>
-                  <option value="3-6-months">3 &ndash; 6 Months</option>
-                  <option value="6-12-months">6 &ndash; 12 Months</option>
-                  <option value="planning">Still in planning</option>
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="f-timeline">Timeline<span class="required">*</span></label>
+                <select id="f-timeline" name="timeline" required>
+                  <option value="">Select</option>
+                  <option value="emergency">Emergency &mdash; immediate response needed</option>
+                  <option value="active">Active pipeline &mdash; within 60 days</option>
+                  <option value="planning">Planning ahead &mdash; next year or beyond</option>
                 </select>
               </div>
-              <div class="form-group">
-                <label for="f-contract">Contract Type</label>
+              <div class="field-group">
+                <label class="field-label" for="f-gc">General contractor already involved?</label>
+                <select id="f-gc" name="gc_involved">
+                  <option value="">Select</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No &mdash; Keeley would be prime</option>
+                  <option value="tbd">TBD</option>
+                </select>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="f-contract">Preferred contract type</label>
                 <select id="f-contract" name="contract_type">
-                  <option value="">Select type...</option>
-                  <option value="competitive-bid">Competitive Bid</option>
-                  <option value="negotiated">Negotiated</option>
-                  <option value="design-build">Design-Build</option>
-                  <option value="t-and-m">Time &amp; Material</option>
-                  <option value="not-sure">Not Sure</option>
+                  <option value="">Select</option>
+                  <option value="fixed">Fixed price</option>
+                  <option value="tm">Time and materials (T&amp;M)</option>
+                  <option value="unsure">Not sure yet</option>
+                </select>
+              </div>
+              <div class="field-group" id="pm-field" style="display:none;">
+                <label class="field-label" for="f-pm">Dedicated project manager requested?</label>
+                <select id="f-pm" name="pm_requested">
+                  <option value="">Select</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
                 </select>
               </div>
             </div>
-            <div class="form-group">
-              <label>Is a General Contractor involved?</label>
-              <div class="radio-row">
-                <label class="form-radio"><input type="radio" name="gc_involved" value="yes"> Yes</label>
-                <label class="form-radio"><input type="radio" name="gc_involved" value="no"> No — direct to owner</label>
-                <label class="form-radio"><input type="radio" name="gc_involved" value="tbd"> TBD</label>
+            <div class="field-row field-row--full">
+              <div class="field-group">
+                <label class="field-label" for="f-description">Project description</label>
+                <textarea id="f-description" name="description" rows="5" placeholder="Scope, location, timeline, and any context that helps us understand the project..."></textarea>
+                <p class="field-hint">The more context you share, the faster we can respond with something useful.</p>
               </div>
             </div>
-            <div class="form-group">
-              <label for="f-description">Project Description <span class="required">*</span></label>
-              <textarea id="f-description" name="description" rows="5" required placeholder="Tell us about your project scope, location, and any relevant details..."></textarea>
-            </div>
-            <div class="form-group">
-              <label>Is financing in place for this project?</label>
-              <div class="radio-row">
-                <label class="form-radio"><input type="radio" name="financing" value="yes"> Yes</label>
-                <label class="form-radio"><input type="radio" name="financing" value="no"> No</label>
-                <label class="form-radio"><input type="radio" name="financing" value="in-progress"> In Progress</label>
+            <div class="field-row field-row--full">
+              <div class="field-group">
+                <label class="field-label" for="f-financing">Financing status</label>
+                <select id="f-financing" name="financing">
+                  <option value="">Select</option>
+                  <option value="secured">Financing secured &mdash; ready to proceed</option>
+                  <option value="inprogress">Financing in progress</option>
+                  <option value="budgeting">Still in budgeting or estimating phase</option>
+                  <option value="na">Not applicable</option>
+                </select>
+                <p class="field-hint">Optional &mdash; helps us scope our response appropriately.</p>
               </div>
             </div>
-
-            <!-- Referral Source -->
-            <div class="form-group">
-              <label>How did you hear about Keeley?</label>
-              <div class="checkbox-grid checkbox-grid--sm">
-                <label class="form-check"><input type="checkbox" name="referral" value="google"> Google Search</label>
-                <label class="form-check"><input type="checkbox" name="referral" value="referral"> Referral</label>
-                <label class="form-check"><input type="checkbox" name="referral" value="repeat"> Repeat Client</label>
-                <label class="form-check"><input type="checkbox" name="referral" value="isn"> ISN / Prequalification</label>
-                <label class="form-check"><input type="checkbox" name="referral" value="other"> Other</label>
-              </div>
-              <div id="referral-detail-wrap" style="display:none;margin-top:.5rem;">
-                <input type="text" name="referral_detail" placeholder="Please specify...">
+            <div class="field-row field-row--full">
+              <div class="field-group">
+                <label class="field-label">How did you hear about Keeley?</label>
+                <p class="field-hint" style="margin-top:0;margin-bottom:.5rem;">Select all that apply.</p>
+                <div class="referral-grid">
+                  <label class="check-row referral-option"><input type="checkbox" name="referral" value="referral"> Referral from a client or colleague</label>
+                  <label class="check-row referral-option"><input type="checkbox" name="referral" value="gc"> Referred by a general contractor</label>
+                  <label class="check-row referral-option"><input type="checkbox" name="referral" value="repeat"> Existing relationship with Keeley</label>
+                  <label class="check-row referral-option"><input type="checkbox" name="referral" value="search"> Google or other search engine</label>
+                  <label class="check-row referral-option"><input type="checkbox" name="referral" value="social"> Social media</label>
+                  <label class="check-row referral-option"><input type="checkbox" name="referral" value="bluebook"> Blue Book or industry directory</label>
+                  <label class="check-row referral-option"><input type="checkbox" name="referral" value="jobsite"> Saw a Keeley job site or vehicle</label>
+                  <label class="check-row referral-option"><input type="checkbox" name="referral" value="event"> Industry event or trade organization</label>
+                  <label class="check-row referral-option"><input type="checkbox" name="referral" value="other"> Other</label>
+                </div>
               </div>
             </div>
-
-            <!-- Terms -->
-            <div class="form-group">
-              <label class="form-check form-check--terms">
-                <input type="checkbox" name="terms" id="f-terms" required>
-                I agree to the <a href="/terms" target="_blank">Terms &amp; Conditions</a>
-              </label>
-            </div>
-
-            <div class="form-step__nav">
-              <button type="button" class="btn btn--secondary form-nav-btn" id="btn-back-3"><i class="fas fa-arrow-left"></i> Back</button>
-              <button type="submit" class="btn btn--primary btn--lg form-nav-btn" id="btn-submit">Send Project Inquiry <i class="fas fa-paper-plane"></i></button>
+            <div class="field-row field-row--full" id="referral-detail-wrap" style="display:none;">
+              <div class="field-group">
+                <label class="field-label" for="f-referral-detail">Who referred you, or where specifically?</label>
+                <input type="text" id="f-referral-detail" name="referral_detail" placeholder="Name, company, event, or source">
+                <p class="field-hint">Optional &mdash; helps us thank the right person or understand where we're showing up.</p>
+              </div>
             </div>
           </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn btn--primary btn--lg form-submit-btn" id="btn-submit">
+            Submit Project Inquiry <i class="fas fa-arrow-right"></i>
+          </button>
+          <p class="form-disclaimer">We review every submission. No inquiry is automatically declined.<br>Response within one business day &mdash; often same day.</p>
         </form>
 
         <!-- Thank You -->
         <div id="thank-you" class="thank-you" style="display:none;">
           <div class="thank-you__icon"><i class="fas fa-check-circle"></i></div>
-          <h2 class="h2">Thank You!</h2>
-          <p>Your project inquiry has been received. Here's what happens next:</p>
+          <h2 class="h2">Inquiry Received.</h2>
+          <p>Your project inquiry has been submitted. We review every submission personally and will follow up within one business day &mdash; often same day.</p>
           <div class="thank-you__steps">
             <div class="thank-you__step">
               <span class="thank-you__step-num">1</span>
               <div>
-                <strong>We Review</strong>
-                <p>Our team reviews your inquiry and assigns it to the right division.</p>
+                <strong>Review</strong>
+                <p>Your inquiry is reviewed by our team and routed to the right person based on scope and service type.</p>
               </div>
             </div>
             <div class="thank-you__step">
               <span class="thank-you__step-num">2</span>
               <div>
-                <strong>We Respond</strong>
-                <p>Expect a call or email within one business day.</p>
+                <strong>Follow-up</strong>
+                <p>We'll reach out directly &mdash; typically within one business day &mdash; to discuss your project and next steps.</p>
               </div>
             </div>
             <div class="thank-you__step">
               <span class="thank-you__step-num">3</span>
               <div>
-                <strong>We Scope</strong>
-                <p>We'll schedule a site visit or call to discuss your project in detail.</p>
+                <strong>Budget</strong>
+                <p>For qualified projects, we'll provide a budget to confirm pricing alignment before committing to a full proposal.</p>
               </div>
             </div>
           </div>
@@ -342,45 +372,74 @@ export function contactPage(): string {
 
       <!-- Sidebar -->
       <aside class="contact-sidebar">
-        <div class="sidebar-card">
-          <h3 class="sidebar-card__title">Why Keeley?</h3>
-          <ul class="sidebar-trust-list sidebar-trust-list--dark">
-            <li><i class="fas fa-check-circle"></i> ISN Network Certified</li>
-            <li><i class="fas fa-check-circle"></i> Zero OSHA Recordables (3 Yrs)</li>
-            <li><i class="fas fa-check-circle"></i> Family-Owned Since 1978</li>
-            <li><i class="fas fa-check-circle"></i> 900+ Projects Completed</li>
-            <li><i class="fas fa-check-circle"></i> 1-Day Response Guarantee</li>
-            <li><i class="fas fa-check-circle"></i> Design-Assist Available</li>
-          </ul>
-        </div>
-
-        <div class="sidebar-card">
-          <h3 class="sidebar-card__title">Call or Text</h3>
-          <a href="${PHONE_HREF}" class="sidebar-phone">
-            <div class="sidebar-phone__icon"><i class="fas fa-phone"></i></div>
-            <span>${PHONE}</span>
-          </a>
-          <p class="text-muted" style="margin-top:.5rem;font-size:.85rem;">Mon &ndash; Fri: 7:00 AM &ndash; 4:00 PM</p>
-        </div>
-
-        <div class="sidebar-card">
-          <h3 class="sidebar-card__title">Email</h3>
-          <a href="mailto:${EMAIL}" class="sidebar-email"><i class="fas fa-envelope"></i> ${EMAIL}</a>
-        </div>
-
-        <div class="sidebar-card">
-          <h3 class="sidebar-card__title">Service Territory</h3>
-          <div class="footer__territory" style="margin-top:.5rem;">
-            <span class="pill">ME</span>
-            <span class="pill">NH</span>
-            <span class="pill">MA</span>
+        <div class="sidebar-card sidebar-card--trust">
+          <div class="sidebar-card__head">
+            <i class="fas fa-medal"></i>
+            <span class="sidebar-card__head-title">Why Keeley</span>
+          </div>
+          <div class="sidebar-card__body">
+            <div class="trust-item">
+              <div class="trust-icon-wrap"><i class="fas fa-hard-hat"></i></div>
+              <div>
+                <span class="trust-label">Zero OSHA recordables</span>
+                <span class="trust-detail">Three consecutive years &mdash; active ISN Network certification maintained</span>
+              </div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-icon-wrap"><i class="fas fa-clock"></i></div>
+              <div>
+                <span class="trust-label">One business day response</span>
+                <span class="trust-detail">Every submission is reviewed &mdash; no inquiry automatically declined</span>
+              </div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-icon-wrap"><i class="fas fa-compass-drafting"></i></div>
+              <div>
+                <span class="trust-label">Design-assist available</span>
+                <span class="trust-detail">Electrical and civil &mdash; from early planning through construction</span>
+              </div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-icon-wrap"><i class="fas fa-house-chimney"></i></div>
+              <div>
+                <span class="trust-label">In business since 1978</span>
+                <span class="trust-detail">Family-owned, third generation &mdash; TWIC cards held by key personnel</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="sidebar-card sidebar-card--emergency">
-          <h3 style="color:#fff;font-family:var(--ff-head);font-weight:700;margin-bottom:.5rem;">Emergency Service</h3>
-          <p style="color:rgba(255,255,255,.8);font-size:.9rem;margin-bottom:1rem;">24/7 emergency electrical service available for commercial and industrial clients.</p>
-          <a href="${PHONE_HREF}" class="btn btn--primary" style="width:100%;text-align:center;">Emergency: Call Now</a>
+        <div class="sidebar-card">
+          <div class="sidebar-card__head">
+            <i class="fas fa-headset"></i>
+            <span class="sidebar-card__head-title">Prefer to call?</span>
+          </div>
+          <div class="sidebar-card__body">
+            <div class="contact-row">
+              <i class="fas fa-phone"></i>
+              <a href="${PHONE_HREF}">${PHONE}</a>
+            </div>
+            <div class="contact-row">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:${EMAIL}">${EMAIL}</a>
+            </div>
+            <p class="text-muted" style="margin-top:.5rem;font-size:.8rem;">Mon &ndash; Fri: 7:00 AM &ndash; 4:00 PM</p>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__head">
+            <i class="fas fa-map-location-dot"></i>
+            <span class="sidebar-card__head-title">Service territory</span>
+          </div>
+          <div class="sidebar-card__body">
+            <div class="territory-states">
+              <span class="state-pill">ME</span>
+              <span class="state-pill">NH</span>
+              <span class="state-pill">MA</span>
+            </div>
+            <p class="territory-note">Licensed and actively operating in Maine, New Hampshire, and Massachusetts. Projects in other states reviewed case by case.</p>
+          </div>
         </div>
       </aside>
     </div>
@@ -412,7 +471,7 @@ export function contactPage(): string {
 </section>
 `
   return layout({
-    title: 'Contact Us | Keeley Electrical Contractors',
+    title: 'Start a Project | Keeley Electrical Contractors',
     description: 'Start your commercial or industrial electrical project. Contact Keeley Electrical Contractors in Portland, Maine. Licensed in ME, NH, MA. One business day response.',
     canonical: 'https://keeleyelectrical.com/contact',
     jsonLd: jsonLd,

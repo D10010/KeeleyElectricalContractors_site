@@ -150,181 +150,128 @@
   });
 
   // ══════════════════════════════════════════
-  // CONTACT FORM — Multi-step with validation
+  // CONTACT FORM — Single-page scrolling form
   // ══════════════════════════════════════════
   var form = document.getElementById('contact-form');
   if (!form) return;
 
-  var currentStep = 1;
-  var totalSteps = 3;
-
-  // Elements
-  var steps = [
-    document.getElementById('step-1'),
-    document.getElementById('step-2'),
-    document.getElementById('step-3')
-  ];
-  var indicators = document.querySelectorAll('.step-indicator__step');
+  var selectedSvc = null;
   var progressFill = document.getElementById('progress-fill');
-  var progressText = document.getElementById('progress-text');
+  var progressPct = document.getElementById('progress-pct');
   var thankYou = document.getElementById('thank-you');
-
-  // Buttons
-  var btnNext1 = document.getElementById('btn-next-1');
-  var btnNext2 = document.getElementById('btn-next-2');
-  var btnBack2 = document.getElementById('btn-back-2');
-  var btnBack3 = document.getElementById('btn-back-3');
   var btnSubmit = document.getElementById('btn-submit');
 
-  // Service type conditional sections
-  var serviceRadios = form.querySelectorAll('input[name="service_type"]');
+  // ── Service Card Selection ──
+  var serviceCards = document.querySelectorAll('.service-card');
+  var hServiceType = document.getElementById('h-service-type');
   var condElectrical = document.getElementById('cond-electrical');
-  var condSiteWork = document.getElementById('cond-site-work');
+  var condSitework = document.getElementById('cond-sitework');
   var condUtility = document.getElementById('cond-utility');
+  var utilityAlert = document.getElementById('utility-alert');
 
-  // Referral detail
-  var referralChecks = form.querySelectorAll('input[name="referral"]');
-  var referralDetailWrap = document.getElementById('referral-detail-wrap');
+  function selectSvc(type, el) {
+    serviceCards.forEach(function(c) { c.classList.remove('active'); });
+    // Hide all conditionals
+    if (condElectrical) condElectrical.classList.remove('visible');
+    if (condSitework) condSitework.classList.remove('visible');
+    if (condUtility) condUtility.classList.remove('visible');
+    if (utilityAlert) utilityAlert.classList.remove('visible');
 
-  // ── Show/Hide Step ──
-  function showStep(n) {
-    steps.forEach(function(s, i) {
-      if (s) {
-        s.classList.remove('form-step--active');
-        if (i === n - 1) s.classList.add('form-step--active');
-      }
-    });
-    indicators.forEach(function(ind, i) {
-      ind.classList.remove('step-indicator__step--active', 'step-indicator__step--completed');
-      if (i === n - 1) ind.classList.add('step-indicator__step--active');
-      else if (i < n - 1) ind.classList.add('step-indicator__step--completed');
-    });
-    currentStep = n;
+    el.classList.add('active');
+    selectedSvc = type;
+    if (hServiceType) hServiceType.value = type;
+
+    // Show matching conditional
+    var cond = document.getElementById('cond-' + type);
+    if (cond) cond.classList.add('visible');
+
     updateProgress();
-    // Smooth scroll to form top
-    var formWrap = document.querySelector('.contact-form-wrap');
-    if (formWrap) {
-      var top = formWrap.getBoundingClientRect().top + window.pageYOffset - 100;
-      window.scrollTo({ top: top, behavior: 'smooth' });
-    }
   }
 
-  // ── Progress Bar ──
-  function updateProgress() {
-    // Simple step-based progress
-    var pct;
-    if (currentStep === 1) {
-      var serviceSelected = form.querySelector('input[name="service_type"]:checked');
-      var sizeSelected = form.querySelector('input[name="project_size"]:checked');
-      pct = 0;
-      if (serviceSelected) pct += 15;
-      if (sizeSelected) pct += 15;
-    } else if (currentStep === 2) {
-      pct = 33;
-      var name = form.querySelector('#f-name');
-      var company = form.querySelector('#f-company');
-      var email = form.querySelector('#f-email');
-      var phone = form.querySelector('#f-phone');
-      if (name && name.value.trim().length >= 2) pct += 5;
-      if (company && company.value.trim().length >= 2) pct += 5;
-      if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) pct += 5;
-      if (phone && phone.value.trim().replace(/\D/g, '').length >= 7) pct += 5;
-    } else if (currentStep === 3) {
-      pct = 66;
-      var desc = form.querySelector('#f-description');
-      if (desc && desc.value.trim().length > 10) pct += 20;
-      var terms = form.querySelector('#f-terms');
-      if (terms && terms.checked) pct += 14;
-    }
-    pct = Math.min(100, pct);
-
-    if (progressFill) progressFill.style.width = pct + '%';
-    if (progressText) progressText.textContent = pct + '% complete';
-  }
-
-  // ── Service Type Conditional Logic ──
-  serviceRadios.forEach(function(radio) {
-    radio.addEventListener('change', function() {
-      condElectrical.style.display = 'none';
-      condSiteWork.style.display = 'none';
-      condUtility.style.display = 'none';
-
-      if (this.value === 'electrical') condElectrical.style.display = 'block';
-      else if (this.value === 'site-work') condSiteWork.style.display = 'block';
-      else if (this.value === 'utility') condUtility.style.display = 'block';
-
-      validateStep1();
-      updateProgress();
+  serviceCards.forEach(function(card) {
+    card.addEventListener('click', function() {
+      var type = this.id.replace('svc-', '');
+      selectSvc(type, this);
     });
-  });
-
-  // ── Referral "Other" detail ──
-  referralChecks.forEach(function(check) {
-    check.addEventListener('change', function() {
-      var otherChecked = form.querySelector('input[name="referral"][value="other"]:checked');
-      if (referralDetailWrap) {
-        referralDetailWrap.style.display = otherChecked ? 'block' : 'none';
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        var type = this.id.replace('svc-', '');
+        selectSvc(type, this);
       }
     });
   });
 
-  // ── Size select validation ──
-  form.querySelectorAll('input[name="project_size"]').forEach(function(radio) {
+  // ── Work Order radio → Utility Alert ──
+  form.querySelectorAll('input[name="work_order"]').forEach(function(radio) {
     radio.addEventListener('change', function() {
-      validateStep1();
+      if (utilityAlert) {
+        if (this.value === 'yes') {
+          utilityAlert.classList.remove('visible');
+        } else {
+          utilityAlert.classList.add('visible');
+        }
+      }
       updateProgress();
     });
   });
 
-  // ── Step 1 Validation ──
-  function validateStep1() {
-    var serviceSelected = form.querySelector('input[name="service_type"]:checked');
-    var sizeSelected = form.querySelector('input[name="project_size"]:checked');
-    if (btnNext1) btnNext1.disabled = !(serviceSelected && sizeSelected);
+  // ── Size Card Selection ──
+  var sizeCards = document.querySelectorAll('.size-card');
+  var hProjectSize = document.getElementById('h-project-size');
+
+  sizeCards.forEach(function(card) {
+    card.addEventListener('click', function() {
+      sizeCards.forEach(function(c) { c.classList.remove('active'); });
+      this.classList.add('active');
+      var val = this.id === 'size-small' ? 'small' : 'medium-plus';
+      if (hProjectSize) hProjectSize.value = val;
+      updateProgress();
+    });
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+  });
+
+  // ── Contract type → PM field ──
+  var contractSelect = document.getElementById('f-contract');
+  var pmField = document.getElementById('pm-field');
+  if (contractSelect && pmField) {
+    contractSelect.addEventListener('change', function() {
+      if (this.value === 'tm') {
+        pmField.style.display = '';
+      } else {
+        pmField.style.display = 'none';
+      }
+      updateProgress();
+    });
   }
 
-  // ── Step 2 Validation ──
-  function validateStep2() {
-    var name = form.querySelector('#f-name');
-    var company = form.querySelector('#f-company');
-    var email = form.querySelector('#f-email');
-    var phone = form.querySelector('#f-phone');
+  // ── Referral checkboxes → detail field ──
+  var referralDetailWrap = document.getElementById('referral-detail-wrap');
+  var referralTriggers = ['referral', 'gc', 'jobsite', 'event', 'other'];
 
-    var nameOk = name && name.value.trim().length >= 2;
-    var companyOk = company && company.value.trim().length >= 2;
-    var emailOk = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
-    var phoneOk = phone && phone.value.trim().replace(/\D/g, '').length >= 7;
-
-    toggleCheck('check-name', nameOk);
-    toggleCheck('check-company', companyOk);
-    toggleCheck('check-email', emailOk);
-    toggleCheck('check-phone', phoneOk);
-
-    if (btnNext2) btnNext2.disabled = !(nameOk && companyOk && emailOk && phoneOk);
+  function updateReferralDetail() {
+    if (!referralDetailWrap) return;
+    var boxes = form.querySelectorAll('input[name="referral"]:checked');
+    var show = false;
+    boxes.forEach(function(b) {
+      if (referralTriggers.indexOf(b.value) !== -1) show = true;
+    });
+    referralDetailWrap.style.display = show ? '' : 'none';
   }
 
-  function toggleCheck(id, valid) {
-    var el = document.getElementById(id);
-    if (el) {
-      el.classList.toggle('visible', valid);
-    }
-  }
-
-  // Listen for input on step 2 fields
-  ['f-name', 'f-company', 'f-email', 'f-phone'].forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el) {
-      el.addEventListener('input', function() {
-        validateStep2();
-        updateProgress();
-      });
-    }
+  form.querySelectorAll('input[name="referral"]').forEach(function(check) {
+    check.addEventListener('change', updateReferralDetail);
   });
 
   // ── Phone number auto-format ──
   var phoneField = document.getElementById('f-phone');
   if (phoneField) {
-    phoneField.addEventListener('input', function(e) {
+    phoneField.addEventListener('input', function() {
       var val = this.value.replace(/\D/g, '');
       if (val.length > 0) {
         if (val.length <= 3) {
@@ -338,31 +285,80 @@
     });
   }
 
-  // ── Step 3 description and terms listeners ──
-  var descField = document.getElementById('f-description');
-  if (descField) {
-    descField.addEventListener('input', function() { updateProgress(); });
-  }
-  var termsField = document.getElementById('f-terms');
-  if (termsField) {
-    termsField.addEventListener('change', function() { updateProgress(); });
+  // ── Progress Bar ──
+  function updateProgress() {
+    var score = 0;
+    var total = 5;
+
+    // 1. Service type selected
+    if (selectedSvc) score++;
+
+    // 2. Project size selected
+    if (document.querySelector('.size-card.active')) score++;
+
+    // 3. Contact info: first name + email + phone
+    var fn = (form.querySelector('[name="first_name"]') || {}).value || '';
+    var em = (form.querySelector('[name="email"]') || {}).value || '';
+    var ph = (form.querySelector('[name="phone"]') || {}).value || '';
+    if (fn.trim() && em.trim() && ph.trim()) score++;
+
+    // 4. State + timeline
+    var st = (form.querySelector('[name="state"]') || {}).value || '';
+    var tl = (form.querySelector('[name="timeline"]') || {}).value || '';
+    if (st && tl) score++;
+
+    // 5. Description filled
+    var desc = (form.querySelector('[name="description"]') || {}).value || '';
+    if (desc.trim()) score++;
+
+    var pct = Math.round((score / total) * 100);
+    if (progressFill) progressFill.style.width = pct + '%';
+    if (progressPct) progressPct.textContent = pct + '%';
   }
 
-  // ── Navigation Buttons ──
-  if (btnNext1) btnNext1.addEventListener('click', function() { showStep(2); });
-  if (btnNext2) btnNext2.addEventListener('click', function() { showStep(3); });
-  if (btnBack2) btnBack2.addEventListener('click', function() { showStep(1); });
-  if (btnBack3) btnBack3.addEventListener('click', function() { showStep(2); });
+  // ── Field validation on change/blur ──
+  form.querySelectorAll('input,select,textarea').forEach(function(el) {
+    el.addEventListener('input', updateProgress);
+    el.addEventListener('change', function() {
+      updateProgress();
+      // Add green check for validated fields
+      if (el.type === 'email') {
+        var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        el.classList.toggle('valid', re.test(el.value.trim()));
+      } else if (el.type === 'tel') {
+        el.classList.toggle('valid', el.value.trim().length >= 10);
+      } else if (el.tagName === 'SELECT') {
+        el.classList.toggle('valid', !!el.value);
+      } else if (el.required || el.name === 'first_name' || el.name === 'last_name') {
+        el.classList.toggle('valid', el.value.trim().length > 1);
+      }
+    });
+    el.addEventListener('blur', function() { el.dispatchEvent(new Event('change')); });
+  });
+
+  // ── Active section tracking (scrollspy) ──
+  var formSections = document.querySelectorAll('.form-section');
+  var stepNums = document.querySelectorAll('.section-head__num');
+
+  function trackActiveSection() {
+    var mid = window.scrollY + window.innerHeight / 2;
+    var currentIdx = -1;
+    formSections.forEach(function(s, i) {
+      var rect = s.getBoundingClientRect();
+      var top = rect.top + window.scrollY;
+      var bot = top + rect.height;
+      if (mid >= top && mid <= bot) currentIdx = i;
+    });
+    stepNums.forEach(function(n, i) {
+      n.classList.toggle('active-section', i === currentIdx);
+    });
+  }
+  window.addEventListener('scroll', trackActiveSection, { passive: true });
+  trackActiveSection();
 
   // ── Form Submit ──
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-
-    var termsCheck = form.querySelector('#f-terms');
-    if (termsCheck && !termsCheck.checked) {
-      alert('Please accept the Terms & Conditions to continue.');
-      return;
-    }
 
     // Collect data
     var formData = new FormData(form);
@@ -376,11 +372,15 @@
       }
     });
 
-    // Submit
+    // Show loading
     if (btnSubmit) {
       btnSubmit.disabled = true;
       btnSubmit.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     }
+
+    // Animate progress to 100%
+    if (progressFill) progressFill.style.width = '100%';
+    if (progressPct) progressPct.textContent = '100%';
 
     fetch('/api/contact', {
       method: 'POST',
@@ -392,23 +392,17 @@
       // Show thank you
       form.style.display = 'none';
       var progressEl = document.querySelector('.form-progress');
-      var stepEl = document.querySelector('.step-indicator');
-      var formTitle = document.querySelector('.contact-form-wrap h2');
-      var formDesc = document.querySelector('.contact-form-wrap > p');
       if (progressEl) progressEl.style.display = 'none';
-      if (stepEl) stepEl.style.display = 'none';
-      if (formTitle) formTitle.style.display = 'none';
-      if (formDesc) formDesc.style.display = 'none';
       if (thankYou) thankYou.style.display = 'block';
-      if (progressFill) progressFill.style.width = '100%';
-      if (progressText) progressText.textContent = '100% complete';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     })
     .catch(function() {
       if (btnSubmit) {
         btnSubmit.disabled = false;
-        btnSubmit.innerHTML = 'Send Project Inquiry <i class="fas fa-paper-plane"></i>';
+        btnSubmit.innerHTML = 'Submit Project Inquiry <i class="fas fa-arrow-right"></i>';
       }
+      if (progressFill) progressFill.style.width = '80%';
+      if (progressPct) progressPct.textContent = '80%';
       alert('Something went wrong. Please try again or call us at (207) 797-3772.');
     });
   });
