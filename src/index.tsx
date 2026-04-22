@@ -6,6 +6,7 @@ import { capabilitiesPage } from './pages/capabilities'
 import { aboutPage } from './pages/about'
 import { contactPage } from './pages/contact'
 import { notFoundPage } from './pages/notfound'
+import { careersPage } from './pages/careers'
 import { privacyPage } from './pages/privacy'
 import { termsPage } from './pages/terms'
 import { robotsTxt, sitemapXml } from './pages/robots'
@@ -23,6 +24,8 @@ app.get('/about', (c) => c.html(aboutPage()))
 app.get('/about/', (c) => c.html(aboutPage()))
 app.get('/contact', (c) => c.html(contactPage()))
 app.get('/contact/', (c) => c.html(contactPage()))
+app.get('/careers', (c) => c.html(careersPage()))
+app.get('/careers/', (c) => c.html(careersPage()))
 app.get('/privacy', (c) => c.html(privacyPage()))
 app.get('/privacy/', (c) => c.html(privacyPage()))
 app.get('/terms', (c) => c.html(termsPage()))

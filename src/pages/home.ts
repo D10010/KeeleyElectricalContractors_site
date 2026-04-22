@@ -152,6 +152,41 @@ export function homePage(): string {
   </div>
 </section>
 
+<!-- Featured Project -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Recent Work</span>
+    <div class="section__header">
+      <h2 class="h2">Featured Project</h2>
+    </div>
+    <div class="featured-project">
+      <div class="featured-project__image">
+        <div class="image-placeholder image-placeholder--lg"><i class="fas fa-building"></i><span>Featured Project Photo</span></div>
+      </div>
+      <div class="featured-project__info">
+        <span class="pill">Electrical &middot; Site Work</span>
+        <h3 class="featured-project__title">Commercial Office Complex</h3>
+        <p class="featured-project__desc">Full electrical scope for a 120,000 sq. ft. commercial office development including medium-voltage distribution, emergency power, fire alarm systems, and complete site lighting.</p>
+        <div class="featured-project__stats">
+          <div class="featured-project__stat">
+            <span class="featured-project__stat-num">120K</span>
+            <span class="featured-project__stat-label">Sq. Ft.</span>
+          </div>
+          <div class="featured-project__stat">
+            <span class="featured-project__stat-num">18</span>
+            <span class="featured-project__stat-label">Months</span>
+          </div>
+          <div class="featured-project__stat">
+            <span class="featured-project__stat-num">0</span>
+            <span class="featured-project__stat-label">Safety Incidents</span>
+          </div>
+        </div>
+        <a href="/services" class="btn btn--secondary">Explore Our Services <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Process Strip -->
 <section class="section">
   <div class="container">

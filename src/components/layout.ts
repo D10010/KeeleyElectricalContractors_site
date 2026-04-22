@@ -72,6 +72,7 @@ ${breadcrumbLd}
       <a href="/services" class="nav__link">Services</a>
       <a href="/capabilities" class="nav__link">Capabilities</a>
       <a href="/about" class="nav__link">About</a>
+      <a href="/careers" class="nav__link">Careers</a>
       <a href="/contact" class="nav__link">Contact</a>
     </div>
     <div class="nav__right">
@@ -90,6 +91,7 @@ ${breadcrumbLd}
     <a href="/services">Services</a>
     <a href="/capabilities">Capabilities</a>
     <a href="/about">About</a>
+    <a href="/careers">Careers</a>
     <a href="/contact">Contact</a>
   </div>
   <a href="${PHONE_HREF}" class="mobile-drawer__phone"><i class="fas fa-phone"></i> ${PHONE}</a>
@@ -130,6 +132,7 @@ ${body}
       <div class="footer__col">
         <h4 class="footer__col-title">Company</h4>
         <a href="/about">About Keeley</a>
+        <a href="/careers">Careers</a>
         <a href="/capabilities">Licensing</a>
         <a href="/contact">Contact Us</a>
       </div>
