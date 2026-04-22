@@ -63,7 +63,7 @@ ${breadcrumbLd}
 <nav class="nav" id="main-nav">
   <div class="nav__inner">
     <a href="/" class="nav__logo" aria-label="${COMPANY} Home">
-      <div class="nav__logo-mark">K</div>
+      <img src="/favicon.png" alt="Keeley Electrical" class="nav__logo-mark">
       <div class="nav__logo-text-wrap">
         <span class="nav__logo-text">KEELEY ELECTRICAL</span>
         <span class="nav__logo-sub">Contractors, Inc. &middot; Est. 1978</span>
@@ -109,7 +109,7 @@ ${body}
     <div class="footer__grid">
       <div class="footer__brand">
         <a href="/" class="footer__logo">
-          <div class="nav__logo-mark">K</div>
+          <img src="/favicon.png" alt="Keeley Electrical" class="nav__logo-mark">
           <div>
             <span class="nav__logo-text">KEELEY ELECTRICAL</span>
             <span class="nav__logo-sub">${TAGLINE}</span>
