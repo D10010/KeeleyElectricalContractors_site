@@ -247,7 +247,7 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .cert-detail-card__status i { margin-right: .25rem; }
 .two-col-cap { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
 .two-col-cap .h2 { margin-bottom: 1rem; }
-.info-block { margin-bottom: .75rem; padding: 1rem 1.25rem; background: var(--surface); border-radius: var(--radius); }
+.info-block { margin-bottom: .75rem; padding: 1.15rem 1.25rem; background: var(--surface); border-radius: var(--radius); }
 .info-block:last-child { margin-bottom: 0; }
 .info-block h3 { font-family: var(--ff-head); font-size: 1rem; font-weight: 700; margin-bottom: .35rem; }
 .info-block h3 i { margin-right: .5rem; color: var(--accent-2); }
