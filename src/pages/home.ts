@@ -22,8 +22,11 @@ export function homePage(): string {
 
   const body = `
 <!-- Hero -->
-<section class="hero">
-  <div class="hero__bg"></div>
+<section class="hero hero--video">
+  <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="">
+    <source src="/static/hero-bg.mp4" type="video/mp4">
+  </video>
+  <div class="hero__overlay"></div>
   <div class="hero__content">
     <span class="eyebrow">Maine &middot; New Hampshire &middot; Massachusetts</span>
     <h1 class="hero__title">Maine's Commercial <em>Electrical</em> Contractor</h1>
