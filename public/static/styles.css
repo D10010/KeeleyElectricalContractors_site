@@ -245,15 +245,18 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .cert-detail-card p { color: var(--ink-2); font-size: .9rem; margin-bottom: .75rem; }
 .cert-detail-card__status { font-size: .85rem; font-weight: 600; color: var(--accent); }
 .cert-detail-card__status i { margin-right: .25rem; }
-.two-col-cap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-.info-block { margin-bottom: 1.5rem; padding: 1rem; background: var(--surface); border-radius: var(--radius); }
-.info-block h3 { font-family: var(--ff-head); font-size: 1rem; font-weight: 700; margin-bottom: .5rem; }
+.two-col-cap { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+.two-col-cap .h2 { margin-bottom: 1rem; }
+.info-block { margin-bottom: .75rem; padding: 1rem 1.25rem; background: var(--surface); border-radius: var(--radius); }
+.info-block:last-child { margin-bottom: 0; }
+.info-block h3 { font-family: var(--ff-head); font-size: 1rem; font-weight: 700; margin-bottom: .35rem; }
 .info-block h3 i { margin-right: .5rem; color: var(--accent-2); }
-.info-block p { color: var(--ink-2); font-size: .9rem; }
-.cap-list__item { display: flex; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: var(--radius); margin-bottom: .75rem; }
-.cap-list__item i { font-size: 1.25rem; color: var(--accent-2); margin-top: .25rem; }
-.cap-list__item strong { display: block; margin-bottom: .25rem; }
-.cap-list__item div { font-size: .9rem; color: var(--ink-2); }
+.info-block p { color: var(--ink-2); font-size: .88rem; line-height: 1.55; margin: 0; }
+.cap-list__item { display: flex; gap: .75rem; padding: .85rem 1rem; background: var(--surface); border-radius: var(--radius); margin-bottom: .65rem; }
+.cap-list__item:last-child { margin-bottom: 0; }
+.cap-list__item i { font-size: 1.1rem; color: var(--accent-2); margin-top: .15rem; flex-shrink: 0; }
+.cap-list__item strong { display: block; margin-bottom: .15rem; }
+.cap-list__item div { font-size: .88rem; color: var(--ink-2); line-height: 1.5; }
 .territory-map__states { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; max-width: 700px; margin: 0 auto; }
 .territory-map__state { background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius); padding: 1.5rem; }
 .territory-map__state--active { border-color: var(--accent); border-width: 2px; }
