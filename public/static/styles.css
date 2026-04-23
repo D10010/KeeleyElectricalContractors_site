@@ -617,10 +617,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 @media (max-width: 768px) {
-  .hero__video { display: none; }
-  .hero--video .hero__bg { display: block; }
-  .hero--video { padding: 5rem 1.5rem 4rem; }
-  .hero__overlay { background: transparent; }
+  .hero--video { padding: 4rem 1.5rem 3rem; }
+  .hero__overlay { background: linear-gradient(180deg, rgba(20,20,20,.78) 0%, rgba(20,20,20,.65) 40%, rgba(20,20,20,.82) 100%); }
   .nav__links, .nav__phone { display: none; }
   .nav__hamburger { display: flex; }
   .hero__title { font-size: 2.5rem; }
@@ -663,6 +661,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 @media (max-width: 480px) {
   .hero { padding: 3rem 1rem 2.5rem; }
+  .hero--video { padding: 3rem 1rem 2.5rem; }
   .hero__title { font-size: 2rem; }
   .section { padding: 2.5rem 0; }
   .container { padding: 0 1rem; }
