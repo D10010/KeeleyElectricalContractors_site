@@ -4,7 +4,7 @@ const PHONE = '(207) 797-3772'
 const PHONE_HREF = 'tel:+12077973772'
 const EMAIL = 'info@keeleyelectrical.com'
 const COMPANY = 'Keeley Electrical Contractors, Inc.'
-const LOCATION = 'Portland, ME'
+const LOCATION = '18 Caddie Ln, Portland, ME 04103'
 const TAGLINE = 'Electrical &middot; Site &middot; Utility'
 
 interface PageMeta {
@@ -110,7 +110,7 @@ ${body}
         <p class="footer__tagline">Maine's trusted commercial and industrial electrical contractor since 1978. Family-owned, third generation.</p>
         <div class="footer__nap">
           <div class="footer__nap-row"><i class="fas fa-building"></i> <span>${COMPANY}</span></div>
-          <div class="footer__nap-row"><i class="fas fa-map-marker-alt"></i> <span>${LOCATION}</span></div>
+          <div class="footer__nap-row"><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/search/?api=1&query=18+Caddie+Ln+Portland+ME+04103" target="_blank" rel="noopener">${LOCATION}</a></div>
           <div class="footer__nap-row"><i class="fas fa-phone"></i> <a href="${PHONE_HREF}">${PHONE}</a></div>
           <div class="footer__nap-row"><i class="fas fa-envelope"></i> <a href="mailto:${EMAIL}">${EMAIL}</a></div>
         </div>

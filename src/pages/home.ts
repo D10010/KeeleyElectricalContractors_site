@@ -10,8 +10,10 @@ export function homePage(): string {
     "email": "info@keeleyelectrical.com",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "18 Caddie Ln",
       "addressLocality": "Portland",
       "addressRegion": "ME",
+      "postalCode": "04103",
       "addressCountry": "US"
     },
     "url": "https://keeleyelectrical.com",
