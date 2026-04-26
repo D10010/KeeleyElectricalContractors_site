@@ -225,7 +225,7 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 /* Sidebar */
 .sidebar { position: sticky; top: calc(var(--nav-h) + 1rem); }
 .sidebar-card { background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem; }
-.sidebar-card--accent { background: var(--accent-2); border-color: var(--accent-2); }
+.sidebar-card.sidebar-card--accent { background: var(--accent-2); border-color: var(--accent-2); color: rgba(255,255,255,.9); }
 .sidebar-card--emergency { background: var(--accent-2); border-color: var(--accent-2); }
 .sidebar-card__title { font-family: var(--ff-head); font-size: .85rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--ink); margin-bottom: .75rem; }
 .sidebar-phone { display: flex; align-items: center; gap: .75rem; padding: .75rem; background: var(--surface); border-radius: 4px; font-family: var(--ff-head); font-size: 1rem; font-weight: 700; }
