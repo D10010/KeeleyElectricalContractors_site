@@ -14,6 +14,8 @@ interface PageMeta {
   h1?: string
   jsonLd?: string
   breadcrumbs?: { name: string; url: string }[]
+  ogImage?: string
+  ogType?: string
 }
 
 export function layout(meta: PageMeta, body: string): string {
@@ -35,6 +37,16 @@ export function layout(meta: PageMeta, body: string): string {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${meta.title}</title>
 <meta name="description" content="${meta.description}">
+<meta property="og:title" content="${meta.title}">
+<meta property="og:description" content="${meta.description}">
+<meta property="og:url" content="${meta.canonical}">
+<meta property="og:image" content="${meta.ogImage ?? '/static/og-default.png'}">
+<meta property="og:type" content="${meta.ogType ?? 'website'}">
+<meta property="og:site_name" content="Keeley Electrical Contractors">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${meta.title}">
+<meta name="twitter:description" content="${meta.description}">
+<meta name="twitter:image" content="${meta.ogImage ?? '/static/og-default.png'}">
 <link rel="canonical" href="${meta.canonical}">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
