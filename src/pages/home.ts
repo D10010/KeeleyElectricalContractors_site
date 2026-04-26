@@ -46,17 +46,6 @@ export function homePage(): string {
   </div>
 </section>
 
-<!-- Trust Strip -->
-<section class="trust-strip">
-  <div class="trust-strip__inner">
-    <span class="trust-strip__pill"><i class="fas fa-calendar-check"></i> 45+ Years</span>
-    <span class="trust-strip__pill"><i class="fas fa-shield-halved"></i> ISN Certified</span>
-    <span class="trust-strip__pill"><i class="fas fa-hard-hat"></i> 900+ Projects</span>
-    <span class="trust-strip__pill"><i class="fas fa-map-marked-alt"></i> ME &middot; NH &middot; MA</span>
-    <span class="trust-strip__pill"><i class="fas fa-award"></i> Zero OSHA Recordables</span>
-  </div>
-</section>
-
 <!-- Services Overview -->
 <section class="section section--surface" id="services-overview">
   <div class="container">
@@ -102,57 +91,6 @@ export function homePage(): string {
       <div class="two-col__image">
         <div class="image-placeholder"><i class="fas fa-hard-hat"></i><span>Team at Work</span></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- Stats Bar -->
-<section class="stats-bar">
-  <div class="stats-bar__inner">
-    <div class="stats-bar__item">
-      <span class="stats-bar__num">1978</span>
-      <span class="stats-bar__label">Founded</span>
-    </div>
-    <div class="stats-bar__item">
-      <span class="stats-bar__num">ISN</span>
-      <span class="stats-bar__label">Certified Contractor</span>
-    </div>
-    <div class="stats-bar__item">
-      <span class="stats-bar__num">0</span>
-      <span class="stats-bar__label">OSHA Recordables (3 Consecutive Years)</span>
-    </div>
-    <div class="stats-bar__item">
-      <span class="stats-bar__num">3</span>
-      <span class="stats-bar__label">States Licensed</span>
-    </div>
-  </div>
-</section>
-
-<!-- Certifications -->
-<section class="section section--surface">
-  <div class="container">
-    <span class="eyebrow">Qualifications</span>
-    <h2 class="h2">Licensing &amp; Certifications</h2>
-    <div class="cert-grid">
-      <div class="cert-badge">
-        <div class="cert-badge__icon cert-badge__icon--gold"><i class="fas fa-shield-halved"></i></div>
-        <div><strong>ISN Network</strong><br><span class="text-muted">Active Certified Contractor</span></div>
-      </div>
-      <div class="cert-badge">
-        <div class="cert-badge__icon cert-badge__icon--blue"><i class="fas fa-id-card"></i></div>
-        <div><strong>TWIC Cards</strong><br><span class="text-muted">Key Personnel Authorized</span></div>
-      </div>
-      <div class="cert-badge">
-        <div class="cert-badge__icon cert-badge__icon--green"><i class="fas fa-award"></i></div>
-        <div><strong>Zero OSHA Recordables</strong><br><span class="text-muted">3 Consecutive Years</span></div>
-      </div>
-      <div class="cert-badge">
-        <div class="cert-badge__icon cert-badge__icon--gold"><i class="fas fa-certificate"></i></div>
-        <div><strong>Licensed in 3 States</strong><br><span class="text-muted">ME &middot; NH &middot; MA</span></div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:2rem;">
-      <a href="/capabilities" class="btn btn--secondary">View All Capabilities</a>
     </div>
   </div>
 </section>

@@ -147,8 +147,6 @@ export function servicePage(slug: string): string {
     <h1 class="page-header__title">${svc.h1}</h1>
     <div class="page-header__tags">
       <span class="pill">Licensed ME &middot; NH &middot; MA</span>
-      <span class="pill">ISN Certified</span>
-      <span class="pill">Since 1978</span>
     </div>
   </div>
 </section>

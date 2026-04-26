@@ -452,29 +452,7 @@ export function contactPage(): string {
   </div>
 </section>
 
-<!-- Trust Bar -->
-<section class="section section--surface" style="padding-top:2rem;padding-bottom:2rem;">
-  <div class="container">
-    <div class="cert-grid cert-grid--center">
-      <div class="cert-badge">
-        <div class="cert-badge__icon cert-badge__icon--gold"><i class="fas fa-shield-halved"></i></div>
-        <div><strong>ISN Certified</strong><br><span class="text-muted">Active Contractor</span></div>
-      </div>
-      <div class="cert-badge">
-        <div class="cert-badge__icon cert-badge__icon--blue"><i class="fas fa-id-card"></i></div>
-        <div><strong>TWIC Cards</strong><br><span class="text-muted">Key Personnel</span></div>
-      </div>
-      <div class="cert-badge">
-        <div class="cert-badge__icon cert-badge__icon--green"><i class="fas fa-award"></i></div>
-        <div><strong>Zero OSHA</strong><br><span class="text-muted">3 Consecutive Years</span></div>
-      </div>
-      <div class="cert-badge">
-        <div class="cert-badge__icon cert-badge__icon--gold"><i class="fas fa-certificate"></i></div>
-        <div><strong>3 States</strong><br><span class="text-muted">ME &middot; NH &middot; MA</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+
 `
   return layout({
     title: 'Start a Project | Keeley Electrical Contractors',
