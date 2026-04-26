@@ -40,7 +40,7 @@ export function homePage(): string {
   </div>
   <div class="hero__trust">
     <div class="hero__trust-item"><span class="hero__trust-num">1978</span><span class="hero__trust-label">Founded</span></div>
-    <div class="hero__trust-item"><span class="hero__trust-num">ISN</span><span class="hero__trust-label">Certified</span></div>
+    <div class="hero__trust-item"><span class="hero__trust-num">6</span><span class="hero__trust-label">Master Electricians</span></div>
     <div class="hero__trust-item"><span class="hero__trust-num">900+</span><span class="hero__trust-label">Projects</span></div>
     <div class="hero__trust-item"><span class="hero__trust-num">3</span><span class="hero__trust-label">States Licensed</span></div>
   </div>

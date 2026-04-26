@@ -97,6 +97,7 @@ export function capabilitiesPage(): string {
           <div class="cap-list__item"><i class="fas fa-drafting-compass"></i> <div><strong>Design-Assist</strong><br>Electrical and civil design-assist from pre-construction through completion.</div></div>
           <div class="cap-list__item"><i class="fas fa-tasks"></i> <div><strong>Project Management</strong><br>Dedicated project managers for scheduling, coordination, and owner communication.</div></div>
           <div class="cap-list__item"><i class="fas fa-people-carry-box"></i> <div><strong>Self-Perform</strong><br>In-house crews for electrical, site work, and utility scopes.</div></div>
+          <div class="cap-list__item"><i class="fas fa-user-gear"></i> <div><strong>6 Master Electricians</strong><br>Six master electricians on staff ensuring expert oversight on every project.</div></div>
           <div class="cap-list__item"><i class="fas fa-route"></i> <div><strong>Multi-State</strong><br>Licensed and insured to work across Maine, New Hampshire, and Massachusetts.</div></div>
         </div>
       </div>
