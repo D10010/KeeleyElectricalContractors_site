@@ -1,4 +1,4 @@
-import { layout, PHONE, PHONE_HREF, COMPANY } from '../components/layout'
+import { layout, PHONE, PHONE_HREF, COMPANY, ADDRESS } from '../components/layout'
 
 export function homePage(): string {
   const jsonLd = `<script type="application/ld+json">${JSON.stringify({
@@ -10,11 +10,11 @@ export function homePage(): string {
     "email": "info@keeleyelectrical.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "18 Caddie Ln",
-      "addressLocality": "Portland",
-      "addressRegion": "ME",
-      "postalCode": "04103",
-      "addressCountry": "US"
+      "streetAddress": ADDRESS.street,
+      "addressLocality": ADDRESS.city,
+      "addressRegion": ADDRESS.state,
+      "postalCode": ADDRESS.zip,
+      "addressCountry": ADDRESS.country
     },
     "url": "https://keeleyelectrical.com",
     "foundingDate": "1978",

@@ -1,4 +1,4 @@
-import { layout, PHONE, PHONE_HREF, EMAIL, COMPANY, LOCATION } from '../components/layout'
+import { layout, PHONE, PHONE_HREF, EMAIL, COMPANY, LOCATION, ADDRESS, MAPS_URL } from '../components/layout'
 
 export function contactPage(): string {
   const jsonLd = `<script type="application/ld+json">${JSON.stringify({
@@ -9,11 +9,11 @@ export function contactPage(): string {
     "email": EMAIL,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "18 Caddie Ln",
-      "addressLocality": "Portland",
-      "addressRegion": "ME",
-      "postalCode": "04103",
-      "addressCountry": "US"
+      "streetAddress": ADDRESS.street,
+      "addressLocality": ADDRESS.city,
+      "addressRegion": ADDRESS.state,
+      "postalCode": ADDRESS.zip,
+      "addressCountry": ADDRESS.country
     },
     "url": "https://keeleyelectrical.com",
     "foundingDate": "1978",
@@ -427,7 +427,7 @@ export function contactPage(): string {
             </div>
             <div class="contact-row">
               <i class="fas fa-map-marker-alt"></i>
-              <a href="https://www.google.com/maps/search/?api=1&query=18+Caddie+Ln+Portland+ME+04103" target="_blank" rel="noopener">${LOCATION}</a>
+              <a href="${MAPS_URL}" target="_blank" rel="noopener">${LOCATION}</a>
             </div>
             <p class="text-muted" style="margin-top:.5rem;font-size:.8rem;">Mon &ndash; Fri: 7:00 AM &ndash; 4:00 PM</p>
           </div>
