@@ -25,7 +25,7 @@ export function homePage(): string {
   const body = `
 <!-- Hero -->
 <section class="hero hero--video">
-  <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="">
+  <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="/static/hero-poster.jpg">
     <source src="/static/hero-bg.mp4" type="video/mp4">
   </video>
   <div class="hero__overlay"></div>

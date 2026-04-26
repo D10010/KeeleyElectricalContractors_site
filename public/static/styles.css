@@ -107,7 +107,7 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .hero__bg { position: absolute; inset: 0; background: repeating-linear-gradient(45deg, #1e1e1e 0px, #1e1e1e 2px, #181818 2px, #181818 12px); opacity: .5; }
 
 /* Hero Video Background */
-.hero--video { padding: 6rem 1.5rem 4rem; }
+.hero--video { padding: 6rem 1.5rem 4rem; background: var(--ink) url('/static/hero-poster.jpg') center/cover no-repeat; }
 .hero--video .hero__bg { display: none; }
 .hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
 .hero__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,20,20,.72) 0%, rgba(20,20,20,.60) 40%, rgba(20,20,20,.78) 100%); z-index: 0; }

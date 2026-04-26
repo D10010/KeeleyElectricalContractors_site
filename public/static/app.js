@@ -130,6 +130,45 @@
     });
   }
 
+  // ── Hero Video: Force autoplay on mobile ──
+  var heroVideo = document.querySelector('.hero__video');
+  if (heroVideo) {
+    // Ensure muted attribute is set (required for mobile autoplay)
+    heroVideo.muted = true;
+    heroVideo.setAttribute('muted', '');
+    heroVideo.setAttribute('playsinline', '');
+
+    // Try to play immediately
+    var playAttempt = heroVideo.play();
+    if (playAttempt !== undefined) {
+      playAttempt.catch(function() {
+        // Autoplay blocked — retry on first user interaction
+        var events = ['touchstart', 'click', 'scroll'];
+        function tryPlay() {
+          heroVideo.play().then(function() {
+            events.forEach(function(evt) {
+              document.removeEventListener(evt, tryPlay);
+            });
+          }).catch(function() {});
+        }
+        events.forEach(function(evt) {
+          document.addEventListener(evt, tryPlay, { once: false, passive: true });
+        });
+      });
+    }
+
+    // If video fails to load, poster image will show via poster attribute
+    // Also set poster as background-image fallback on the hero section
+    heroVideo.addEventListener('error', function() {
+      var hero = document.querySelector('.hero--video');
+      if (hero) {
+        hero.style.backgroundImage = 'url(/static/hero-poster.jpg)';
+        hero.style.backgroundSize = 'cover';
+        hero.style.backgroundPosition = 'center';
+      }
+    });
+  }
+
   // ── Smooth anchor scrolling for legal page sidebars ──
   document.querySelectorAll('.legal-toc a').forEach(function(link) {
     link.addEventListener('click', function(e) {
