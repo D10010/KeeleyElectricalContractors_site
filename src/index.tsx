@@ -11,7 +11,7 @@ import { privacyPage } from './pages/privacy'
 import { termsPage } from './pages/terms'
 import { robotsTxt, sitemapXml } from './pages/robots'
 
-const app = new Hono()
+const app = new Hono<{ Bindings: CloudflareBindings }>()
 
 // Pages
 app.get('/', (c) => c.html(homePage()))
