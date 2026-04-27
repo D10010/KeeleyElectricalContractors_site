@@ -22,7 +22,7 @@ export function termsPage(): string {
 
         <h2 id="workmanship">Workmanship Guarantee</h2>
         <div class="callout-box">
-          <div class="callout-box__icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="callout-box__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></div>
           <div>
             <h3>Our Commitment to Quality</h3>
             <p>Keeley Electrical Contractors stands behind our work. All electrical installations, site work, and utility projects are performed in accordance with applicable codes, manufacturer specifications, and industry best practices. We are committed to resolving any workmanship issues promptly and professionally.</p>
@@ -67,7 +67,7 @@ export function termsPage(): string {
           </nav>
         </div>
         <div class="sidebar-card">
-          <a href="/contact" class="btn btn--secondary" style="width:100%;text-align:center;"><i class="fas fa-download"></i> Request PDF Copy</a>
+          <a href="/contact" class="btn btn--secondary" style="width:100%;text-align:center;"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> Request PDF Copy</a>
         </div>
       </aside>
     </div>

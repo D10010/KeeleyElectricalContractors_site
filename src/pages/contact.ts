@@ -60,17 +60,17 @@ export function contactPage(): string {
             <!-- Service Type Cards -->
             <div class="service-grid" id="service-grid">
               <div class="service-card" id="svc-electrical" role="button" tabindex="0">
-                <div class="svc-icon"><i class="fas fa-bolt"></i></div>
+                <div class="svc-icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
                 <span class="svc-name">Electrical</span>
                 <span class="svc-desc">Commercial, industrial, design-build, generators, fire alarm, medium voltage</span>
               </div>
               <div class="service-card" id="svc-sitework" role="button" tabindex="0">
-                <div class="svc-icon"><i class="fas fa-truck-pickup"></i></div>
+                <div class="svc-icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 13.52 9H12"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></div>
                 <span class="svc-name">Site Work</span>
                 <span class="svc-desc">Excavation, grading, underground conduit, site lighting, civil earthwork</span>
               </div>
               <div class="service-card" id="svc-utility" role="button" tabindex="0">
-                <div class="svc-icon"><i class="fas fa-plug-circle-bolt"></i></div>
+                <div class="svc-icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></div>
                 <span class="svc-name">Utility</span>
                 <span class="svc-desc">Primary line extensions, overhead and underground, utility coordination</span>
               </div>
@@ -128,24 +128,24 @@ export function contactPage(): string {
               <!-- Utility Alert / Education Blocks -->
               <div class="utility-alert" id="utility-alert">
                 <div class="utility-alert__head">
-                  <div class="utility-alert__icon"><i class="fas fa-circle-info"></i></div>
+                  <div class="utility-alert__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
                   <div class="utility-alert__title">Utility coordination is required before your project can move forward.</div>
                 </div>
                 <div class="utility-alert__body">
                   <p>Before construction can begin on a utility project, most clients need to complete one or more steps directly with their utility provider. This is standard &mdash; it protects your budget and timeline. We guide clients through this process regularly and can help once you submit your inquiry.</p>
 
                   <div class="edu-block">
-                    <div class="edu-block__title"><i class="fas fa-file-lines"></i> CMP customers &mdash; CIAC cost allocation</div>
+                    <div class="edu-block__title"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 13H8"/><path d="M16 13h-2"/><path d="M10 17H8"/><path d="M16 17h-2"/></svg> CMP customers &mdash; CIAC cost allocation</div>
                     <p>The Contribution in Aid of Construction (CIAC) is CMP's process for extending primary utility service to new developments. Keeley guides clients through the application, engineering review, and construction phases.</p>
                     <p>The process works like this: a contractor submits a proposal, CMP schedules a field planner appointment, a hand sketch is produced, and Keeley prices against that scope. None of this can begin without CMP's involvement &mdash; which is why initiating the work order early matters.</p>
-                    <a href="https://www.cmpco.com/en/for-your-home/new-service/line-extensions" target="_blank" rel="noopener" class="edu-link">CMP line extension information <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    <a href="https://www.cmpco.com/en/for-your-home/new-service/line-extensions" target="_blank" rel="noopener" class="edu-link">CMP line extension information <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg></a>
                   </div>
 
                   <div class="edu-block">
-                    <div class="edu-block__title"><i class="fas fa-file-lines"></i> Portland Water District &mdash; ability to serve</div>
+                    <div class="edu-block__title"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 13H8"/><path d="M16 13h-2"/><path d="M10 17H8"/><path d="M16 17h-2"/></svg> Portland Water District &mdash; ability to serve</div>
                     <p>If your project is in Portland Water District territory and involves any water service connection, PWD requires you to submit project sketches and receive an official <strong>ability-to-serve letter</strong> before design work can be priced or started.</p>
                     <p>Without it, neither Keeley nor any other contractor can provide an accurate proposal &mdash; and the project cannot move through the permit process.</p>
-                    <a href="https://www.pwd.org/development-services" target="_blank" rel="noopener" class="edu-link">Portland Water District development services <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    <a href="https://www.pwd.org/development-services" target="_blank" rel="noopener" class="edu-link">Portland Water District development services <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg></a>
                   </div>
 
                   <p class="utility-alert__note"><em>Not sure which applies to your project? Submit your inquiry and we'll sort it out with you.</em></p>
@@ -332,14 +332,14 @@ export function contactPage(): string {
 
           <!-- Submit -->
           <button type="submit" class="btn btn--primary btn--lg form-submit-btn" id="btn-submit">
-            Submit Project Inquiry <i class="fas fa-arrow-right"></i>
+            Submit Project Inquiry <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </button>
           <p class="form-disclaimer">We review every submission. No inquiry is automatically declined.<br>Response within one business day &mdash; often same day.</p>
         </form>
 
         <!-- Thank You -->
         <div id="thank-you" class="thank-you" style="display:none;">
-          <div class="thank-you__icon"><i class="fas fa-check-circle"></i></div>
+          <div class="thank-you__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></div>
           <h2 class="h2">Inquiry Received.</h2>
           <p>Your project inquiry has been submitted. We review every submission personally and will follow up within one business day &mdash; often same day.</p>
           <div class="thank-you__steps">
@@ -376,33 +376,33 @@ export function contactPage(): string {
       <aside class="contact-sidebar">
         <div class="sidebar-card sidebar-card--trust">
           <div class="sidebar-card__head">
-            <i class="fas fa-medal"></i>
+            <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"/><path d="M11 12 5.12 2.2"/><path d="m13 12 5.88-9.8"/><path d="M8 7h8"/><circle cx="12" cy="17" r="5"/><path d="M12 18v-2h-.5"/></svg>
             <span class="sidebar-card__head-title">Why Keeley</span>
           </div>
           <div class="sidebar-card__body">
             <div class="trust-item">
-              <div class="trust-icon-wrap"><i class="fas fa-hard-hat"></i></div>
+              <div class="trust-icon-wrap"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 4.37 10.08"/><path d="M5.63 16.08A6 6 0 0 1 10 6"/><path d="M2 20h20"/><path d="M4 16h16"/></svg></div>
               <div>
                 <span class="trust-label">Zero OSHA recordables</span>
                 <span class="trust-detail">Three consecutive years &mdash; active ISN Network certification maintained</span>
               </div>
             </div>
             <div class="trust-item">
-              <div class="trust-icon-wrap"><i class="fas fa-clock"></i></div>
+              <div class="trust-icon-wrap"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
               <div>
                 <span class="trust-label">One business day response</span>
                 <span class="trust-detail">Every submission is reviewed &mdash; no inquiry automatically declined</span>
               </div>
             </div>
             <div class="trust-item">
-              <div class="trust-icon-wrap"><i class="fas fa-compass-drafting"></i></div>
+              <div class="trust-icon-wrap"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><path d="m6.5 22 3.3-8.3"/><path d="m17.5 22-3.3-8.3"/><path d="M9 13.4a13 13 0 0 0 6 0"/></svg></div>
               <div>
                 <span class="trust-label">Design-assist available</span>
                 <span class="trust-detail">Electrical and civil &mdash; from early planning through construction</span>
               </div>
             </div>
             <div class="trust-item">
-              <div class="trust-icon-wrap"><i class="fas fa-house-chimney"></i></div>
+              <div class="trust-icon-wrap"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
               <div>
                 <span class="trust-label">In business since 1978</span>
                 <span class="trust-detail">Family-owned, third generation &mdash; TWIC cards held by key personnel</span>
@@ -413,20 +413,20 @@ export function contactPage(): string {
 
         <div class="sidebar-card">
           <div class="sidebar-card__head">
-            <i class="fas fa-headset"></i>
+            <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></svg>
             <span class="sidebar-card__head-title">Prefer to call?</span>
           </div>
           <div class="sidebar-card__body">
             <div class="contact-row">
-              <i class="fas fa-phone"></i>
+              <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <a href="${PHONE_HREF}">${PHONE}</a>
             </div>
             <div class="contact-row">
-              <i class="fas fa-envelope"></i>
+              <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
               <a href="mailto:${EMAIL}">${EMAIL}</a>
             </div>
             <div class="contact-row">
-              <i class="fas fa-map-marker-alt"></i>
+              <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
               <a href="${MAPS_URL}" target="_blank" rel="noopener">${LOCATION}</a>
             </div>
             <p class="text-muted" style="margin-top:.5rem;font-size:.8rem;">Mon &ndash; Fri: 7:00 AM &ndash; 4:00 PM</p>
@@ -435,7 +435,7 @@ export function contactPage(): string {
 
         <div class="sidebar-card">
           <div class="sidebar-card__head">
-            <i class="fas fa-map-location-dot"></i>
+            <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
             <span class="sidebar-card__head-title">Service territory</span>
           </div>
           <div class="sidebar-card__body">

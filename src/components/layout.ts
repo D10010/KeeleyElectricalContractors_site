@@ -60,7 +60,6 @@ export function layout(meta: PageMeta, body: string): string {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" rel="stylesheet">
 <link href="/static/styles.css" rel="stylesheet">
 <noscript><style>.reveal-init{opacity:1!important;transform:none!important}</style></noscript>
 ${meta.jsonLd || ''}
@@ -93,7 +92,7 @@ ${breadcrumbLd}
       <a href="/contact" class="nav__link">Contact</a>
     </div>
     <div class="nav__right">
-      <a href="${PHONE_HREF}" class="nav__phone"><i class="fas fa-phone"></i> ${PHONE}</a>
+      <a href="${PHONE_HREF}" class="nav__phone"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> ${PHONE}</a>
       <a href="/contact" class="nav__cta">Get a Quote</a>
     </div>
     <button class="nav__hamburger" id="nav-hamburger" aria-label="Menu">
@@ -111,7 +110,7 @@ ${breadcrumbLd}
     <a href="/careers">Careers</a>
     <a href="/contact">Contact</a>
   </div>
-  <a href="${PHONE_HREF}" class="mobile-drawer__phone"><i class="fas fa-phone"></i> ${PHONE}</a>
+  <a href="${PHONE_HREF}" class="mobile-drawer__phone"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> ${PHONE}</a>
   <a href="/contact" class="mobile-drawer__cta">Get a Quote</a>
 </div>
 
@@ -129,10 +128,10 @@ ${body}
         </a>
         <p class="footer__tagline">Maine's trusted commercial and industrial electrical contractor since 1978. Family-owned, third generation.</p>
         <div class="footer__nap">
-          <div class="footer__nap-row"><i class="fas fa-building"></i> <span>${COMPANY}</span></div>
-          <div class="footer__nap-row"><i class="fas fa-map-marker-alt"></i> <a href="${MAPS_URL}" target="_blank" rel="noopener">${LOCATION}</a></div>
-          <div class="footer__nap-row"><i class="fas fa-phone"></i> <a href="${PHONE_HREF}">${PHONE}</a></div>
-          <div class="footer__nap-row"><i class="fas fa-envelope"></i> <a href="mailto:${EMAIL}">${EMAIL}</a></div>
+          <div class="footer__nap-row"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg> <span>${COMPANY}</span></div>
+          <div class="footer__nap-row"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> <a href="${MAPS_URL}" target="_blank" rel="noopener">${LOCATION}</a></div>
+          <div class="footer__nap-row"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <a href="${PHONE_HREF}">${PHONE}</a></div>
+          <div class="footer__nap-row"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> <a href="mailto:${EMAIL}">${EMAIL}</a></div>
         </div>
       </div>
       <div class="footer__col">
@@ -172,7 +171,7 @@ ${body}
 </footer>
 
 <!-- Scroll to Top -->
-<button class="scroll-top" id="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+<button class="scroll-top" id="scroll-top" aria-label="Scroll to top"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></button>
 
 <script src="/static/app.js"></script>
 </body>

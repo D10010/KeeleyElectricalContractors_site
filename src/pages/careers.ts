@@ -25,7 +25,7 @@ export function careersPage(): string {
         <p>We value our people. From competitive pay and benefits to a commitment to safety and professional development, Keeley is a place where electricians and construction professionals can build lasting careers.</p>
       </div>
       <div class="two-col__image">
-        <div class="image-placeholder image-placeholder--lg"><i class="fas fa-users"></i><span>Team Working Together</span></div>
+        <div class="image-placeholder image-placeholder--lg"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Team Working Together</span></div>
       </div>
     </div>
   </div>
@@ -38,17 +38,17 @@ export function careersPage(): string {
     <h2 class="h2">What We Offer</h2>
     <div class="values-grid">
       <div class="value-card">
-        <div class="value-card__icon"><i class="fas fa-hard-hat"></i></div>
+        <div class="value-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 4.37 10.08"/><path d="M5.63 16.08A6 6 0 0 1 10 6"/><path d="M2 20h20"/><path d="M4 16h16"/></svg></div>
         <h3>Safety First Culture</h3>
         <p>Zero OSHA recordable incidents for three consecutive years. Your safety is our top priority on every job.</p>
       </div>
       <div class="value-card">
-        <div class="value-card__icon"><i class="fas fa-chart-line"></i></div>
+        <div class="value-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg></div>
         <h3>Career Growth</h3>
         <p>Opportunities for advancement from apprentice to journeyman to foreman and project management roles.</p>
       </div>
       <div class="value-card">
-        <div class="value-card__icon"><i class="fas fa-briefcase-medical"></i></div>
+        <div class="value-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
         <h3>Competitive Benefits</h3>
         <p>Health insurance, retirement plan, paid time off, and competitive pay scales for all positions.</p>
       </div>
@@ -68,34 +68,34 @@ export function careersPage(): string {
         <div class="career-card__info">
           <h3 class="career-card__title">Licensed Journeyman Electrician</h3>
           <div class="career-card__meta">
-            <span class="pill"><i class="fas fa-map-marker-alt"></i> Portland, ME</span>
-            <span class="pill"><i class="fas fa-clock"></i> Full-Time</span>
+            <span class="pill"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Portland, ME</span>
+            <span class="pill"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Full-Time</span>
           </div>
           <p class="career-card__desc">Commercial and industrial electrical installation and service. Maine journeyman license required.</p>
         </div>
-        <a href="/contact" class="btn btn--primary">Apply <i class="fas fa-arrow-right"></i></a>
+        <a href="/contact" class="btn btn--primary">Apply <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
       <div class="career-card">
         <div class="career-card__info">
           <h3 class="career-card__title">Electrical Apprentice</h3>
           <div class="career-card__meta">
-            <span class="pill"><i class="fas fa-map-marker-alt"></i> Portland, ME</span>
-            <span class="pill"><i class="fas fa-clock"></i> Full-Time</span>
+            <span class="pill"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Portland, ME</span>
+            <span class="pill"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Full-Time</span>
           </div>
           <p class="career-card__desc">Learn the trade from experienced professionals on commercial and industrial projects. Enrollment in apprenticeship program required.</p>
         </div>
-        <a href="/contact" class="btn btn--primary">Apply <i class="fas fa-arrow-right"></i></a>
+        <a href="/contact" class="btn btn--primary">Apply <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
       <div class="career-card">
         <div class="career-card__info">
           <h3 class="career-card__title">Project Manager</h3>
           <div class="career-card__meta">
-            <span class="pill"><i class="fas fa-map-marker-alt"></i> Portland, ME</span>
-            <span class="pill"><i class="fas fa-clock"></i> Full-Time</span>
+            <span class="pill"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Portland, ME</span>
+            <span class="pill"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Full-Time</span>
           </div>
           <p class="career-card__desc">Manage commercial electrical and site work projects from pre-construction through closeout. 5+ years experience preferred.</p>
         </div>
-        <a href="/contact" class="btn btn--primary">Apply <i class="fas fa-arrow-right"></i></a>
+        <a href="/contact" class="btn btn--primary">Apply <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
     </div>
   </div>
@@ -108,7 +108,7 @@ export function careersPage(): string {
     <p class="cta-band__desc" style="max-width:560px;">Send us your resume and a brief description of your experience. We'll follow up within one business day.</p>
     <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
       <a href="/contact" class="btn btn--primary btn--lg">Contact Us to Apply</a>
-      <a href="mailto:${EMAIL}" class="btn btn--ghost btn--lg"><i class="fas fa-envelope"></i> ${EMAIL}</a>
+      <a href="mailto:${EMAIL}" class="btn btn--ghost btn--lg"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> ${EMAIL}</a>
     </div>
   </div>
 </section>

@@ -450,7 +450,7 @@
     // Submit
     if (btnSubmit) {
       btnSubmit.disabled = true;
-      btnSubmit.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      btnSubmit.innerHTML = '<svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="spin-icon"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Sending...';
     }
 
     // Set progress to 100%
@@ -474,7 +474,7 @@
     .catch(function() {
       if (btnSubmit) {
         btnSubmit.disabled = false;
-        btnSubmit.innerHTML = 'Submit Project Inquiry <i class="fas fa-arrow-right"></i>';
+        btnSubmit.innerHTML = 'Submit Project Inquiry <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
       }
       if (progressFill) progressFill.style.width = '';
       if (progressPct) progressPct.textContent = '';

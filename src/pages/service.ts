@@ -15,7 +15,7 @@ interface ServiceData {
 const services: Record<string, ServiceData> = {
   electrical: {
     name: 'Electrical',
-    icon: 'fa-bolt',
+    icon: 'bolt',
     h1: 'Commercial & Industrial Electrical Services',
     title: 'Electrical Services | Keeley Electrical Contractors',
     metaDesc: 'Full-service commercial and industrial electrical contractor in Maine. Design-build, generators, fire alarm, medium voltage, service upgrades. Licensed ME, NH, MA.',
@@ -54,7 +54,7 @@ const services: Record<string, ServiceData> = {
   },
   'site-work': {
     name: 'Site Work',
-    icon: 'fa-truck-pickup',
+    icon: 'truck',
     h1: 'Commercial Site Work & Civil Earthwork',
     title: 'Site Work Services | Keeley Electrical Contractors',
     metaDesc: 'Excavation, grading, underground conduit, and site lighting for commercial and industrial projects. Serving Maine, New Hampshire, and Massachusetts.',
@@ -90,7 +90,7 @@ const services: Record<string, ServiceData> = {
   },
   utility: {
     name: 'Utility',
-    icon: 'fa-plug-circle-bolt',
+    icon: 'plug',
     h1: 'Utility Line Work & Coordination Services',
     title: 'Utility Services | Keeley Electrical Contractors',
     metaDesc: 'Private utility line extensions, energized line work, and utility coordination for CMP and Eversource. CIAC process guidance. Maine, New Hampshire, Massachusetts.',
@@ -164,7 +164,7 @@ export function servicePage(slug: string): string {
         <!-- Scope -->
         <h2 class="h2" style="margin-top:3rem;">Services We Provide</h2>
         <div class="scope-grid">
-          ${svc.scopeItems.map(item => `<div class="scope-item"><i class="fas fa-check"></i> ${item}</div>`).join('\n          ')}
+          ${svc.scopeItems.map(item => `<div class="scope-item"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ${item}</div>`).join('\n          ')}
         </div>
 
         <!-- Who We Work With -->
@@ -190,7 +190,7 @@ export function servicePage(slug: string): string {
         <div class="sidebar-card">
           <h3 class="sidebar-card__title">Call or Text</h3>
           <a href="tel:+12077973772" class="sidebar-phone">
-            <div class="sidebar-phone__icon"><i class="fas fa-phone"></i></div>
+            <div class="sidebar-phone__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
             <span>(207) 797-3772</span>
           </a>
         </div>
@@ -205,11 +205,11 @@ export function servicePage(slug: string): string {
         <div class="sidebar-card sidebar-card--accent">
           <h3 class="sidebar-card__title" style="color:#fff;">Why Keeley?</h3>
           <ul class="sidebar-trust-list">
-            <li><i class="fas fa-check-circle"></i> ISN Network Certified</li>
-            <li><i class="fas fa-check-circle"></i> Zero OSHA Recordables</li>
-            <li><i class="fas fa-check-circle"></i> Family-Owned Since 1978</li>
-            <li><i class="fas fa-check-circle"></i> Self-Performing Crews</li>
-            <li><i class="fas fa-check-circle"></i> 1-Day Response Guarantee</li>
+            <li><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> ISN Network Certified</li>
+            <li><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Zero OSHA Recordables</li>
+            <li><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Family-Owned Since 1978</li>
+            <li><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Self-Performing Crews</li>
+            <li><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> 1-Day Response Guarantee</li>
           </ul>
         </div>
       </aside>

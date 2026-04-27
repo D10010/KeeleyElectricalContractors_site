@@ -22,7 +22,7 @@ export function servicesPage(): string {
       <!-- Electrical -->
       <div class="service-detail-card">
         <div class="service-detail-card__header">
-          <div class="service-detail-card__icon"><i class="fas fa-bolt"></i></div>
+          <div class="service-detail-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
           <span class="service-detail-card__num">01</span>
         </div>
         <h2 class="service-detail-card__title">Electrical</h2>
@@ -37,13 +37,13 @@ export function servicesPage(): string {
           <li>Service Upgrades</li>
           <li>Lighting &amp; Power Distribution</li>
         </ul>
-        <a href="/services/electrical" class="btn btn--primary">Learn More <i class="fas fa-arrow-right"></i></a>
+        <a href="/services/electrical" class="btn btn--primary">Learn More <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
 
       <!-- Site Work -->
       <div class="service-detail-card">
         <div class="service-detail-card__header">
-          <div class="service-detail-card__icon"><i class="fas fa-truck-pickup"></i></div>
+          <div class="service-detail-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 13.52 9H12"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></div>
           <span class="service-detail-card__num">02</span>
         </div>
         <h2 class="service-detail-card__title">Site Work</h2>
@@ -56,13 +56,13 @@ export function servicesPage(): string {
           <li>Roadway Lighting</li>
           <li>Civil Earthwork</li>
         </ul>
-        <a href="/services/site-work" class="btn btn--primary">Learn More <i class="fas fa-arrow-right"></i></a>
+        <a href="/services/site-work" class="btn btn--primary">Learn More <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
 
       <!-- Utility -->
       <div class="service-detail-card">
         <div class="service-detail-card__header">
-          <div class="service-detail-card__icon"><i class="fas fa-plug-circle-bolt"></i></div>
+          <div class="service-detail-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></div>
           <span class="service-detail-card__num">03</span>
         </div>
         <h2 class="service-detail-card__title">Utility</h2>
@@ -75,7 +75,7 @@ export function servicesPage(): string {
           <li>Portland Water District Coordination</li>
           <li>CIAC Process Guidance</li>
         </ul>
-        <a href="/services/utility" class="btn btn--primary">Learn More <i class="fas fa-arrow-right"></i></a>
+        <a href="/services/utility" class="btn btn--primary">Learn More <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
     </div>
   </div>
