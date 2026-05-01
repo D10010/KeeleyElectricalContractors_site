@@ -130,35 +130,39 @@
     });
   }
 
-  // ── Hero Video: Force autoplay on mobile ──
+  // ── Hero Video: deferred, conditional playback ──
+  // Poster shows immediately (preload="none" keeps the video idle).
+  // After the page has fully loaded + 800 ms we start the video ONLY on
+  // desktop-sized viewports that haven't opted into reduced motion.
   var heroVideo = document.querySelector('.hero__video');
   if (heroVideo) {
-    // Ensure muted attribute is set (required for mobile autoplay)
     heroVideo.muted = true;
     heroVideo.setAttribute('muted', '');
     heroVideo.setAttribute('playsinline', '');
 
-    // Try to play immediately
-    var playAttempt = heroVideo.play();
-    if (playAttempt !== undefined) {
-      playAttempt.catch(function() {
-        // Autoplay blocked — retry on first user interaction
-        var events = ['touchstart', 'click', 'scroll'];
-        function tryPlay() {
-          heroVideo.play().then(function() {
-            events.forEach(function(evt) {
-              document.removeEventListener(evt, tryPlay);
-            });
-          }).catch(function() {});
-        }
-        events.forEach(function(evt) {
-          document.addEventListener(evt, tryPlay, { once: false, passive: true });
+    function maybePlayHero() {
+      var prefersMotion = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+      var isDesktop = window.innerWidth >= 768;
+
+      if (prefersMotion && isDesktop) {
+        heroVideo.play().catch(function() {
+          // Silently fail — poster stays visible
         });
+      }
+      // Otherwise the poster image remains on screen (no video download)
+    }
+
+    // Wait for full page load, then an extra 800 ms so the poster can
+    // serve as the LCP element before we swap in the video stream.
+    if (document.readyState === 'complete') {
+      setTimeout(maybePlayHero, 800);
+    } else {
+      window.addEventListener('load', function() {
+        setTimeout(maybePlayHero, 800);
       });
     }
 
-    // If video fails to load, poster image will show via poster attribute
-    // Also set poster as background-image fallback on the hero section
+    // If video fails to load, keep the poster visible
     heroVideo.addEventListener('error', function() {
       var hero = document.querySelector('.hero--video');
       if (hero) {
