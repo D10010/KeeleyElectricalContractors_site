@@ -3,7 +3,7 @@ export function robotsTxt(): string {
 Allow: /
 Disallow: /api/
 
-Sitemap: https://keeleyelectrical.com/sitemap.xml
+Sitemap: https://keeleyelectric.com/sitemap.xml
 `
 }
 
@@ -14,12 +14,12 @@ export function sitemapXml(): string {
     { loc: '/services/electrical', priority: '0.8', changefreq: 'monthly' },
     { loc: '/services/site-work', priority: '0.8', changefreq: 'monthly' },
     { loc: '/services/utility', priority: '0.8', changefreq: 'monthly' },
-    { loc: '/capabilities', priority: '0.7', changefreq: 'monthly' },
-    { loc: '/about', priority: '0.7', changefreq: 'monthly' },
-    { loc: '/careers', priority: '0.6', changefreq: 'monthly' },
-    { loc: '/contact', priority: '0.9', changefreq: 'monthly' },
-    { loc: '/privacy', priority: '0.3', changefreq: 'yearly' },
-    { loc: '/terms', priority: '0.3', changefreq: 'yearly' },
+    { loc: '/capabilities', priority: '0.9', changefreq: 'monthly' },
+    { loc: '/about', priority: '0.5', changefreq: 'monthly' },
+    { loc: '/careers', priority: '0.5', changefreq: 'monthly' },
+    { loc: '/contact', priority: '0.8', changefreq: 'monthly' },
+    { loc: '/privacy', priority: '0.5', changefreq: 'yearly' },
+    { loc: '/terms', priority: '0.5', changefreq: 'yearly' },
   ]
 
   const today = new Date().toISOString().split('T')[0]
@@ -27,7 +27,7 @@ export function sitemapXml(): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages.map(p => `  <url>
-    <loc>https://keeleyelectrical.com${p.loc}</loc>
+    <loc>https://keeleyelectric.com${p.loc}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
