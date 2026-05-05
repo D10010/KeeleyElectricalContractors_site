@@ -10,6 +10,7 @@ interface ServiceData {
   scopeItems: string[]
   whoWeWorkWith: string[]
   projectTypes: string[]
+  heroImage?: { src: string; alt: string }
 }
 
 const services: Record<string, ServiceData> = {
@@ -58,6 +59,7 @@ const services: Record<string, ServiceData> = {
     h1: 'Commercial Site Work & Civil Earthwork',
     title: 'Site Work Services | Keeley Electrical Contractors',
     metaDesc: 'Excavation, grading, underground conduit, and site lighting for commercial and industrial projects. Serving Maine, New Hampshire, and Massachusetts.',
+    heroImage: { src: '/static/keeley-excavator-site-work-maine.jpg', alt: 'Keeley Electrical excavator performing commercial site work in Maine' },
     intro: [
       'Keeley Electrical provides civil site work services to complement our electrical capabilities, offering a single-source solution for projects that require both underground infrastructure and above-grade electrical systems.',
       'Our site work division handles everything from initial excavation and grading to underground conduit installation and finished site lighting. By self-performing both electrical and site work, we eliminate coordination gaps and keep your project on schedule.',
@@ -139,7 +141,7 @@ export function servicePage(slug: string): string {
 
   const body = `
 <!-- Page Header -->
-<section class="page-header page-header--blue">
+<section class="page-header page-header--blue${svc.heroImage ? ' page-header--has-hero' : ''}">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/">Home</a> <span>/</span> <a href="/services">Services</a> <span>/</span> <span class="breadcrumb__current">${svc.name}</span>
@@ -149,6 +151,7 @@ export function servicePage(slug: string): string {
       <span class="pill">Licensed ME &middot; NH &middot; MA</span>
     </div>
   </div>
+  ${svc.heroImage ? `<img class="page-header__hero" src="${svc.heroImage.src}" alt="${svc.heroImage.alt}" width="1200" height="675" loading="eager">` : ''}
 </section>
 
 <!-- Content -->
