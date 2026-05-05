@@ -15,7 +15,7 @@ export function contactPage(): string {
       "postalCode": ADDRESS.zip,
       "addressCountry": ADDRESS.country
     },
-    "url": "https://keeleyelectrical.com",
+    "url": "https://keeleyelectric.com",
     "foundingDate": "1978",
     "areaServed": ["Maine", "New Hampshire", "Massachusetts"]
   })}</script>`
@@ -457,11 +457,11 @@ export function contactPage(): string {
   return layout({
     title: 'Start a Project | Keeley Electrical Contractors',
     description: 'Start your commercial or industrial electrical project. Contact Keeley Electrical Contractors in Portland, Maine. Licensed in ME, NH, MA. One business day response.',
-    canonical: 'https://keeleyelectrical.com/contact',
+    canonical: 'https://keeleyelectric.com/contact',
     jsonLd: jsonLd,
     breadcrumbs: [
-      { name: 'Home', url: 'https://keeleyelectrical.com/' },
-      { name: 'Contact', url: 'https://keeleyelectrical.com/contact' }
+      { name: 'Home', url: 'https://keeleyelectric.com/' },
+      { name: 'Contact', url: 'https://keeleyelectric.com/contact' }
     ]
   }, body)
 }

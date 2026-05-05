@@ -119,7 +119,7 @@ export function aboutPage(): string {
     <span class="eyebrow">Our Work</span>
     <h2 class="h2">In the Field</h2>
     <div class="photo-grid">
-      <div class="image-placeholder"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg><span>Job Site Photo</span></div>
+      <div class="photo-grid__item"><img src="/static/commercial-electrical-conduit-installation.jpg" alt="Commercial electrical conduit installation by Keeley Electrical Contractors" width="800" height="533" loading="lazy"></div>
       <div class="image-placeholder"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 13.52 9H12"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg><span>Equipment at Work</span></div>
       <div class="image-placeholder"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 4.37 10.08"/><path d="M5.63 16.08A6 6 0 0 1 10 6"/><path d="M2 20h20"/><path d="M4 16h16"/></svg><span>Crew Photo</span></div>
     </div>
@@ -141,10 +141,10 @@ export function aboutPage(): string {
   return layout({
     title: 'About Us | Keeley Electrical Contractors - Since 1978',
     description: 'Family-owned, third-generation electrical contractor based in Portland, Maine. Serving commercial and industrial clients across ME, NH, and MA since 1978.',
-    canonical: 'https://keeleyelectrical.com/about',
+    canonical: 'https://keeleyelectric.com/about',
     breadcrumbs: [
-      { name: 'Home', url: 'https://keeleyelectrical.com/' },
-      { name: 'About', url: 'https://keeleyelectrical.com/about' }
+      { name: 'Home', url: 'https://keeleyelectric.com/' },
+      { name: 'About', url: 'https://keeleyelectric.com/about' }
     ]
   }, body)
 }

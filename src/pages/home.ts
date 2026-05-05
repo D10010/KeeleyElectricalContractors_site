@@ -7,7 +7,7 @@ export function homePage(): string {
     "name": COMPANY,
     "image": "",
     "telephone": PHONE,
-    "email": "info@keeleyelectrical.com",
+    "email": "info@keeleyelectric.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": ADDRESS.street,
@@ -16,7 +16,7 @@ export function homePage(): string {
       "postalCode": ADDRESS.zip,
       "addressCountry": ADDRESS.country
     },
-    "url": "https://keeleyelectrical.com",
+    "url": "https://keeleyelectric.com",
     "foundingDate": "1978",
     "areaServed": ["Maine", "New Hampshire", "Massachusetts"],
     "description": "Commercial and industrial electrical, site work, and utility contractor serving Maine, New Hampshire, and Massachusetts since 1978."
@@ -177,7 +177,7 @@ export function homePage(): string {
   return layout({
     title: 'Keeley Electrical Contractors | Maine Commercial & Industrial Electrician',
     description: 'Commercial and industrial electrical, site work, and utility contractor serving Maine, New Hampshire, and Massachusetts since 1978. ISN certified, licensed in 3 states.',
-    canonical: 'https://keeleyelectrical.com/',
+    canonical: 'https://keeleyelectric.com/',
     jsonLd: jsonLd
   }, body)
 }

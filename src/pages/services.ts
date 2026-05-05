@@ -102,10 +102,10 @@ export function servicesPage(): string {
   return layout({
     title: 'Our Services | Keeley Electrical Contractors',
     description: 'Electrical, site work, and utility services for commercial and industrial projects in Maine, New Hampshire, and Massachusetts. ISN certified contractor since 1978.',
-    canonical: 'https://keeleyelectrical.com/services',
+    canonical: 'https://keeleyelectric.com/services',
     breadcrumbs: [
-      { name: 'Home', url: 'https://keeleyelectrical.com/' },
-      { name: 'Services', url: 'https://keeleyelectrical.com/services' }
+      { name: 'Home', url: 'https://keeleyelectric.com/' },
+      { name: 'Services', url: 'https://keeleyelectric.com/services' }
     ]
   }, body)
 }

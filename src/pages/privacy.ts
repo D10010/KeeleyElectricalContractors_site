@@ -61,7 +61,7 @@ export function privacyPage(): string {
         <h2 id="contact-privacy">Contact Us</h2>
         <p>If you have questions about this Privacy Policy or our data practices, please contact us:</p>
         <ul>
-          <li><strong>Email:</strong> <a href="mailto:info@keeleyelectrical.com">info@keeleyelectrical.com</a></li>
+          <li><strong>Email:</strong> <a href="mailto:info@keeleyelectric.com">info@keeleyelectric.com</a></li>
           <li><strong>Phone:</strong> <a href="tel:+12077973772">(207) 797-3772</a></li>
           <li><strong>Mail:</strong> Keeley Electrical Contractors, Inc. &middot; Portland, ME</li>
         </ul>
@@ -88,10 +88,10 @@ export function privacyPage(): string {
   return layout({
     title: 'Privacy Policy | Keeley Electrical Contractors',
     description: 'Privacy Policy for Keeley Electrical Contractors, Inc. Learn how we collect, use, and protect your personal information.',
-    canonical: 'https://keeleyelectrical.com/privacy',
+    canonical: 'https://keeleyelectric.com/privacy',
     breadcrumbs: [
-      { name: 'Home', url: 'https://keeleyelectrical.com/' },
-      { name: 'Privacy Policy', url: 'https://keeleyelectrical.com/privacy' }
+      { name: 'Home', url: 'https://keeleyelectric.com/' },
+      { name: 'Privacy Policy', url: 'https://keeleyelectric.com/privacy' }
     ]
   }, body)
 }

@@ -133,7 +133,7 @@ export function servicePage(slug: string): string {
     return layout({
       title: '404 | Keeley Electrical Contractors',
       description: 'Page not found.',
-      canonical: 'https://keeleyelectrical.com/services'
+      canonical: 'https://keeleyelectric.com/services'
     }, '<section class="section" style="text-align:center;padding:6rem 2rem;"><h1>Service Not Found</h1><p>Please visit our <a href="/services">Services page</a>.</p></section>')
   }
 
@@ -230,11 +230,11 @@ export function servicePage(slug: string): string {
   return layout({
     title: svc.title,
     description: svc.metaDesc,
-    canonical: `https://keeleyelectrical.com/services/${slug}`,
+    canonical: `https://keeleyelectric.com/services/${slug}`,
     breadcrumbs: [
-      { name: 'Home', url: 'https://keeleyelectrical.com/' },
-      { name: 'Services', url: 'https://keeleyelectrical.com/services' },
-      { name: svc.name, url: `https://keeleyelectrical.com/services/${slug}` }
+      { name: 'Home', url: 'https://keeleyelectric.com/' },
+      { name: 'Services', url: 'https://keeleyelectric.com/services' },
+      { name: svc.name, url: `https://keeleyelectric.com/services/${slug}` }
     ]
   }, body)
 }

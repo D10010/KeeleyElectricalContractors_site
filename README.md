@@ -134,7 +134,7 @@ wrangler pages deploy dist --project-name <project-name>
 4. Add Google Analytics / Tag Manager
 5. Set up Cloudflare D1 for form submission storage
 6. Add real project portfolio with photos and case studies
-7. Connect to actual domain (keeleyelectrical.com)
+7. Connect to actual domain (keeleyelectric.com)
 
 ## Last Updated
 April 26, 2026

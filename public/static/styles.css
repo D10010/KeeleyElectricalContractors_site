@@ -292,6 +292,8 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .team-card__name { font-family: var(--ff-head); font-size: 1rem; font-weight: 700; padding: 1rem 1rem 0; }
 .team-card__title { color: var(--accent); font-size: .85rem; padding: .25rem 1rem 1rem; }
 .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
+.photo-grid__item { border-radius: var(--radius); overflow: hidden; }
+.photo-grid__item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* Contact Form */
 /* ═══ Contact Page — Single-Page Scrolling Form ═══ */

@@ -2,7 +2,7 @@
 
 const PHONE = '(207) 797-3772'
 const PHONE_HREF = 'tel:+12077973772'
-const EMAIL = 'info@keeleyelectrical.com'
+const EMAIL = 'info@keeleyelectric.com'
 const COMPANY = 'Keeley Electrical Contractors, Inc.'
 export const ADDRESS = {
   street: '18 Caddie Ln',

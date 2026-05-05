@@ -18,6 +18,6 @@ export function notFoundPage(): string {
   return layout({
     title: '404 Page Not Found | Keeley Electrical Contractors',
     description: 'The page you are looking for does not exist. Return to the Keeley Electrical Contractors homepage.',
-    canonical: 'https://keeleyelectrical.com/404'
+    canonical: 'https://keeleyelectric.com/404'
   }, body)
 }

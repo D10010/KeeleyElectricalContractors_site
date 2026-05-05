@@ -116,10 +116,10 @@ export function careersPage(): string {
   return layout({
     title: 'Careers | Keeley Electrical Contractors - Join Our Team',
     description: 'Build your career at Keeley Electrical Contractors. We hire licensed electricians, apprentices, and project managers in Maine, New Hampshire, and Massachusetts.',
-    canonical: 'https://keeleyelectrical.com/careers',
+    canonical: 'https://keeleyelectric.com/careers',
     breadcrumbs: [
-      { name: 'Home', url: 'https://keeleyelectrical.com/' },
-      { name: 'Careers', url: 'https://keeleyelectrical.com/careers' }
+      { name: 'Home', url: 'https://keeleyelectric.com/' },
+      { name: 'Careers', url: 'https://keeleyelectric.com/careers' }
     ]
   }, body)
 }

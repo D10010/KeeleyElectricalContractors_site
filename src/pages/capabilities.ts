@@ -149,10 +149,10 @@ export function capabilitiesPage(): string {
   return layout({
     title: 'Capabilities & Licensing | Keeley Electrical Contractors',
     description: 'Licensed in Maine, New Hampshire, and Massachusetts. ISN certified, TWIC authorized, zero OSHA recordables. Download our capabilities statement.',
-    canonical: 'https://keeleyelectrical.com/capabilities',
+    canonical: 'https://keeleyelectric.com/capabilities',
     breadcrumbs: [
-      { name: 'Home', url: 'https://keeleyelectrical.com/' },
-      { name: 'Capabilities', url: 'https://keeleyelectrical.com/capabilities' }
+      { name: 'Home', url: 'https://keeleyelectric.com/' },
+      { name: 'Capabilities', url: 'https://keeleyelectric.com/capabilities' }
     ]
   }, body)
 }

@@ -47,7 +47,7 @@ export function termsPage(): string {
         <h2 id="contact-terms">Contact Us</h2>
         <p>If you have questions about these Terms &amp; Conditions, please contact us:</p>
         <ul>
-          <li><strong>Email:</strong> <a href="mailto:info@keeleyelectrical.com">info@keeleyelectrical.com</a></li>
+          <li><strong>Email:</strong> <a href="mailto:info@keeleyelectric.com">info@keeleyelectric.com</a></li>
           <li><strong>Phone:</strong> <a href="tel:+12077973772">(207) 797-3772</a></li>
           <li><strong>Mail:</strong> Keeley Electrical Contractors, Inc. &middot; Portland, ME</li>
         </ul>
@@ -77,10 +77,10 @@ export function termsPage(): string {
   return layout({
     title: 'Terms & Conditions | Keeley Electrical Contractors',
     description: 'Terms and Conditions for Keeley Electrical Contractors, Inc. Includes workmanship guarantee, liability terms, and governing law.',
-    canonical: 'https://keeleyelectrical.com/terms',
+    canonical: 'https://keeleyelectric.com/terms',
     breadcrumbs: [
-      { name: 'Home', url: 'https://keeleyelectrical.com/' },
-      { name: 'Terms & Conditions', url: 'https://keeleyelectrical.com/terms' }
+      { name: 'Home', url: 'https://keeleyelectric.com/' },
+      { name: 'Terms & Conditions', url: 'https://keeleyelectric.com/terms' }
     ]
   }, body)
 }
