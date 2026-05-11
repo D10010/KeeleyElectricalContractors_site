@@ -57,24 +57,43 @@ export function contactPage(): string {
               <span class="section-head__title">Type of work<span class="required">*</span></span>
             </div>
 
+            <!-- Project Class Toggle -->
+            <div class="field-group" style="margin-bottom:1.25rem;">
+              <div class="field-label">Project type<span class="required">*</span></div>
+              <div class="pill-toggle" id="project-class-toggle">
+                <label class="pill-toggle__option">
+                  <input type="radio" name="project_class" value="commercial" checked required>
+                  <span class="pill-toggle__label">Commercial</span>
+                </label>
+                <label class="pill-toggle__option">
+                  <input type="radio" name="project_class" value="residential" required>
+                  <span class="pill-toggle__label">Residential</span>
+                </label>
+              </div>
+            </div>
+
             <!-- Service Type Cards -->
             <div class="service-grid" id="service-grid">
               <div class="service-card" id="svc-electrical" role="button" tabindex="0">
+                <div class="svc-check" aria-hidden="true"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
                 <div class="svc-icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
                 <span class="svc-name">Electrical</span>
                 <span class="svc-desc">Commercial, industrial, design-build, generators, fire alarm, medium voltage</span>
               </div>
               <div class="service-card" id="svc-sitework" role="button" tabindex="0">
+                <div class="svc-check" aria-hidden="true"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
                 <div class="svc-icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="16" width="18" height="4" rx="1"/><rect x="4" y="12" width="8" height="4" rx="1"/><path d="M10 12V9l6-5"/><path d="M16 4l4 3-3 2"/><circle cx="3" cy="22" r="1"/><circle cx="17" cy="22" r="1"/></svg></div>
                 <span class="svc-name">Site Work</span>
                 <span class="svc-desc">Excavation, grading, underground conduit, site lighting, civil earthwork</span>
               </div>
               <div class="service-card" id="svc-utility" role="button" tabindex="0">
+                <div class="svc-check" aria-hidden="true"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
                 <div class="svc-icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></div>
                 <span class="svc-name">Utility</span>
                 <span class="svc-desc">Primary line extensions, overhead and underground, utility coordination</span>
               </div>
             </div>
+            <div class="svc-summary" id="svc-summary" aria-live="polite"></div>
             <input type="hidden" name="service_type" id="h-service-type" value="">
 
             <!-- Conditional: Electrical -->
@@ -319,6 +338,14 @@ export function contactPage(): string {
                   <label class="check-row referral-option"><input type="checkbox" name="referral" value="event"> Industry event or trade organization</label>
                   <label class="check-row referral-option"><input type="checkbox" name="referral" value="other"> Other</label>
                 </div>
+              </div>
+            </div>
+            <div class="field-row field-row--full">
+              <div class="field-group">
+                <label class="field-label" for="f-attachments">Project photos or site images (optional)</label>
+                <input type="file" id="f-attachments" name="attachments" accept="image/jpeg,image/png,image/heic,image/heif,image/webp" multiple>
+                <p class="field-hint">Up to 5 images, 10 MB each. Helps us scope the work faster.</p>
+                <div id="attachment-preview" class="attachment-preview"></div>
               </div>
             </div>
             <div class="field-row field-row--full" id="referral-detail-wrap" style="display:none;">

@@ -347,9 +347,28 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .service-card.active .svc-name { color: #228a50; }
 @keyframes selectConfirm { 0% { transform: scale(1); } 50% { transform: scale(1.015); } 100% { transform: scale(1); } }
 
+.svc-check { position: absolute; top: .5rem; right: .5rem; width: 1.35rem; height: 1.35rem; border-radius: 50%; background: var(--accent); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: .7rem; opacity: 0; transform: scale(.5); transition: opacity .2s, transform .2s; }
+.service-card.active .svc-check { opacity: 1; transform: scale(1); }
 .svc-icon { font-size: 1.25rem; color: var(--ink-3); margin-bottom: .5rem; transition: color .15s; }
 .svc-name { font-family: var(--ff-head); font-size: .9rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--ink); display: block; margin-bottom: .25rem; transition: color .15s; }
 .svc-desc { font-size: .75rem; color: var(--ink-3); line-height: 1.45; }
+.svc-summary { font-size: .8rem; color: var(--accent); font-weight: 600; min-height: 1.2em; margin-top: .5rem; transition: opacity .15s; }
+.svc-summary:empty { margin-top: 0; }
+
+/* Pill Toggle (project type) */
+.pill-toggle { display: inline-flex; border: 1.5px solid var(--rule); border-radius: var(--radius); overflow: hidden; background: var(--white); }
+.pill-toggle__option { flex: 1; }
+.pill-toggle__option input { position: absolute; opacity: 0; pointer-events: none; }
+.pill-toggle__label { display: block; padding: .55rem 1.5rem; font-family: var(--ff-head); font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); cursor: pointer; text-align: center; transition: background .15s, color .15s; user-select: none; }
+.pill-toggle__option input:checked + .pill-toggle__label { background: var(--accent-2); color: var(--white); }
+.pill-toggle__option:not(:last-child) .pill-toggle__label { border-right: 1.5px solid var(--rule); }
+.pill-toggle__option input:checked + .pill-toggle__label { border-color: transparent; }
+
+/* Attachment preview */
+.attachment-preview { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
+.attachment-preview__thumb { width: 64px; height: 64px; border-radius: 6px; object-fit: cover; border: 1px solid var(--rule); }
+.attachment-preview__item { position: relative; }
+.attachment-preview__remove { position: absolute; top: -4px; right: -4px; width: 18px; height: 18px; border-radius: 50%; background: var(--ink); color: var(--white); border: none; font-size: .65rem; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; }
 
 /* Size Cards */
 .size-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; margin-bottom: .5rem; }
