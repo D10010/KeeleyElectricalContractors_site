@@ -199,7 +199,6 @@
   if (!form) return;
 
   // State
-  var selectedSvc = null;
   var selectedSize = null;
 
   // Elements
@@ -208,41 +207,69 @@
   var thankYou = document.getElementById('thank-you');
   var btnSubmit = document.getElementById('btn-submit');
 
-  // ── Service Card Selection ──
+  // ── Service Card Selection (multi-select) ──
   var serviceCards = document.querySelectorAll('#service-grid .service-card');
   var hiddenServiceType = document.getElementById('h-service-type');
+  var svcSummary = document.getElementById('svc-summary');
   var condElectrical = document.getElementById('cond-electrical');
   var condSitework = document.getElementById('cond-sitework');
   var condUtility = document.getElementById('cond-utility');
 
+  // Friendly display names for the summary
+  var svcDisplayNames = { electrical: 'Electrical', sitework: 'Site Work', utility: 'Utility' };
+
+  function rebuildServiceState() {
+    var activeTypes = [];
+    serviceCards.forEach(function(c) {
+      if (c.classList.contains('active')) activeTypes.push(c.id.replace('svc-', ''));
+    });
+
+    // Update hidden input (comma-separated)
+    if (hiddenServiceType) hiddenServiceType.value = activeTypes.join(',');
+
+    // Show/hide conditional panels independently
+    var condMap = { electrical: condElectrical, sitework: condSitework, utility: condUtility };
+    Object.keys(condMap).forEach(function(key) {
+      var panel = condMap[key];
+      if (!panel) return;
+      if (activeTypes.indexOf(key) !== -1) {
+        panel.classList.add('visible');
+      } else {
+        panel.classList.remove('visible');
+      }
+    });
+
+    // Hide utility alert if utility is no longer active
+    if (activeTypes.indexOf('utility') === -1) {
+      toggleUtilityAlert(false);
+    }
+
+    // Update summary text
+    if (svcSummary) {
+      var names = activeTypes.map(function(t) { return svcDisplayNames[t] || t; });
+      if (names.length === 0) {
+        svcSummary.textContent = 'No service type selected yet.';
+        svcSummary.classList.add('svc-summary--empty');
+      } else {
+        svcSummary.classList.remove('svc-summary--empty');
+        if (names.length === 1) {
+          svcSummary.textContent = 'Selected: ' + names[0];
+        } else if (names.length === 2) {
+          svcSummary.textContent = 'Selected: ' + names[0] + ' and ' + names[1];
+        } else {
+          svcSummary.textContent = 'Selected: ' + names.slice(0, -1).join(', ') + ', and ' + names[names.length - 1];
+        }
+      }
+    }
+
+    updateProgress();
+  }
+
   serviceCards.forEach(function(card) {
     card.addEventListener('click', function() {
-      // Determine service type from id
-      var type = card.id.replace('svc-', '');
-
-      // Deselect all
-      serviceCards.forEach(function(c) { c.classList.remove('active'); });
-      // Hide all conditionals
-      [condElectrical, condSitework, condUtility].forEach(function(c) {
-        if (c) c.classList.remove('visible');
-      });
-
-      // Select this
-      card.classList.add('active');
-      selectedSvc = type;
-      if (hiddenServiceType) hiddenServiceType.value = type;
-
-      // Show relevant conditional
-      var condId = 'cond-' + type;
-      var cond = document.getElementById(condId);
-      if (cond) cond.classList.add('visible');
-
-      // Hide utility alert when switching away from utility
-      if (type !== 'utility') {
-        toggleUtilityAlert(false);
-      }
-
-      updateProgress();
+      // Toggle this card's active state
+      card.classList.toggle('active');
+      rebuildServiceState();
     });
 
     // Keyboard support
@@ -253,6 +280,9 @@
       }
     });
   });
+
+  // Initialize summary text
+  rebuildServiceState();
 
   // ── Size Card Selection ──
   var sizeCards = document.querySelectorAll('#size-grid .size-card');
@@ -353,8 +383,37 @@
     var score = 0;
     var total = 5;
 
-    // 1. Service type selected
-    if (selectedSvc) score++;
+    // 1. Section 1 complete: project_class radio selected + at least one service card active
+    //    + any visible conditional's required inputs filled
+    var projectClassOk = !!form.querySelector('input[name="project_class"]:checked');
+    var activeCards = form.querySelectorAll('#service-grid .service-card.active');
+    var svcOk = activeCards.length > 0;
+    var condReqOk = true;
+    form.querySelectorAll('.conditional.visible').forEach(function(panel) {
+      panel.querySelectorAll('input[required], select[required]').forEach(function(inp) {
+        if (inp.type === 'radio') {
+          var name = inp.name;
+          if (!panel.querySelector('input[name="' + name + '"]:checked')) condReqOk = false;
+        } else if (!inp.value) {
+          condReqOk = false;
+        }
+      });
+      // Also check required radio groups that use the required-via-label convention
+      var requiredRadioNames = {};
+      panel.querySelectorAll('.field-label .required').forEach(function(star) {
+        var label = star.closest('.field-label');
+        if (!label) return;
+        var nextGroup = label.nextElementSibling;
+        if (nextGroup && nextGroup.classList.contains('radio-group')) {
+          var radios = nextGroup.querySelectorAll('input[type="radio"]');
+          if (radios.length > 0) requiredRadioNames[radios[0].name] = true;
+        }
+      });
+      Object.keys(requiredRadioNames).forEach(function(name) {
+        if (!panel.querySelector('input[name="' + name + '"]:checked')) condReqOk = false;
+      });
+    });
+    if (projectClassOk && svcOk && condReqOk) score++;
 
     // 2. Size selected
     if (selectedSize) score++;
@@ -426,30 +485,104 @@
     trackActiveSection();
   }
 
-  // ── Form Submit ──
+  // ── Attachment Field ──
+  (function() {
+    var fileInput = document.getElementById('f-attachments');
+    var preview = document.getElementById('attachment-preview');
+    if (!fileInput || !preview) return;
+
+    var MAX_FILES = 5;
+    var MAX_SIZE = 10 * 1024 * 1024; // 10 MB
+    var selectedFiles = []; // DataTransfer not available everywhere; track our own list
+
+    function showError(msg) {
+      // Remove any existing error
+      clearError();
+      var err = document.createElement('div');
+      err.className = 'field-error';
+      err.textContent = msg;
+      fileInput.parentElement.insertBefore(err, fileInput.nextSibling);
+      setTimeout(clearError, 5000);
+    }
+
+    function clearError() {
+      var existing = fileInput.parentElement.querySelector('.field-error');
+      if (existing) existing.remove();
+    }
+
+    function renderPreviews() {
+      preview.innerHTML = '';
+      selectedFiles.forEach(function(file, idx) {
+        var item = document.createElement('div');
+        item.className = 'attachment-preview__item';
+
+        var thumb = document.createElement('img');
+        thumb.className = 'attachment-preview__thumb';
+        thumb.src = URL.createObjectURL(file);
+        thumb.alt = file.name;
+
+        var removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.className = 'attachment-preview__remove';
+        removeBtn.textContent = '\u00D7';
+        removeBtn.setAttribute('aria-label', 'Remove ' + file.name);
+        removeBtn.addEventListener('click', function() {
+          URL.revokeObjectURL(thumb.src);
+          selectedFiles.splice(idx, 1);
+          syncFileInput();
+          renderPreviews();
+          clearError();
+        });
+
+        item.appendChild(thumb);
+        item.appendChild(removeBtn);
+        preview.appendChild(item);
+      });
+    }
+
+    function syncFileInput() {
+      // Rebuild a DataTransfer to update the native file input
+      try {
+        var dt = new DataTransfer();
+        selectedFiles.forEach(function(f) { dt.items.add(f); });
+        fileInput.files = dt.files;
+      } catch (e) {
+        // Fallback: older browsers can't set .files — selectedFiles is the source of truth
+      }
+    }
+
+    fileInput.addEventListener('change', function() {
+      clearError();
+      var incoming = Array.from(this.files);
+
+      // Validate each file size
+      var oversized = incoming.filter(function(f) { return f.size > MAX_SIZE; });
+      if (oversized.length) {
+        showError(oversized.length === 1
+          ? '"' + oversized[0].name + '" exceeds the 10 MB limit.'
+          : oversized.length + ' files exceed the 10 MB limit.');
+        incoming = incoming.filter(function(f) { return f.size <= MAX_SIZE; });
+      }
+
+      // Enforce total count
+      var spaceLeft = MAX_FILES - selectedFiles.length;
+      if (incoming.length > spaceLeft) {
+        showError('You can attach up to ' + MAX_FILES + ' images total. ' + (incoming.length - spaceLeft) + ' file(s) skipped.');
+        incoming = incoming.slice(0, Math.max(0, spaceLeft));
+      }
+
+      selectedFiles = selectedFiles.concat(incoming);
+      syncFileInput();
+      renderPreviews();
+    });
+  })();
+
+  // ── Form Submit (multipart/form-data) ──
   form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // Collect data
+    // Build FormData from the form (natively handles files + all fields)
     var formData = new FormData(form);
-    var data = {};
-    formData.forEach(function(val, key) {
-      if (data[key]) {
-        if (Array.isArray(data[key])) data[key].push(val);
-        else data[key] = [data[key], val];
-      } else {
-        data[key] = val;
-      }
-    });
-
-    // Also collect checked sub-service checkboxes
-    var subElectrical = [];
-    form.querySelectorAll('input[name="sub_electrical"]:checked').forEach(function(cb) { subElectrical.push(cb.value); });
-    if (subElectrical.length) data.sub_electrical = subElectrical;
-
-    var subSitework = [];
-    form.querySelectorAll('input[name="sub_sitework"]:checked').forEach(function(cb) { subSitework.push(cb.value); });
-    if (subSitework.length) data.sub_sitework = subSitework;
 
     // Submit
     if (btnSubmit) {
@@ -463,8 +596,7 @@
 
     fetch('/api/contact', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      body: formData
     })
     .then(function(res) { return res.json(); })
     .then(function(result) {

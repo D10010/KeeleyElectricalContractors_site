@@ -354,6 +354,7 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .svc-desc { font-size: .75rem; color: var(--ink-3); line-height: 1.45; }
 .svc-summary { font-size: .8rem; color: var(--accent); font-weight: 600; min-height: 1.2em; margin-top: .5rem; transition: opacity .15s; }
 .svc-summary:empty { margin-top: 0; }
+.svc-summary--empty { color: var(--ink-3); font-weight: 400; font-style: italic; }
 
 /* Pill Toggle (project type) */
 .pill-toggle { display: inline-flex; border: 1.5px solid var(--rule); border-radius: var(--radius); overflow: hidden; background: var(--white); }
@@ -369,6 +370,9 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .attachment-preview__thumb { width: 64px; height: 64px; border-radius: 6px; object-fit: cover; border: 1px solid var(--rule); }
 .attachment-preview__item { position: relative; }
 .attachment-preview__remove { position: absolute; top: -4px; right: -4px; width: 18px; height: 18px; border-radius: 50%; background: var(--ink); color: var(--white); border: none; font-size: .65rem; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; }
+
+/* Field error */
+.field-error { font-size: .78rem; color: #c0392b; margin-top: .35rem; font-weight: 600; }
 
 /* Size Cards */
 .size-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; margin-bottom: .5rem; }
