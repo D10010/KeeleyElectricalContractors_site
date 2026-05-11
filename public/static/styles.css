@@ -517,7 +517,8 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 
 /* Featured Project */
 .featured-project { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; margin-top: 1.5rem; }
-.featured-project__image { min-width: 0; }
+.featured-project__image { min-width: 0; border-radius: var(--radius); overflow: hidden; }
+.featured-project__image img { width: 100%; height: 100%; object-fit: cover; display: block; max-height: 480px; }
 .featured-project__info .pill { margin-bottom: 1rem; }
 .featured-project__title { font-family: var(--ff-head); font-size: 1.75rem; font-weight: 800; margin-bottom: .75rem; }
 .featured-project__desc { color: var(--ink-2); margin-bottom: 1.5rem; }

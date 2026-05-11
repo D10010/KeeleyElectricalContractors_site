@@ -104,24 +104,24 @@ export function homePage(): string {
     </div>
     <div class="featured-project">
       <div class="featured-project__image">
-        <div class="image-placeholder image-placeholder--lg"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg><span>Featured Project Photo</span></div>
+        <img src="/static/knox-trail-solar-storage-facility-maine.jpg" alt="Aerial view of Knox Trail Solar and Storage facility built by Keeley Electrical Contractors in Maine" width="576" height="1024" loading="lazy">
       </div>
       <div class="featured-project__info">
-        <span class="pill">Electrical &middot; Site Work</span>
-        <h3 class="featured-project__title">Commercial Office Complex</h3>
-        <p class="featured-project__desc">Full electrical scope for a 120,000 sq. ft. commercial office development including medium-voltage distribution, emergency power, fire alarm systems, and complete site lighting.</p>
+        <span class="pill">Electrical &middot; Utility</span>
+        <h3 class="featured-project__title">Knox Trail Solar + Storage Facility</h3>
+        <p class="featured-project__desc">Complete electrical infrastructure for a utility-scale 1.95 MW solar array and 2 MWh battery energy storage system (BESS). This complex project involved over 200,000 feet of wiring and specialized above-ground medium-voltage distribution designed to protect environmentally sensitive groundwater and designated Superfund land.</p>
         <div class="featured-project__stats">
           <div class="featured-project__stat">
-            <span class="featured-project__stat-num">120K</span>
-            <span class="featured-project__stat-label">Sq. Ft.</span>
+            <span class="featured-project__stat-num">1.95</span>
+            <span class="featured-project__stat-label">MW Solar</span>
           </div>
           <div class="featured-project__stat">
-            <span class="featured-project__stat-num">18</span>
-            <span class="featured-project__stat-label">Months</span>
+            <span class="featured-project__stat-num">2</span>
+            <span class="featured-project__stat-label">MWh BESS</span>
           </div>
           <div class="featured-project__stat">
-            <span class="featured-project__stat-num">0</span>
-            <span class="featured-project__stat-label">Safety Incidents</span>
+            <span class="featured-project__stat-num">200K+</span>
+            <span class="featured-project__stat-label">Ft. of Wire</span>
           </div>
         </div>
         <a href="/services" class="btn btn--secondary">Explore Our Services <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
