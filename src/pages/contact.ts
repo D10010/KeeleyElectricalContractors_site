@@ -62,10 +62,12 @@ export function contactPage(): string {
               <div class="field-label">Project type<span class="required">*</span></div>
               <div class="pill-toggle" id="project-class-toggle">
                 <label class="pill-toggle__option">
+                  <svg class="pill-toggle__check" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                   <input type="radio" name="project_class" value="commercial" checked required>
                   <span class="pill-toggle__label">Commercial</span>
                 </label>
                 <label class="pill-toggle__option">
+                  <svg class="pill-toggle__check" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                   <input type="radio" name="project_class" value="residential" required>
                   <span class="pill-toggle__label">Residential</span>
                 </label>
