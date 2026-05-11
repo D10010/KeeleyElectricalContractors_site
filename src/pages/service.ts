@@ -55,7 +55,7 @@ const services: Record<string, ServiceData> = {
   },
   'site-work': {
     name: 'Site Work',
-    icon: 'truck',
+    icon: 'excavator',
     h1: 'Commercial Site Work & Civil Earthwork',
     title: 'Site Work Services | Keeley Electrical Contractors',
     metaDesc: 'Excavation, grading, underground conduit, and site lighting for commercial and industrial projects. Serving Maine, New Hampshire, and Massachusetts.',

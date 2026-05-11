@@ -1,9 +1,9 @@
 // Shared layout, nav, and footer for Keeley Electrical Contractors
 
-const PHONE = '(207) 797-3772'
-const PHONE_HREF = 'tel:+12077973772'
-const EMAIL = 'info@keeleyelectric.com'
-const COMPANY = 'Keeley Electrical Contractors, Inc.'
+export const PHONE = '(207) 797-3772'
+export const PHONE_HREF = 'tel:+12077973772'
+export const EMAIL = 'info@keeleyelectric.com'
+export const COMPANY = 'Keeley Electrical Contractors, Inc.'
 export const ADDRESS = {
   street: '18 Caddie Ln',
   city: 'Portland',
@@ -11,9 +11,9 @@ export const ADDRESS = {
   zip: '04103',
   country: 'US'
 }
-const LOCATION = `${ADDRESS.street}, ${ADDRESS.city}, ${ADDRESS.state} ${ADDRESS.zip}`
-const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(LOCATION)}`
-const TAGLINE = 'Electrical &middot; Site &middot; Utility'
+export const LOCATION = `${ADDRESS.street}, ${ADDRESS.city}, ${ADDRESS.state} ${ADDRESS.zip}`
+export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(LOCATION)}`
+export const TAGLINE = 'Electrical &middot; Site &middot; Utility'
 
 interface PageMeta {
   title: string
@@ -177,4 +177,4 @@ ${body}
 </html>`
 }
 
-export { PHONE, PHONE_HREF, EMAIL, COMPANY, LOCATION, MAPS_URL }
+
