@@ -5,7 +5,7 @@ export function termsPage(): string {
 <section class="page-header page-header--blue">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Home</a> <span>/</span> <span class="breadcrumb__current">Terms &amp; Conditions</span>
+      <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">Terms &amp; Conditions</span>
     </nav>
     <h1 class="page-header__title">Terms &amp; Conditions</h1>
     <p class="page-header__desc">Last updated: April 22, 2026</p>

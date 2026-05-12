@@ -6,7 +6,7 @@ export function servicesPage(): string {
 <section class="page-header page-header--blue">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Home</a> <span>/</span> <span class="breadcrumb__current">Services</span>
+      <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">Services</span>
     </nav>
     <span class="eyebrow eyebrow--light">Full Scope Capabilities</span>
     <h1 class="page-header__title">What We Build</h1>

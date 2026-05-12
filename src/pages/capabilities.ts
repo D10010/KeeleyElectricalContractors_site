@@ -6,7 +6,7 @@ export function capabilitiesPage(): string {
 <section class="page-header page-header--blue">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Home</a> <span>/</span> <span class="breadcrumb__current">Capabilities</span>
+      <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">Capabilities</span>
     </nav>
     <span class="eyebrow eyebrow--light">Procurement &amp; Qualification Resource</span>
     <h1 class="page-header__title">Licensing, Certifications &amp; Capabilities</h1>

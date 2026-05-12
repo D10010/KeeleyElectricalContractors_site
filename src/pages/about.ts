@@ -6,7 +6,7 @@ export function aboutPage(): string {
 <section class="page-header page-header--blue">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Home</a> <span>/</span> <span class="breadcrumb__current">About</span>
+      <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">About</span>
     </nav>
     <span class="eyebrow eyebrow--light">Since 1978</span>
     <h1 class="page-header__title">About Keeley Electrical Contractors</h1>
