@@ -305,11 +305,11 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 /* Contact Form */
 /* ═══ Contact Page — Single-Page Scrolling Form ═══ */
 .contact-layout { display: grid; grid-template-columns: 1fr 320px; gap: 2rem; align-items: start; }
-.contact-form-wrap { background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; }
+.contact-form-wrap { background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius); }
 .contact-sidebar { position: sticky; top: calc(var(--nav-h) + var(--emergency-h) + 1rem); display: flex; flex-direction: column; gap: 1rem; }
 
 /* Progress bar */
-.form-progress { padding: .75rem 2rem; background: var(--surface); border-bottom: 1px solid var(--rule); }
+.form-progress { position: sticky; top: var(--nav-h); z-index: 99; padding: .875rem 2rem; background: var(--white); border-bottom: 1px solid var(--rule); box-shadow: 0 2px 8px rgba(0,0,0,.06); border-radius: var(--radius) var(--radius) 0 0; }
 .form-progress__meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: .35rem; }
 .form-progress__label { font-family: var(--ff-head); font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
 .form-progress__pct { font-family: var(--ff-head); font-size: .65rem; font-weight: 700; letter-spacing: .06em; color: var(--accent); }
@@ -677,6 +677,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .contact-layout { grid-template-columns: 1fr; }
   .contact-sidebar { grid-template-columns: 1fr; }
   .contact-form { padding: 1.25rem; }
+  .form-progress { padding: .875rem 1.25rem; }
   .sidebar { grid-template-columns: 1fr; }
   .service-grid { grid-template-columns: 1fr; }
   .size-grid { grid-template-columns: 1fr; }
