@@ -1,6 +1,25 @@
 import { layout, PHONE, PHONE_HREF, EMAIL } from '../components/layout'
 
 export function careersPage(): string {
+  // Reusable SVG icons
+  const pinIcon = '<svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>'
+  const clockIcon = '<svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>'
+  const arrowIcon = '<svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>'
+
+  function card(title: string, slug: string, location: string, desc: string): string {
+    return `<div class="career-card">
+        <div class="career-card__info">
+          <h3 class="career-card__title">${title}</h3>
+          <div class="career-card__meta">
+            <span class="pill">${pinIcon} ${location}</span>
+            <span class="pill">${clockIcon} Full-Time</span>
+          </div>
+          <p class="career-card__desc">${desc}</p>
+        </div>
+        <a href="/careers/apply?role=${slug}" class="btn btn--primary">Apply ${arrowIcon}</a>
+      </div>`
+  }
+
   const body = `
 <!-- Page Header -->
 <section class="page-header page-header--blue">
@@ -63,40 +82,41 @@ export function careersPage(): string {
     <h2 class="h2">Current Opportunities</h2>
     <p style="color:var(--ink-2);margin-bottom:2rem;">We're always accepting applications from qualified professionals. Even if you don't see a specific role listed below, we encourage you to reach out.</p>
     
+    <!-- Group 1 — Electrical Trades -->
+    <h3 class="careers-group__title">Electrical Trades</h3>
     <div class="careers-list">
-      <div class="career-card">
-        <div class="career-card__info">
-          <h3 class="career-card__title">Licensed Journeyman Electrician</h3>
-          <div class="career-card__meta">
-            <span class="pill"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Portland, ME</span>
-            <span class="pill"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Full-Time</span>
-          </div>
-          <p class="career-card__desc">Commercial and industrial electrical installation and service. Maine journeyman license required.</p>
-        </div>
-        <a href="/careers/apply?role=journeyman-electrician" class="btn btn--primary">Apply <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-      </div>
-      <div class="career-card">
-        <div class="career-card__info">
-          <h3 class="career-card__title">Electrical Apprentice</h3>
-          <div class="career-card__meta">
-            <span class="pill"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Portland, ME</span>
-            <span class="pill"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Full-Time</span>
-          </div>
-          <p class="career-card__desc">Learn the trade from experienced professionals on commercial and industrial projects. Enrollment in apprenticeship program required.</p>
-        </div>
-        <a href="/careers/apply?role=apprentice-1" class="btn btn--primary">Apply <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-      </div>
-      <div class="career-card">
-        <div class="career-card__info">
-          <h3 class="career-card__title">Project Manager</h3>
-          <div class="career-card__meta">
-            <span class="pill"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Portland, ME</span>
-            <span class="pill"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Full-Time</span>
-          </div>
-          <p class="career-card__desc">Manage commercial electrical and site work projects from pre-construction through closeout. 5+ years experience preferred.</p>
-        </div>
-        <a href="/careers/apply?role=project-manager" class="btn btn--primary">Apply <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-      </div>
+      ${card('Master Electrician', 'master-electrician', 'Maine', 'Lead electrical installation, code interpretation, and crew oversight on commercial and industrial projects. Maine master license required; NH or MA reciprocity preferred.')}
+      ${card('Licensed Journeyman Electrician', 'journeyman-electrician', 'Maine', 'Commercial and industrial electrical installation and service. Maine journeyman license required.')}
+      ${card('Electrical Apprentice', 'apprentice-1', 'Maine', 'Apprenticeship under licensed electricians. First through fourth year welcome\u2009\u2014\u2009select your year on the application. State-approved program enrollment or willingness to enroll.')}
+      ${card('Electrical Foreman', 'electrical-foreman', 'Maine', 'Field leadership on active job sites. Crew coordination, schedule management, quality control. Journeyman license plus five years of commercial experience.')}
+    </div>
+
+    <!-- Group 2 — Site Work -->
+    <h3 class="careers-group__title">Site Work</h3>
+    <div class="careers-list">
+      ${card('Excavator Operator', 'excavator-operator', 'ME, NH, MA', 'Trenching, grading, and utility pit work on commercial and utility job sites. Experience with mid- to full-size excavators required.')}
+      ${card('Heavy Equipment Operator', 'heavy-equipment-operator', 'ME, NH, MA', 'Dozers, loaders, and skid steers across electrical site prep and utility scopes. CDL preferred.')}
+      ${card('CDL Driver (Class A)', 'cdl-class-a', 'ME, NH, MA', 'Equipment hauling, material delivery, and crew transport across our service area. Clean driving record and current DOT medical card required.')}
+      ${card('CDL Driver (Class B)', 'cdl-class-b', 'ME, NH, MA', 'Local and regional material and equipment runs. Clean driving record and current DOT medical card required.')}
+      ${card('Site Foreman', 'site-foreman', 'ME, NH, MA', 'Field leadership on excavation and utility site work. Crew direction, equipment scheduling, site safety enforcement. Five plus years of operating experience.')}
+    </div>
+
+    <!-- Group 3 — Utility -->
+    <h3 class="careers-group__title">Utility</h3>
+    <div class="careers-list">
+      ${card('Journeyman Lineman', 'journeyman-lineman', 'ME, NH, MA', 'Overhead and underground primary line construction, transformer work, and utility coordination. Lineman certification and climbing proficiency required.')}
+      ${card('Apprentice Lineman', 'apprentice-lineman', 'ME, NH, MA', 'Apprenticeship under journeyman linemen. State or utility apprenticeship enrollment preferred. Physical fitness and willingness to climb required.')}
+      ${card('Groundman', 'groundman', 'ME, NH, MA', 'Ground support for line crews: material handling, traffic control, equipment setup. Entry-level position with a path into the apprentice lineman program.')}
+      ${card('Utility Foreman', 'utility-foreman', 'ME, NH, MA', 'Field leadership on overhead and underground utility construction. Lineman certification plus five years of crew experience.')}
+    </div>
+
+    <!-- Group 4 — Management & Office -->
+    <h3 class="careers-group__title">Management &amp; Office</h3>
+    <div class="careers-list">
+      ${card('Project Manager', 'project-manager', 'Maine', 'Construction project management for commercial, industrial, and utility projects from $500K to $10M plus. PE or PMP preferred but not required for the right experience.')}
+      ${card('Estimator', 'estimator', 'Maine', 'Bid prep, takeoffs, and pre-construction estimating for commercial, industrial, and utility scopes. Three plus years of electrical or site-work estimating experience.')}
+      ${card('Superintendent', 'superintendent', 'ME, NH, MA', 'Multi-site oversight of active commercial, industrial, and utility projects. Ten plus years of field-to-management progression.')}
+      ${card('Safety Coordinator', 'safety-coordinator', 'ME, NH, MA', 'Site safety inspections, training, and OSHA compliance across our service area. OSHA 30 minimum; CSP credential preferred.')}
     </div>
   </div>
 </section>
