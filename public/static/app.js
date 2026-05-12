@@ -623,3 +623,342 @@
   updateProgress();
 
 })();
+
+/* ══════════════════════════════════════════════════════
+   APPLY FORM — /careers/apply
+   ══════════════════════════════════════════════════════ */
+(function() {
+  'use strict';
+
+  var form = document.getElementById('apply-form');
+  if (!form) return;
+
+  var progressFill = document.getElementById('apply-progress-fill');
+  var progressPct  = document.getElementById('apply-progress-pct');
+  var thankYou     = document.getElementById('apply-thank-you');
+  var btnSubmit    = document.getElementById('apply-btn-submit');
+
+  // ── Pre-select position from ?role= query param ──
+  var params = new URLSearchParams(window.location.search);
+  var roleParam = params.get('role');
+  if (roleParam) {
+    var posSelect = document.getElementById('f-position');
+    if (posSelect) {
+      var opt = posSelect.querySelector('option[value="' + roleParam + '"]');
+      if (opt) {
+        posSelect.value = roleParam;
+        posSelect.classList.add('valid');
+      }
+    }
+  }
+
+  // ── Interest Cards (multi-select) ──
+  var interestCards = document.querySelectorAll('#interest-grid .service-card');
+  var hiddenInterests = document.getElementById('h-interests');
+  var intSummary = document.getElementById('int-summary');
+
+  var intDisplayNames = { electrical: 'Electrical', sitework: 'Site Work', utility: 'Utility', any: 'Open to Any' };
+
+  function rebuildInterestState() {
+    var active = [];
+    interestCards.forEach(function(c) {
+      if (c.classList.contains('active')) active.push(c.id.replace('int-', ''));
+    });
+    if (hiddenInterests) hiddenInterests.value = active.join(',');
+
+    if (intSummary) {
+      var names = active.map(function(t) { return intDisplayNames[t] || t; });
+      if (names.length === 0) {
+        intSummary.textContent = '';
+        intSummary.classList.add('svc-summary--empty');
+      } else {
+        intSummary.classList.remove('svc-summary--empty');
+        if (names.length === 1) intSummary.textContent = 'Interested in: ' + names[0];
+        else if (names.length === 2) intSummary.textContent = 'Interested in: ' + names[0] + ' and ' + names[1];
+        else intSummary.textContent = 'Interested in: ' + names.slice(0, -1).join(', ') + ', and ' + names[names.length - 1];
+      }
+    }
+    updateProgress();
+  }
+
+  interestCards.forEach(function(card) {
+    card.addEventListener('click', function() {
+      card.classList.toggle('active');
+      rebuildInterestState();
+    });
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+    });
+  });
+  rebuildInterestState();
+
+  // ── License "Other" radio → reveal text input ──
+  var licenseOtherRadio = document.getElementById('license-other-radio');
+  var licenseOtherWrap  = document.getElementById('license-other-wrap');
+  if (licenseOtherRadio && licenseOtherWrap) {
+    var licenseRadios = form.querySelectorAll('input[name="license_class"]');
+    licenseRadios.forEach(function(r) {
+      r.addEventListener('change', function() {
+        licenseOtherWrap.style.display = licenseOtherRadio.checked ? 'block' : 'none';
+        updateProgress();
+      });
+    });
+  }
+
+  // ── Referral checkbox → reveal text input ──
+  var referralCheck = document.getElementById('apply-referral-check');
+  var referralWrap  = document.getElementById('apply-referral-wrap');
+  if (referralCheck && referralWrap) {
+    referralCheck.addEventListener('change', function() {
+      referralWrap.style.display = referralCheck.checked ? 'block' : 'none';
+    });
+  }
+
+  // ── Phone auto-format ──
+  var phoneField = document.getElementById('f-apply-phone');
+  if (phoneField) {
+    phoneField.addEventListener('input', function() {
+      var val = this.value.replace(/\D/g, '');
+      if (val.length > 0) {
+        if (val.length <= 3) {
+          this.value = '(' + val;
+        } else if (val.length <= 6) {
+          this.value = '(' + val.substring(0,3) + ') ' + val.substring(3);
+        } else {
+          this.value = '(' + val.substring(0,3) + ') ' + val.substring(3,6) + '-' + val.substring(6,10);
+        }
+      }
+    });
+  }
+
+  // ── Resume file input ──
+  (function() {
+    var fileInput = document.getElementById('f-resume');
+    var preview   = document.getElementById('resume-preview');
+    if (!fileInput || !preview) return;
+
+    var MAX_SIZE = 10 * 1024 * 1024;
+    var ALLOWED_EXT = /\.(pdf|doc|docx)$/i;
+    var selectedFile = null;
+
+    function showError(msg) {
+      clearError();
+      var err = document.createElement('div');
+      err.className = 'field-error';
+      err.textContent = msg;
+      fileInput.parentElement.insertBefore(err, fileInput.nextSibling);
+      setTimeout(clearError, 5000);
+    }
+
+    function clearError() {
+      var existing = fileInput.parentElement.querySelector('.field-error');
+      if (existing) existing.remove();
+    }
+
+    function renderPreview() {
+      preview.innerHTML = '';
+      if (!selectedFile) return;
+      var item = document.createElement('div');
+      item.className = 'attachment-preview__item';
+      item.style.display = 'flex';
+      item.style.alignItems = 'center';
+      item.style.gap = '.5rem';
+      item.style.padding = '.5rem .75rem';
+      item.style.background = 'var(--surface)';
+      item.style.borderRadius = '6px';
+      item.style.border = '1px solid var(--rule)';
+
+      var icon = document.createElement('span');
+      icon.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>';
+      icon.style.flexShrink = '0';
+
+      var name = document.createElement('span');
+      name.textContent = selectedFile.name;
+      name.style.fontSize = '.82rem';
+      name.style.fontWeight = '500';
+      name.style.overflow = 'hidden';
+      name.style.textOverflow = 'ellipsis';
+      name.style.whiteSpace = 'nowrap';
+
+      var size = document.createElement('span');
+      size.textContent = (selectedFile.size / (1024 * 1024)).toFixed(1) + ' MB';
+      size.style.fontSize = '.72rem';
+      size.style.color = 'var(--ink-3)';
+      size.style.flexShrink = '0';
+
+      var removeBtn = document.createElement('button');
+      removeBtn.type = 'button';
+      removeBtn.className = 'attachment-preview__remove';
+      removeBtn.style.position = 'static';
+      removeBtn.style.marginLeft = 'auto';
+      removeBtn.textContent = '\u00D7';
+      removeBtn.setAttribute('aria-label', 'Remove ' + selectedFile.name);
+      removeBtn.addEventListener('click', function() {
+        selectedFile = null;
+        preview.innerHTML = '';
+        try {
+          var dt = new DataTransfer();
+          fileInput.files = dt.files;
+        } catch (e) { fileInput.value = ''; }
+        clearError();
+        updateProgress();
+      });
+
+      item.appendChild(icon);
+      item.appendChild(name);
+      item.appendChild(size);
+      item.appendChild(removeBtn);
+      preview.appendChild(item);
+    }
+
+    fileInput.addEventListener('change', function() {
+      clearError();
+      var files = Array.from(this.files);
+      if (files.length === 0) return;
+
+      var file = files[0];
+
+      if (!ALLOWED_EXT.test(file.name)) {
+        showError('Please upload a PDF or Word document (.pdf, .doc, .docx).');
+        try { var dt = new DataTransfer(); fileInput.files = dt.files; } catch (e) { fileInput.value = ''; }
+        return;
+      }
+
+      if (file.size > MAX_SIZE) {
+        showError('"' + file.name + '" exceeds the 10 MB limit.');
+        try { var dt = new DataTransfer(); fileInput.files = dt.files; } catch (e) { fileInput.value = ''; }
+        return;
+      }
+
+      selectedFile = file;
+      try {
+        var dt = new DataTransfer();
+        dt.items.add(file);
+        fileInput.files = dt.files;
+      } catch (e) { /* native input already has it */ }
+
+      renderPreview();
+      updateProgress();
+    });
+  })();
+
+  // ── Progress Bar ──
+  function updateProgress() {
+    var score = 0;
+    var total = 4;
+
+    // Section 1: position select filled
+    var pos = form.querySelector('[name="position"]');
+    if (pos && pos.value) score++;
+
+    // Section 2: experience select filled
+    var exp = form.querySelector('[name="experience"]');
+    if (exp && exp.value) score++;
+
+    // Section 3: first name, last name, phone, email all filled
+    var fn = form.querySelector('[name="first_name"]');
+    var ln = form.querySelector('[name="last_name"]');
+    var ph = form.querySelector('[name="phone"]');
+    var em = form.querySelector('[name="email"]');
+    var fnOk = fn && fn.value.trim().length >= 2;
+    var lnOk = ln && ln.value.trim().length >= 2;
+    var phOk = ph && ph.value.trim().replace(/\D/g, '').length >= 7;
+    var emOk = em && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim());
+    if (fnOk && lnOk && phOk && emOk) score++;
+
+    // Section 4: resume uploaded + work_authorized checked
+    var resume = form.querySelector('[name="resume"]');
+    var resumeOk = resume && resume.files && resume.files.length > 0;
+    var authCheck = form.querySelector('[name="work_authorized"]');
+    var authOk = authCheck && authCheck.checked;
+    if (resumeOk && authOk) score++;
+
+    var pct = Math.round((score / total) * 100);
+    if (progressFill) progressFill.style.width = pct + '%';
+    if (progressPct)  progressPct.textContent  = pct + '%';
+  }
+
+  // ── Field Validation Visual Feedback ──
+  form.querySelectorAll('input, select, textarea').forEach(function(el) {
+    el.addEventListener('input', updateProgress);
+    el.addEventListener('change', function() {
+      updateProgress();
+      if (el.type === 'email') {
+        el.classList.toggle('valid', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()));
+      } else if (el.type === 'tel') {
+        el.classList.toggle('valid', el.value.trim().replace(/\D/g, '').length >= 10);
+      } else if (el.tagName === 'SELECT') {
+        el.classList.toggle('valid', !!el.value);
+      } else if (el.required || el.name === 'first_name' || el.name === 'last_name') {
+        el.classList.toggle('valid', el.value.trim().length > 1);
+      }
+    });
+    el.addEventListener('blur', function() {
+      el.dispatchEvent(new Event('change'));
+    });
+  });
+
+  // ── Active Section Tracking ──
+  var formSections = form.querySelectorAll('.form-section');
+  var stepNums = form.querySelectorAll('.section-head__num');
+
+  function trackActiveSection() {
+    var mid = window.scrollY + window.innerHeight / 2;
+    var currentIdx = -1;
+    formSections.forEach(function(s, i) {
+      var rect = s.getBoundingClientRect();
+      var top = rect.top + window.scrollY;
+      var bot = top + rect.height;
+      if (mid >= top && mid <= bot) currentIdx = i;
+    });
+    stepNums.forEach(function(n, i) {
+      n.classList.toggle('active-section', i === currentIdx);
+    });
+  }
+  if (formSections.length > 0) {
+    window.addEventListener('scroll', trackActiveSection, { passive: true });
+    trackActiveSection();
+  }
+
+  // ── Form Submit (multipart/form-data) ──
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var formData = new FormData(form);
+
+    if (btnSubmit) {
+      btnSubmit.disabled = true;
+      btnSubmit.innerHTML = '<svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="spin-icon"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Submitting\u2026';
+    }
+
+    if (progressFill) progressFill.style.width = '100%';
+    if (progressPct)  progressPct.textContent  = '100%';
+
+    fetch('/api/apply', {
+      method: 'POST',
+      body: formData
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(result) {
+      form.style.display = 'none';
+      var progressEl = document.getElementById('apply-progress');
+      if (progressEl) progressEl.style.display = 'none';
+      if (thankYou) thankYou.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    })
+    .catch(function() {
+      if (btnSubmit) {
+        btnSubmit.disabled = false;
+        btnSubmit.innerHTML = 'Submit Application <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
+      }
+      if (progressFill) progressFill.style.width = '';
+      if (progressPct)  progressPct.textContent  = '';
+      updateProgress();
+      alert('Something went wrong. Please try again or call us at (207) 797-3772.');
+    });
+  });
+
+  // Initial progress
+  updateProgress();
+
+})();
