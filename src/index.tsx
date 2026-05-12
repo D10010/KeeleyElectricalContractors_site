@@ -7,6 +7,7 @@ import { aboutPage } from './pages/about'
 import { contactPage } from './pages/contact'
 import { notFoundPage } from './pages/notfound'
 import { careersPage } from './pages/careers'
+import { applyPage } from './pages/apply'
 import { privacyPage } from './pages/privacy'
 import { termsPage } from './pages/terms'
 import { robotsTxt, sitemapXml } from './pages/robots'
@@ -26,6 +27,8 @@ app.get('/contact', (c) => c.html(contactPage()))
 app.get('/contact/', (c) => c.html(contactPage()))
 app.get('/careers', (c) => c.html(careersPage()))
 app.get('/careers/', (c) => c.html(careersPage()))
+app.get('/careers/apply', (c) => c.html(applyPage()))
+app.get('/careers/apply/', (c) => c.html(applyPage()))
 app.get('/privacy', (c) => c.html(privacyPage()))
 app.get('/privacy/', (c) => c.html(privacyPage()))
 app.get('/terms', (c) => c.html(termsPage()))
@@ -44,9 +47,19 @@ app.get('/sitemap.xml', (c) => {
 // API endpoint for contact form
 app.post('/api/contact', async (c) => {
   try {
-    const data = await c.req.json()
+    const data = await c.req.formData()
     // In production, this would send to email/CRM
     return c.json({ success: true, message: 'Inquiry received. We will respond within one business day.' })
+  } catch (e) {
+    return c.json({ success: false, message: 'Invalid submission.' }, 400)
+  }
+})
+
+// API endpoint for application form
+app.post('/api/apply', async (c) => {
+  try {
+    const data = await c.req.formData()
+    return c.json({ success: true, message: 'Application received. Our hiring manager will follow up within five business days.' })
   } catch (e) {
     return c.json({ success: false, message: 'Invalid submission.' }, 400)
   }
