@@ -73,7 +73,7 @@ export function careersPage(): string {
           </div>
           <p class="career-card__desc">Commercial and industrial electrical installation and service. Maine journeyman license required.</p>
         </div>
-        <a href="/contact" class="btn btn--primary">Apply <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a href="/careers/apply?role=journeyman-electrician" class="btn btn--primary">Apply <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
       <div class="career-card">
         <div class="career-card__info">
@@ -84,7 +84,7 @@ export function careersPage(): string {
           </div>
           <p class="career-card__desc">Learn the trade from experienced professionals on commercial and industrial projects. Enrollment in apprenticeship program required.</p>
         </div>
-        <a href="/contact" class="btn btn--primary">Apply <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a href="/careers/apply?role=apprentice-1" class="btn btn--primary">Apply <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
       <div class="career-card">
         <div class="career-card__info">
@@ -95,7 +95,7 @@ export function careersPage(): string {
           </div>
           <p class="career-card__desc">Manage commercial electrical and site work projects from pre-construction through closeout. 5+ years experience preferred.</p>
         </div>
-        <a href="/contact" class="btn btn--primary">Apply <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a href="/careers/apply?role=project-manager" class="btn btn--primary">Apply <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
     </div>
   </div>
@@ -107,8 +107,8 @@ export function careersPage(): string {
     <h2 class="h2 h2--light">Interested in Joining Keeley?</h2>
     <p class="cta-band__desc" style="max-width:560px;">Send us your resume and a brief description of your experience. We'll follow up within one business day.</p>
     <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
-      <a href="/contact" class="btn btn--primary btn--lg">Contact Us to Apply</a>
-      <a href="mailto:${EMAIL}" class="btn btn--ghost btn--lg"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> ${EMAIL}</a>
+      <a href="/careers/apply" class="btn btn--primary btn--lg">Apply Now <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      <a href="${PHONE_HREF}" class="btn btn--ghost btn--lg"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> ${PHONE}</a>
     </div>
   </div>
 </section>
