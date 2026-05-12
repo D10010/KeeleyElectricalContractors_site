@@ -543,9 +543,9 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .callout-box p:last-child { margin-bottom: 0; }
 
 /* Featured Project */
-.featured-project { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; margin-top: 1.5rem; }
-.featured-project__image { min-width: 0; border-radius: var(--radius); overflow: hidden; }
-.featured-project__image img { width: 100%; height: 100%; object-fit: cover; display: block; max-height: 480px; }
+.featured-project { display: grid; grid-template-columns: 2fr 3fr; gap: 2.5rem; align-items: center; margin-top: 1.5rem; }
+.featured-project__image { min-width: 0; }
+.featured-project__image img { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.08); }
 .featured-project__info .pill { margin-bottom: 1rem; }
 .featured-project__title { font-family: var(--ff-head); font-size: 1.75rem; font-weight: 800; margin-bottom: .75rem; }
 .featured-project__desc { color: var(--ink-2); margin-bottom: 1.5rem; }
@@ -644,7 +644,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .stats-bar__inner { grid-template-columns: repeat(2, 1fr); }
   .content-sidebar { grid-template-columns: 1fr; }
   .sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .featured-project { grid-template-columns: 1fr; }
   .contact-layout { grid-template-columns: 1fr; }
   .contact-sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .service-grid { grid-template-columns: 1fr 1fr; }
@@ -653,6 +652,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .two-col-cap { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
   .cert-grid--center { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 860px) {
+  .featured-project { grid-template-columns: 1fr; }
+  .featured-project__image { max-width: 70vw; margin: 0 auto; }
 }
 
 @media (max-width: 768px) {
@@ -665,7 +669,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .page-header__title { font-size: clamp(2rem, 5vw, 2.5rem); }
   .h2 { font-size: 1.75rem; }
   .two-col { grid-template-columns: 1fr; gap: 2rem; }
-  .featured-project { grid-template-columns: 1fr; }
   .career-card { flex-direction: column; align-items: flex-start; }
   .service-cards, .service-detail-grid, .about-services, .values-grid, .cert-detail-grid, .license-grid, .territory-map__states { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr 1fr; }

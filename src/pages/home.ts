@@ -104,7 +104,7 @@ export function homePage(): string {
     </div>
     <div class="featured-project">
       <div class="featured-project__image">
-        <img src="/static/knox-trail-solar-storage-facility-maine.jpg" alt="Aerial view of Knox Trail Solar and Storage facility built by Keeley Electrical Contractors in Maine" width="576" height="1024" loading="lazy">
+        <img src="/static/knox-trail-solar-storage-facility-maine.jpg" alt="Aerial view of the Knox Trail Solar and Storage Facility in Maine — utility-scale solar array, battery energy storage, and substation work by Keeley Electrical Contractors" width="953" height="1666" loading="lazy" decoding="async">
       </div>
       <div class="featured-project__info">
         <span class="pill">Electrical &middot; Utility</span>
