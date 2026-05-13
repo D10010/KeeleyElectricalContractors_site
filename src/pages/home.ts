@@ -31,7 +31,7 @@ export function homePage(): string {
   <div class="hero__overlay"></div>
   <div class="hero__content">
     <span class="eyebrow">Maine &middot; New Hampshire &middot; Massachusetts</span>
-    <h1 class="hero__title">Maine's Commercial <em>Electrical</em> Contractor</h1>
+    <h1 class="hero__title">New England's Electrical, Site, and <em>Utility</em> Contractor</h1>
     <p class="hero__sub">Full-service electrical, site work, and utility contractor. Licensed in three states. Trusted by general contractors, facility owners, and utilities since 1978.</p>
     <div class="hero__btns">
       <a href="/contact" class="btn btn--primary">Start a Project</a>
