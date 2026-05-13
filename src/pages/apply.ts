@@ -258,22 +258,6 @@ export function applyPage(): string {
             Submit Application <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </button>
           <p class="form-disclaimer">We review every application. Confidential review by our hiring manager.<br>Response within five business days.</p>
-
-          <!-- Trust Signals -->
-          <div class="form-trust">
-            <div class="form-trust__item">
-              <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span>Five business day response</span>
-            </div>
-            <div class="form-trust__item">
-              <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              <span>Confidential review</span>
-            </div>
-            <div class="form-trust__item">
-              <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              <span>Direct review by hiring manager</span>
-            </div>
-          </div>
         </form>
 
         <!-- Thank You -->
