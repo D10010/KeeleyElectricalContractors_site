@@ -607,6 +607,9 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .footer__nap-row i { color: #555; width: 16px; text-align: center; }
 .footer__nap-row a { color: #999; }
 .footer__nap-row a:hover { color: var(--accent); }
+.footer__social { display: flex; gap: .75rem; margin-top: 1rem; }
+.footer__social a { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); color: #999; font-size: .95rem; transition: all .2s; }
+.footer__social a:hover { background: var(--accent); border-color: var(--accent); color: var(--white); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(48,174,103,.3); }
 .footer__col { display: flex; flex-direction: column; gap: .5rem; }
 .footer__col-title { font-family: var(--ff-head); font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: .5rem; }
 .footer__col a { color: #999; font-size: .9rem; transition: color .2s; }
