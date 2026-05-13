@@ -485,77 +485,83 @@
     trackActiveSection();
   }
 
-  // ── Attachment Field ──
+  // ── Attachment Field — Drag & Drop with per-file notes ──
   (function() {
-    var fileInput = document.getElementById('f-attachments');
-    var preview = document.getElementById('attachment-preview');
-    if (!fileInput || !preview) return;
+    var dropzone   = document.getElementById('dropzone');
+    var fileInput  = document.getElementById('f-attachments');
+    var listEl     = document.getElementById('attachment-list');
+    if (!dropzone || !fileInput || !listEl) return;
 
     var MAX_FILES = 5;
-    var MAX_SIZE = 10 * 1024 * 1024; // 10 MB
-    var selectedFiles = []; // DataTransfer not available everywhere; track our own list
+    var MAX_SIZE  = 10 * 1024 * 1024; // 10 MB
+    var selectedFiles = []; // { file: File, note: string, objectUrl: string }
 
     function showError(msg) {
-      // Remove any existing error
       clearError();
       var err = document.createElement('div');
       err.className = 'field-error';
       err.textContent = msg;
-      fileInput.parentElement.insertBefore(err, fileInput.nextSibling);
+      dropzone.parentElement.insertBefore(err, dropzone.nextSibling);
       setTimeout(clearError, 5000);
     }
 
     function clearError() {
-      var existing = fileInput.parentElement.querySelector('.field-error');
+      var existing = dropzone.parentElement.querySelector('.field-error');
       if (existing) existing.remove();
     }
 
-    function renderPreviews() {
-      preview.innerHTML = '';
-      selectedFiles.forEach(function(file, idx) {
-        var item = document.createElement('div');
-        item.className = 'attachment-preview__item';
-
-        var thumb = document.createElement('img');
-        thumb.className = 'attachment-preview__thumb';
-        thumb.src = URL.createObjectURL(file);
-        thumb.alt = file.name;
-
-        var removeBtn = document.createElement('button');
-        removeBtn.type = 'button';
-        removeBtn.className = 'attachment-preview__remove';
-        removeBtn.textContent = '\u00D7';
-        removeBtn.setAttribute('aria-label', 'Remove ' + file.name);
-        removeBtn.addEventListener('click', function() {
-          URL.revokeObjectURL(thumb.src);
-          selectedFiles.splice(idx, 1);
-          syncFileInput();
-          renderPreviews();
-          clearError();
-        });
-
-        item.appendChild(thumb);
-        item.appendChild(removeBtn);
-        preview.appendChild(item);
-      });
-    }
-
-    function syncFileInput() {
-      // Rebuild a DataTransfer to update the native file input
-      try {
-        var dt = new DataTransfer();
-        selectedFiles.forEach(function(f) { dt.items.add(f); });
-        fileInput.files = dt.files;
-      } catch (e) {
-        // Fallback: older browsers can't set .files — selectedFiles is the source of truth
+    // ── Drag & drop visual feedback ──
+    var dragCounter = 0;
+    dropzone.addEventListener('dragenter', function(e) {
+      e.preventDefault();
+      dragCounter++;
+      dropzone.classList.add('dropzone--active');
+    });
+    dropzone.addEventListener('dragover', function(e) {
+      e.preventDefault();
+    });
+    dropzone.addEventListener('dragleave', function(e) {
+      e.preventDefault();
+      dragCounter--;
+      if (dragCounter <= 0) {
+        dragCounter = 0;
+        dropzone.classList.remove('dropzone--active');
       }
-    }
+    });
+    dropzone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      dragCounter = 0;
+      dropzone.classList.remove('dropzone--active');
+      var files = e.dataTransfer ? Array.from(e.dataTransfer.files) : [];
+      if (files.length > 0) processIncoming(files);
+    });
 
+    // ── Click/tap on dropzone opens picker ──
+    dropzone.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); }
+    });
+
+    // ── Native file input change ──
     fileInput.addEventListener('change', function() {
-      clearError();
-      var incoming = Array.from(this.files);
+      var files = Array.from(this.files);
+      if (files.length > 0) processIncoming(files);
+      // Reset input so re-selecting the same file triggers change
+      this.value = '';
+    });
 
-      // Validate each file size
+    function processIncoming(incoming) {
+      clearError();
+
+      // Filter images only
+      incoming = incoming.filter(function(f) {
+        return /^image\/(jpeg|png|heic|heif|webp)$/i.test(f.type) || /\.(jpe?g|png|heic|heif|webp)$/i.test(f.name);
+      });
+      if (incoming.length === 0) {
+        showError('Only image files are accepted (JPEG, PNG, WebP, HEIC).');
+        return;
+      }
+
+      // Size check
       var oversized = incoming.filter(function(f) { return f.size > MAX_SIZE; });
       if (oversized.length) {
         showError(oversized.length === 1
@@ -564,17 +570,94 @@
         incoming = incoming.filter(function(f) { return f.size <= MAX_SIZE; });
       }
 
-      // Enforce total count
+      // Count check
       var spaceLeft = MAX_FILES - selectedFiles.length;
       if (incoming.length > spaceLeft) {
         showError('You can attach up to ' + MAX_FILES + ' images total. ' + (incoming.length - spaceLeft) + ' file(s) skipped.');
         incoming = incoming.slice(0, Math.max(0, spaceLeft));
       }
 
-      selectedFiles = selectedFiles.concat(incoming);
+      incoming.forEach(function(file) {
+        selectedFiles.push({ file: file, note: '', objectUrl: URL.createObjectURL(file) });
+      });
+
       syncFileInput();
-      renderPreviews();
-    });
+      renderCards();
+      toggleDropzone();
+    }
+
+    function toggleDropzone() {
+      dropzone.style.display = selectedFiles.length >= MAX_FILES ? 'none' : '';
+    }
+
+    function syncFileInput() {
+      try {
+        var dt = new DataTransfer();
+        selectedFiles.forEach(function(entry) { dt.items.add(entry.file); });
+        fileInput.files = dt.files;
+      } catch (e) { /* older browsers */ }
+    }
+
+    function renderCards() {
+      listEl.innerHTML = '';
+
+      selectedFiles.forEach(function(entry, idx) {
+        var card = document.createElement('div');
+        card.className = 'attachment-card';
+
+        // Thumbnail
+        var thumb = document.createElement('img');
+        thumb.className = 'attachment-card__thumb';
+        thumb.src = entry.objectUrl;
+        thumb.alt = entry.file.name;
+
+        // Body (name + size + note input)
+        var body = document.createElement('div');
+        body.className = 'attachment-card__body';
+
+        var nameEl = document.createElement('div');
+        nameEl.className = 'attachment-card__name';
+        nameEl.textContent = entry.file.name;
+
+        var sizeEl = document.createElement('div');
+        sizeEl.className = 'attachment-card__size';
+        sizeEl.textContent = (entry.file.size / (1024 * 1024)).toFixed(1) + ' MB';
+
+        var noteEl = document.createElement('textarea');
+        noteEl.className = 'attachment-card__note';
+        noteEl.placeholder = 'Add a note\u2026 e.g. "Electrical panel in basement"';
+        noteEl.rows = 1;
+        noteEl.name = 'attachment_note_' + idx;
+        noteEl.value = entry.note;
+        noteEl.addEventListener('input', function() {
+          entry.note = this.value;
+        });
+
+        body.appendChild(nameEl);
+        body.appendChild(sizeEl);
+        body.appendChild(noteEl);
+
+        // Remove button
+        var removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.className = 'attachment-card__remove';
+        removeBtn.innerHTML = '\u00D7';
+        removeBtn.setAttribute('aria-label', 'Remove ' + entry.file.name);
+        removeBtn.addEventListener('click', function() {
+          URL.revokeObjectURL(entry.objectUrl);
+          selectedFiles.splice(idx, 1);
+          syncFileInput();
+          renderCards();
+          toggleDropzone();
+          clearError();
+        });
+
+        card.appendChild(thumb);
+        card.appendChild(body);
+        card.appendChild(removeBtn);
+        listEl.appendChild(card);
+      });
+    }
   })();
 
   // ── Form Submit (multipart/form-data) ──

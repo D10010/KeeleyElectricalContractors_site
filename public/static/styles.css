@@ -375,6 +375,31 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .attachment-preview__item { position: relative; }
 .attachment-preview__remove { position: absolute; top: -4px; right: -4px; width: 18px; height: 18px; border-radius: 50%; background: var(--ink); color: var(--white); border: none; font-size: .65rem; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; }
 
+/* Dropzone */
+.dropzone { position: relative; border: 2px dashed var(--rule); border-radius: var(--radius); padding: 2rem 1.5rem; text-align: center; cursor: pointer; transition: border-color .2s, background .2s; background: var(--surface); }
+.dropzone:hover, .dropzone:focus-visible { border-color: var(--accent-2); background: rgba(6,96,182,.03); }
+.dropzone--active { border-color: var(--accent); background: rgba(48,174,103,.05); border-style: solid; }
+.dropzone__input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.dropzone__content { pointer-events: none; display: flex; flex-direction: column; align-items: center; gap: .4rem; }
+.dropzone__icon { font-size: 2rem; color: var(--ink-3); opacity: .5; margin-bottom: .25rem; }
+.dropzone--active .dropzone__icon { color: var(--accent); opacity: 1; }
+.dropzone__label { font-family: var(--ff-head); font-size: .82rem; font-weight: 600; letter-spacing: .03em; color: var(--ink-2); }
+.dropzone__browse { color: var(--accent-2); text-decoration: underline; text-underline-offset: 2px; }
+.dropzone__hint { font-size: .72rem; color: var(--ink-3); }
+
+/* Attachment List (cards with notes) */
+.attachment-list { display: flex; flex-direction: column; gap: .65rem; margin-top: .75rem; }
+.attachment-card { display: grid; grid-template-columns: 72px 1fr auto; gap: .75rem; align-items: start; padding: .75rem; background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius); animation: slideIn .2s ease; }
+.attachment-card__thumb { width: 72px; height: 72px; border-radius: 4px; object-fit: cover; display: block; background: var(--surface); }
+.attachment-card__body { min-width: 0; display: flex; flex-direction: column; gap: .35rem; }
+.attachment-card__name { font-size: .8rem; font-weight: 600; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.attachment-card__size { font-size: .7rem; color: var(--ink-3); }
+.attachment-card__note { font-family: var(--ff-body); font-size: .8rem; padding: .4rem .6rem; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); color: var(--ink); outline: none; width: 100%; resize: none; min-height: 2.2em; line-height: 1.5; transition: border-color .15s, box-shadow .15s; }
+.attachment-card__note::placeholder { color: #b8b0a8; font-weight: 300; }
+.attachment-card__note:focus { border-color: var(--accent-2); background: var(--white); box-shadow: 0 0 0 3px rgba(6,96,182,.1); }
+.attachment-card__remove { width: 24px; height: 24px; border-radius: 50%; background: transparent; border: 1px solid var(--rule); color: var(--ink-3); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: .7rem; line-height: 1; transition: all .15s; flex-shrink: 0; margin-top: .25rem; }
+.attachment-card__remove:hover { background: var(--emergency); border-color: var(--emergency); color: var(--white); }
+
 /* Field error */
 .field-error { font-size: .78rem; color: #c0392b; margin-top: .35rem; font-weight: 600; }
 
