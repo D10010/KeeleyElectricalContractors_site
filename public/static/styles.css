@@ -116,8 +116,8 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .hero__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,20,20,.72) 0%, rgba(20,20,20,.60) 40%, rgba(20,20,20,.78) 100%); z-index: 0; }
 .hero__content { position: relative; z-index: 1; max-width: var(--max-w); margin: 0 auto; }
 .hero__title { font-family: var(--ff-head); font-size: 3.5rem; font-weight: 800; line-height: 1; color: var(--white); letter-spacing: -0.01em; margin-bottom: 1.25rem; max-width: 700px; }
-.hero__title em { color: var(--accent); font-style: normal; }
-.hero__sub { color: #999; font-size: 1.1rem; max-width: 580px; margin-bottom: 2rem; line-height: 1.6; }
+.hero__title em { color: var(--white); font-style: normal; }
+.hero__sub { color: var(--white); font-size: 1.1rem; max-width: 580px; margin-bottom: 2rem; line-height: 1.6; }
 .hero__btns { display: flex; gap: .75rem; flex-wrap: wrap; }
 .hero__trust { position: relative; z-index: 1; display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #2e2e2e; max-width: var(--max-w); margin-left: auto; margin-right: auto; flex-wrap: wrap; }
 .hero__trust-item { display: flex; flex-direction: column; gap: .25rem; }
@@ -211,7 +211,8 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 
 /* Services Detail */
 .service-detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.service-detail-card { background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius); padding: 2rem; }
+.service-detail-card { background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius); padding: 2rem; display: flex; flex-direction: column; }
+.service-detail-card > .btn { margin-top: auto; }
 .service-detail-card__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
 .service-detail-card__icon { width: 48px; height: 48px; background: rgba(48,174,103,.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
 .service-detail-card__icon i { color: var(--accent); font-size: 1.25rem; }
