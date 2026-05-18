@@ -3,7 +3,8 @@ import { layout } from '../components/layout'
 export function capabilitiesPage(): string {
   const body = `
 <!-- Page Header -->
-<section class="page-header page-header--blue">
+<section class="page-header page-header--blue page-header--has-hero">
+  <img src="/static/capabilities-hero-commercial-solar-rooftop-aerial.jpg" alt="Aerial view of commercial rooftop solar panel installation on large industrial building" class="page-header__hero" width="1024" height="768" loading="eager">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">Capabilities</span>
