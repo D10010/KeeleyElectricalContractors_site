@@ -41,7 +41,7 @@ export function careersPage(): string {
       <div class="two-col__text">
         <span class="eyebrow">Why Keeley?</span>
         <h2 class="h2">A Place to <em>Grow</em></h2>
-        <p>Keeley Electrical Contractors has been a family-owned business since 1978. Now in our third generation, we offer a stable work environment with opportunities for long-term career development. Our crews work on some of the most significant commercial and industrial projects across Maine, New Hampshire, and Massachusetts.</p>
+        <p>Keeley has been a family-owned business since 1978. Now in our third generation, we offer a stable work environment with opportunities for long-term career development. Our crews work on some of the most significant commercial and industrial projects across Maine, New Hampshire, and Massachusetts.</p>
         <p>We value our people. From competitive pay and benefits to a commitment to safety and professional development, Keeley is a place where electricians and construction professionals can build lasting careers.</p>
       </div>
       <div class="two-col__image">
