@@ -86,10 +86,42 @@ ${breadcrumbLd}
     </a>
     <div class="nav__links" id="nav-links">
       <a href="/" class="nav__link">Home</a>
-      <a href="/about" class="nav__link">About</a>
-      <a href="/services" class="nav__link">Services</a>
-      <a href="/capabilities" class="nav__link">Capabilities</a>
-      <a href="/careers" class="nav__link">Careers</a>
+      <div class="nav__dropdown">
+        <a href="/about" class="nav__link">About <svg class="nav__chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5 5 6 7.5 3.5"/></svg></a>
+        <div class="nav__dropdown-menu">
+          <a href="/about#history" class="nav__dropdown-item">Our History</a>
+          <a href="/about#capabilities" class="nav__dropdown-item">Full-Service Capabilities</a>
+          <a href="/about#values" class="nav__dropdown-item">What Drives Us</a>
+          <a href="/about#team" class="nav__dropdown-item">Key Personnel</a>
+        </div>
+      </div>
+      <div class="nav__dropdown">
+        <a href="/services" class="nav__link">Services <svg class="nav__chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5 5 6 7.5 3.5"/></svg></a>
+        <div class="nav__dropdown-menu">
+          <a href="/services/electrical" class="nav__dropdown-item">Electrical</a>
+          <a href="/services/site-work" class="nav__dropdown-item">Site Work</a>
+          <a href="/services/utility" class="nav__dropdown-item">Utility</a>
+        </div>
+      </div>
+      <div class="nav__dropdown">
+        <a href="/capabilities" class="nav__link">Capabilities <svg class="nav__chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5 5 6 7.5 3.5"/></svg></a>
+        <div class="nav__dropdown-menu">
+          <a href="/capabilities#licensing" class="nav__dropdown-item">Licensing</a>
+          <a href="/capabilities#certifications" class="nav__dropdown-item">Certifications</a>
+          <a href="/capabilities#insurance" class="nav__dropdown-item">Insurance &amp; Bonding</a>
+          <a href="/capabilities#capacity" class="nav__dropdown-item">Operational Capacity</a>
+          <a href="/capabilities#territory" class="nav__dropdown-item">Service Territory</a>
+        </div>
+      </div>
+      <div class="nav__dropdown">
+        <a href="/careers" class="nav__link">Careers <svg class="nav__chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5 5 6 7.5 3.5"/></svg></a>
+        <div class="nav__dropdown-menu">
+          <a href="/careers#why-keeley" class="nav__dropdown-item">Why Keeley</a>
+          <a href="/careers#benefits" class="nav__dropdown-item">Benefits</a>
+          <a href="/careers#positions" class="nav__dropdown-item">Open Positions</a>
+          <a href="/careers/apply" class="nav__dropdown-item">Apply Now</a>
+        </div>
+      </div>
       <a href="/contact" class="nav__link">Contact</a>
     </div>
     <div class="nav__right">
@@ -105,10 +137,46 @@ ${breadcrumbLd}
 <div class="mobile-drawer" id="mobile-drawer">
   <div class="mobile-drawer__links">
     <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/services">Services</a>
-    <a href="/capabilities">Capabilities</a>
-    <a href="/careers">Careers</a>
+    <div class="mobile-drawer__group">
+      <button class="mobile-drawer__toggle">About <svg class="mobile-drawer__chevron" width="12" height="12" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5 5 6 7.5 3.5"/></svg></button>
+      <div class="mobile-drawer__sub">
+        <a href="/about">Overview</a>
+        <a href="/about#history">Our History</a>
+        <a href="/about#capabilities">Full-Service Capabilities</a>
+        <a href="/about#values">What Drives Us</a>
+        <a href="/about#team">Key Personnel</a>
+      </div>
+    </div>
+    <div class="mobile-drawer__group">
+      <button class="mobile-drawer__toggle">Services <svg class="mobile-drawer__chevron" width="12" height="12" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5 5 6 7.5 3.5"/></svg></button>
+      <div class="mobile-drawer__sub">
+        <a href="/services">All Services</a>
+        <a href="/services/electrical">Electrical</a>
+        <a href="/services/site-work">Site Work</a>
+        <a href="/services/utility">Utility</a>
+      </div>
+    </div>
+    <div class="mobile-drawer__group">
+      <button class="mobile-drawer__toggle">Capabilities <svg class="mobile-drawer__chevron" width="12" height="12" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5 5 6 7.5 3.5"/></svg></button>
+      <div class="mobile-drawer__sub">
+        <a href="/capabilities">Overview</a>
+        <a href="/capabilities#licensing">Licensing</a>
+        <a href="/capabilities#certifications">Certifications</a>
+        <a href="/capabilities#insurance">Insurance &amp; Bonding</a>
+        <a href="/capabilities#capacity">Operational Capacity</a>
+        <a href="/capabilities#territory">Service Territory</a>
+      </div>
+    </div>
+    <div class="mobile-drawer__group">
+      <button class="mobile-drawer__toggle">Careers <svg class="mobile-drawer__chevron" width="12" height="12" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5 5 6 7.5 3.5"/></svg></button>
+      <div class="mobile-drawer__sub">
+        <a href="/careers">Overview</a>
+        <a href="/careers#why-keeley">Why Keeley</a>
+        <a href="/careers#benefits">Benefits</a>
+        <a href="/careers#positions">Open Positions</a>
+        <a href="/careers/apply">Apply Now</a>
+      </div>
+    </div>
     <a href="/contact">Contact</a>
   </div>
   <a href="${PHONE_HREF}" class="mobile-drawer__phone"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> ${PHONE}</a>

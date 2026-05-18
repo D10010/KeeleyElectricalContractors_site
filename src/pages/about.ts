@@ -15,7 +15,7 @@ export function aboutPage(): string {
 </section>
 
 <!-- Company History -->
-<section class="section">
+<section class="section" id="history">
   <div class="container">
     <div class="two-col">
       <div class="two-col__text">
@@ -36,6 +36,7 @@ export function aboutPage(): string {
 <section class="section section--surface">
   <div class="container">
     <span class="eyebrow">What We Do</span>
+<div id="capabilities"></div>
     <h2 class="h2">Full-Service Capabilities</h2>
     <p style="max-width:640px;margin-bottom:2rem;">Keeley provides three core service categories across the commercial and industrial sector:</p>
     <div class="about-services">
@@ -62,6 +63,7 @@ export function aboutPage(): string {
 <section class="section">
   <div class="container">
     <span class="eyebrow">Our Values</span>
+<div id="values"></div>
     <h2 class="h2">What Drives Us</h2>
     <div class="values-grid">
       <div class="value-card">
@@ -87,6 +89,7 @@ export function aboutPage(): string {
 <section class="section section--surface">
   <div class="container">
     <span class="eyebrow">Leadership</span>
+<div id="team"></div>
     <h2 class="h2">Key Personnel</h2>
     <div class="team-grid">
       <div class="team-card">

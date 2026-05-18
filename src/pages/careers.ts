@@ -35,7 +35,7 @@ export function careersPage(): string {
 </section>
 
 <!-- Why Keeley -->
-<section class="section">
+<section class="section" id="why-keeley">
   <div class="container">
     <div class="two-col">
       <div class="two-col__text">
@@ -52,7 +52,7 @@ export function careersPage(): string {
 </section>
 
 <!-- What We Offer -->
-<section class="section section--surface">
+<section class="section section--surface" id="benefits">
   <div class="container">
     <span class="eyebrow">Benefits</span>
     <h2 class="h2">What We Offer</h2>
@@ -90,7 +90,7 @@ export function careersPage(): string {
 <section class="section">
   <div class="container">
     <span class="eyebrow">Open Positions</span>
-    <h2 class="h2">Current Opportunities</h2>
+    <h2 class="h2" id="positions">Current Opportunities</h2>
     <p style="color:var(--ink-2);margin-bottom:2rem;">We're always accepting applications from qualified professionals. Even if you don't see a specific role listed below, we encourage you to reach out.</p>
     
     <!-- Group 1 — Electrical Trades -->

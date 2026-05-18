@@ -30,6 +30,20 @@
         document.body.style.overflow = '';
       }
     });
+
+    // Mobile drawer accordion toggles
+    drawer.querySelectorAll('.mobile-drawer__toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var group = btn.parentElement;
+        var isOpen = group.classList.contains('open');
+        // Close all other groups
+        drawer.querySelectorAll('.mobile-drawer__group.open').forEach(function(g) {
+          g.classList.remove('open');
+        });
+        // Toggle current
+        if (!isOpen) group.classList.add('open');
+      });
+    });
   }
 
   // ── Active Nav Link ──

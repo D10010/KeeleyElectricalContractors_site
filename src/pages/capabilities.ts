@@ -16,7 +16,7 @@ export function capabilitiesPage(): string {
 </section>
 
 <!-- Licensing Grid -->
-<section class="section">
+<section class="section" id="licensing">
   <div class="container">
     <span class="eyebrow">State Licensing</span>
     <h2 class="h2">Licensed in Three States</h2>
@@ -44,7 +44,7 @@ export function capabilitiesPage(): string {
 </section>
 
 <!-- Certifications -->
-<section class="section section--surface">
+<section class="section section--surface" id="certifications">
   <div class="container">
     <span class="eyebrow">Certifications &amp; Safety</span>
     <h2 class="h2">Certifications</h2>
@@ -72,7 +72,7 @@ export function capabilitiesPage(): string {
 </section>
 
 <!-- Insurance & Bonding -->
-<section class="section">
+<section class="section" id="insurance">
   <div class="container">
     <div class="two-col-cap">
       <div>
@@ -93,7 +93,7 @@ export function capabilitiesPage(): string {
       </div>
       <div>
         <span class="eyebrow">Capacity</span>
-        <h2 class="h2">Operational Capabilities</h2>
+        <h2 class="h2" id="capacity">Operational Capabilities</h2>
         <div class="cap-list">
           <div class="cap-list__item"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><path d="m6.5 22 3.3-8.3"/><path d="m17.5 22-3.3-8.3"/><path d="M9 13.4a13 13 0 0 0 6 0"/></svg> <div><strong>Design-Assist</strong><br>Electrical and civil design-assist from pre-construction through completion.</div></div>
           <div class="cap-list__item"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="6" height="6" rx="1"/><path d="m3 17 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg> <div><strong>Project Management</strong><br>Dedicated project managers for scheduling, coordination, and owner communication.</div></div>
@@ -107,7 +107,7 @@ export function capabilitiesPage(): string {
 </section>
 
 <!-- Service Territory Map -->
-<section class="section section--surface">
+<section class="section section--surface" id="territory">
   <div class="container" style="text-align:center;">
     <span class="eyebrow">Coverage Area</span>
     <h2 class="h2">Service Territory</h2>
