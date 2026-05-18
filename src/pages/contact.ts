@@ -57,19 +57,27 @@ export function contactPage(): string {
               <span class="section-head__title">Type of work<span class="required">*</span></span>
             </div>
 
-            <!-- Project Class Toggle -->
+            <!-- Project Type Selection -->
             <div class="field-group" style="margin-bottom:1.25rem;">
               <div class="field-label">Project type<span class="required">*</span></div>
-              <div class="pill-toggle" id="project-class-toggle">
-                <label class="pill-toggle__option">
-                  <svg class="pill-toggle__check" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div class="project-type-grid" id="project-class-toggle">
+                <label class="project-type-card project-type-card--active">
                   <input type="radio" name="project_class" value="commercial" checked required>
-                  <span class="pill-toggle__label">Commercial</span>
+                  <div class="project-type-card__icon">
+                    <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="1"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="12" y1="6" x2="12" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="12" y1="10" x2="12" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="12" y1="14" x2="12" y2="14.01"/><line x1="15" y1="14" x2="15" y2="14.01"/><rect x="9" y="18" width="6" height="4"/></svg>
+                  </div>
+                  <span class="project-type-card__title">Commercial</span>
+                  <span class="project-type-card__desc">Office, retail, industrial, institutional, multi-family</span>
+                  <span class="project-type-card__check" aria-hidden="true"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
                 </label>
-                <label class="pill-toggle__option">
-                  <svg class="pill-toggle__check" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <label class="project-type-card">
                   <input type="radio" name="project_class" value="residential" required>
-                  <span class="pill-toggle__label">Residential</span>
+                  <div class="project-type-card__icon">
+                    <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 13 15 13 15 21"/></svg>
+                  </div>
+                  <span class="project-type-card__title">Residential</span>
+                  <span class="project-type-card__desc">Single-family homes, renovations, service upgrades</span>
+                  <span class="project-type-card__check" aria-hidden="true"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
                 </label>
               </div>
             </div>
@@ -252,8 +260,8 @@ export function contactPage(): string {
             </div>
             <div class="field-row">
               <div class="field-group">
-                <label class="field-label" for="f-address">Project / service address</label>
-                <input type="text" id="f-address" name="address" placeholder="123 Industrial Dr, Portland, ME">
+                <label class="field-label" for="f-address">Project / service address<span class="required">*</span></label>
+                <input type="text" id="f-address" name="address" placeholder="123 Industrial Dr, Portland, ME" required>
               </div>
               <div class="field-group">
                 <label class="field-label" for="f-state">State<span class="required">*</span></label>
@@ -326,7 +334,22 @@ export function contactPage(): string {
             </div>
             <div class="field-row field-row--full">
               <div class="field-group">
-                <label class="field-label">How did you hear about Keeley?</label>
+                <label class="field-label">Project photos or site images (optional)</label>
+                <p class="field-hint" style="margin-top:0;margin-bottom:.5rem;">Project photos significantly speed up our review process and allow us to provide more accurate initial scoping.</p>
+                <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Drag and drop images or tap to upload">
+                  <input type="file" id="f-attachments" name="attachments" accept="image/jpeg,image/png,image/heic,image/heif,image/webp" multiple class="dropzone__input">
+                  <div class="dropzone__content">
+                    <svg class="dropzone__icon" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    <span class="dropzone__label">Drag &amp; drop images here, or <span class="dropzone__browse">browse</span></span>
+                    <span class="dropzone__hint">Up to 5 images, 10 MB each &middot; JPEG, PNG, WebP, HEIC</span>
+                  </div>
+                </div>
+                <div id="attachment-list" class="attachment-list"></div>
+              </div>
+            </div>
+            <div class="field-row field-row--full">
+              <div class="field-group">
+                <label class="field-label">How did you hear about Keeley?<span class="required">*</span></label>
                 <p class="field-hint" style="margin-top:0;margin-bottom:.5rem;">Select all that apply.</p>
                 <div class="referral-grid">
                   <label class="check-row referral-option"><input type="checkbox" name="referral" value="referral"> Referral from a client or colleague</label>
@@ -339,20 +362,6 @@ export function contactPage(): string {
                   <label class="check-row referral-option"><input type="checkbox" name="referral" value="event"> Industry event or trade organization</label>
                   <label class="check-row referral-option"><input type="checkbox" name="referral" value="other"> Other</label>
                 </div>
-              </div>
-            </div>
-            <div class="field-row field-row--full">
-              <div class="field-group">
-                <label class="field-label">Project photos or site images (optional)</label>
-                <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Drag and drop images or tap to upload">
-                  <input type="file" id="f-attachments" name="attachments" accept="image/jpeg,image/png,image/heic,image/heif,image/webp" multiple class="dropzone__input">
-                  <div class="dropzone__content">
-                    <svg class="dropzone__icon" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                    <span class="dropzone__label">Drag &amp; drop images here, or <span class="dropzone__browse">browse</span></span>
-                    <span class="dropzone__hint">Up to 5 images, 10 MB each &middot; JPEG, PNG, WebP, HEIC</span>
-                  </div>
-                </div>
-                <div id="attachment-list" class="attachment-list"></div>
               </div>
             </div>
             <div class="field-row field-row--full" id="referral-detail-wrap" style="display:none;">

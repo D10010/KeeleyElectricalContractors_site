@@ -207,6 +207,15 @@
   var thankYou = document.getElementById('thank-you');
   var btnSubmit = document.getElementById('btn-submit');
 
+  // ── Project Type Card Selection ──
+  var projectTypeCards = form.querySelectorAll('.project-type-card');
+  projectTypeCards.forEach(function(card) {
+    card.addEventListener('click', function() {
+      projectTypeCards.forEach(function(c) { c.classList.remove('project-type-card--active'); });
+      card.classList.add('project-type-card--active');
+    });
+  });
+
   // ── Service Card Selection (multi-select) ──
   var serviceCards = document.querySelectorAll('#service-grid .service-card');
   var hiddenServiceType = document.getElementById('h-service-type');
