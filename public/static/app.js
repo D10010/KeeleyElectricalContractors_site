@@ -1081,6 +1081,25 @@
   form.addEventListener('submit', function(e) {
     e.preventDefault();
 
+    // Resume required validation
+    var resumeInput = form.querySelector('[name="resume"]');
+    if (!resumeInput || !resumeInput.files || resumeInput.files.length === 0) {
+      var dropzone = document.getElementById('resume-dropzone');
+      if (dropzone) {
+        dropzone.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        dropzone.classList.add('dropzone--error');
+        setTimeout(function() { dropzone.classList.remove('dropzone--error'); }, 3000);
+      }
+      var errEl = document.createElement('div');
+      errEl.className = 'field-error';
+      errEl.textContent = 'Please upload your resume to continue.';
+      var existingErr = dropzone && dropzone.parentElement.querySelector('.field-error');
+      if (existingErr) existingErr.remove();
+      if (dropzone) dropzone.parentElement.appendChild(errEl);
+      setTimeout(function() { if (errEl.parentElement) errEl.remove(); }, 5000);
+      return;
+    }
+
     var formData = new FormData(form);
 
     if (btnSubmit) {

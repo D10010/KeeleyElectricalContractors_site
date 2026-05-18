@@ -230,7 +230,7 @@ export function applyPage(): string {
             </div>
 
             <div class="field-group">
-              <label class="field-label">Resume &amp; Cover Letter (optional)</label>
+              <label class="field-label">Resume &amp; Cover Letter<span class="required">*</span></label>
               <p class="field-hint" style="margin-top:0;margin-bottom:.5rem;">Upload your resume. A cover letter is optional but welcome.</p>
               <div class="dropzone" id="resume-dropzone" role="button" tabindex="0" aria-label="Drag and drop files or tap to upload">
                 <input type="file" id="f-resume" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" multiple class="dropzone__input">
