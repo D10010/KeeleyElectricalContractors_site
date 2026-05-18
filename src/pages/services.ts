@@ -3,7 +3,8 @@ import { layout } from '../components/layout'
 export function servicesPage(): string {
   const body = `
 <!-- Page Header -->
-<section class="page-header page-header--blue">
+<section class="page-header page-header--blue page-header--has-hero">
+  <img src="/static/services-hero-electrical-sitework-utility-contractor.jpg" alt="Commercial electrical panel, excavation site work, and utility lineman representing full-scope contractor services" class="page-header__hero" width="1400" height="600" loading="eager">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">Services</span>
