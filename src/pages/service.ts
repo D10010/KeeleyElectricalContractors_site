@@ -20,6 +20,7 @@ const services: Record<string, ServiceData> = {
     h1: 'Commercial & Industrial Electrical Services',
     title: 'Electrical Services | Keeley Electrical Contractors',
     metaDesc: 'Full-service commercial and industrial electrical contractor in Maine. Design-build, generators, fire alarm, medium voltage, service upgrades. Licensed ME, NH, MA.',
+    heroImage: { src: '/static/capabilities-hero-commercial-electrical-room-conduit.jpg', alt: 'Commercial electrical room with conduit runs, switchgear panels, and industrial wiring installation' },
     intro: [
       'Keeley delivers comprehensive electrical services for commercial and industrial projects throughout Maine, New Hampshire, and Massachusetts. From new construction to complex renovations, our licensed electricians bring decades of experience to every job.',
       'We self-perform the majority of our electrical work, giving us direct control over quality, safety, and schedule. Whether you need a full design-build or support on a specific scope, our team is equipped to handle projects of any scale.',
