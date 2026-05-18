@@ -335,7 +335,7 @@ export function contactPage(): string {
             <div class="field-row field-row--full">
               <div class="field-group">
                 <label class="field-label">Project photos, site images, or documents (optional)</label>
-                <p class="field-hint" style="margin-top:0;margin-bottom:.5rem;">Project photos significantly speed up our review process and allow us to provide more accurate initial scoping.</p>
+                <p class="field-hint" style="margin-top:0;margin-bottom:.5rem;">Project photos significantly speed up our review process and allow us to provide more accurate initial scoping. They also reduce the cost of having to send personnel to the job site before we can prepare an estimate.</p>
                 <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Drag and drop files or tap to upload">
                   <input type="file" id="f-attachments" name="attachments" accept="image/jpeg,image/png,image/heic,image/heif,image/webp,application/pdf" multiple class="dropzone__input">
                   <div class="dropzone__content">
