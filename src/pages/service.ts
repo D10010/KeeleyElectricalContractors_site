@@ -17,29 +17,31 @@ const services: Record<string, ServiceData> = {
   electrical: {
     name: 'Electrical',
     icon: 'bolt',
-    h1: 'Commercial & Industrial Electrical Services',
+    h1: 'Commercial & Residential Electrical Services',
     title: 'Electrical Services | Keeley Electrical Contractors',
-    metaDesc: 'Full-service commercial and industrial electrical contractor in Maine. Design-build, generators, fire alarm, medium voltage, service upgrades. Licensed ME, NH, MA.',
+    metaDesc: 'Full-service commercial, residential, and industrial electrical contractor in Maine. Design-build, generators, fire alarm, service upgrades. Licensed ME, NH, MA.',
     heroImage: { src: '/static/capabilities-hero-commercial-electrical-room-conduit.jpg', alt: 'Commercial electrical room with conduit runs, switchgear panels, and industrial wiring installation' },
     intro: [
-      'Keeley delivers comprehensive electrical services for commercial and industrial projects throughout Maine, New Hampshire, and Massachusetts. From new construction to complex renovations, our licensed electricians bring decades of experience to every job.',
-      'We self-perform the majority of our electrical work, giving us direct control over quality, safety, and schedule. Whether you need a full design-build or support on a specific scope, our team is equipped to handle projects of any scale.',
+      'Keeley delivers comprehensive electrical services for commercial, residential, and industrial projects throughout Maine, New Hampshire, and Massachusetts. From new construction to complex renovations, our licensed electricians bring decades of experience to every job.',
+      'We self-perform the majority of our electrical work, giving us direct control over quality, safety, and schedule. Whether it\u2019s a commercial build-out, a residential service upgrade, or an industrial installation, our team is equipped to handle projects of any scale.',
       'Our design-assist capability means we can join your project during the design phase, working alongside architects and engineers to optimize the electrical scope for constructability and cost efficiency.'
     ],
     scopeItems: [
       'Commercial &amp; Industrial New Construction',
+      'Residential New Construction &amp; Remodels',
       'Renovation &amp; Tenant Fit-Outs',
       'Design-Build &amp; Design-Assist',
       'Generators &amp; Emergency Power Systems',
       'Fire Alarm System Installation',
-      'Medium Voltage Distribution',
       'Service Upgrades &amp; Panel Replacements',
       'Lighting Design &amp; Installation',
       'Power Distribution Systems',
+      'EV Charger Installation',
       'Data &amp; Low Voltage Cabling'
     ],
     whoWeWorkWith: [
       'General Contractors',
+      'Homeowners &amp; Homebuilders',
       'Property &amp; Facility Managers',
       'Building Owners &amp; Developers',
       'Architects &amp; Engineers'
@@ -47,6 +49,8 @@ const services: Record<string, ServiceData> = {
     projectTypes: [
       'Office buildings &amp; corporate campuses',
       'Retail spaces &amp; shopping centers',
+      'Custom homes &amp; residential renovations',
+      'Multi-family &amp; apartment complexes',
       'Healthcare &amp; medical facilities',
       'Educational institutions',
       'Municipal &amp; government buildings',
