@@ -22,7 +22,8 @@ export function careersPage(): string {
 
   const body = `
 <!-- Page Header -->
-<section class="page-header page-header--blue">
+<section class="page-header page-header--blue page-header--has-hero">
+  <img src="/static/careers-hero-solar-panel-electrician-aerial.jpg" alt="Electrician inspecting commercial solar panel array from aerial view" class="page-header__hero" width="1024" height="576" loading="eager">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">Careers</span>
