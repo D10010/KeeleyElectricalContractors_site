@@ -96,6 +96,7 @@ const services: Record<string, ServiceData> = {
     h1: 'Utility Line Work & Coordination Services',
     title: 'Utility Services | Keeley Electrical Contractors',
     metaDesc: 'Private utility line extensions, energized line work, and utility coordination for CMP and Eversource. CIAC process guidance. Maine, New Hampshire, Massachusetts.',
+    heroImage: { src: '/static/utility-hero-lineman-power-pole-maintenance.jpg', alt: 'Utility lineman performing power pole maintenance and transformer work from a bucket truck' },
     intro: [
       'Keeley specializes in private utility line work, providing aerial and underground primary line extensions for commercial and industrial clients throughout New England.',
       'Our utility division manages the full scope of private utility infrastructure, from initial coordination with CMP, Eversource, and Portland Water District through final energization. We guide clients through the CIAC (Contribution in Aid of Construction) process, helping navigate the requirements and timelines involved in utility extensions.',
