@@ -833,115 +833,170 @@
     });
   }
 
-  // ── Resume file input ──
+  // ── Resume Drag & Drop Upload ──
   (function() {
-    var fileInput = document.getElementById('f-resume');
-    var preview   = document.getElementById('resume-preview');
-    if (!fileInput || !preview) return;
+    var dropzone   = document.getElementById('resume-dropzone');
+    var fileInput  = document.getElementById('f-resume');
+    var listEl     = document.getElementById('resume-list');
+    if (!dropzone || !fileInput || !listEl) return;
 
-    var MAX_SIZE = 10 * 1024 * 1024;
-    var ALLOWED_EXT = /\.(pdf|doc|docx)$/i;
-    var selectedFile = null;
+    var MAX_FILES = 2;
+    var MAX_SIZE  = 10 * 1024 * 1024; // 10 MB
+    var selectedFiles = [];
+    var dragCounter = 0;
 
     function showError(msg) {
       clearError();
       var err = document.createElement('div');
       err.className = 'field-error';
       err.textContent = msg;
-      fileInput.parentElement.insertBefore(err, fileInput.nextSibling);
+      dropzone.parentElement.appendChild(err);
       setTimeout(clearError, 5000);
     }
 
     function clearError() {
-      var existing = fileInput.parentElement.querySelector('.field-error');
+      var existing = dropzone.parentElement.querySelector('.field-error');
       if (existing) existing.remove();
     }
 
-    function renderPreview() {
-      preview.innerHTML = '';
-      if (!selectedFile) return;
-      var item = document.createElement('div');
-      item.className = 'attachment-preview__item';
-      item.style.display = 'flex';
-      item.style.alignItems = 'center';
-      item.style.gap = '.5rem';
-      item.style.padding = '.5rem .75rem';
-      item.style.background = 'var(--surface)';
-      item.style.borderRadius = '6px';
-      item.style.border = '1px solid var(--rule)';
+    // ── Drag events ──
+    dropzone.addEventListener('dragenter', function(e) {
+      e.preventDefault(); e.stopPropagation();
+      dragCounter++;
+      dropzone.classList.add('dropzone--active');
+    });
+    dropzone.addEventListener('dragover', function(e) {
+      e.preventDefault(); e.stopPropagation();
+    });
+    dropzone.addEventListener('dragleave', function(e) {
+      e.preventDefault(); e.stopPropagation();
+      dragCounter--;
+      if (dragCounter <= 0) { dragCounter = 0; dropzone.classList.remove('dropzone--active'); }
+    });
+    dropzone.addEventListener('drop', function(e) {
+      e.preventDefault(); e.stopPropagation();
+      dragCounter = 0;
+      dropzone.classList.remove('dropzone--active');
+      var files = Array.from(e.dataTransfer.files);
+      if (files.length > 0) processIncoming(files);
+    });
 
-      var icon = document.createElement('span');
-      icon.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>';
-      icon.style.flexShrink = '0';
+    // ── Click and keyboard to open picker ──
+    dropzone.addEventListener('click', function(e) {
+      if (e.target === fileInput) return;
+      fileInput.click();
+    });
+    dropzone.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); }
+    });
 
-      var name = document.createElement('span');
-      name.textContent = selectedFile.name;
-      name.style.fontSize = '.82rem';
-      name.style.fontWeight = '500';
-      name.style.overflow = 'hidden';
-      name.style.textOverflow = 'ellipsis';
-      name.style.whiteSpace = 'nowrap';
+    // ── Native file input change ──
+    fileInput.addEventListener('change', function() {
+      var files = Array.from(this.files);
+      if (files.length > 0) processIncoming(files);
+      this.value = '';
+    });
 
-      var size = document.createElement('span');
-      size.textContent = (selectedFile.size / (1024 * 1024)).toFixed(1) + ' MB';
-      size.style.fontSize = '.72rem';
-      size.style.color = 'var(--ink-3)';
-      size.style.flexShrink = '0';
+    function processIncoming(incoming) {
+      clearError();
 
-      var removeBtn = document.createElement('button');
-      removeBtn.type = 'button';
-      removeBtn.className = 'attachment-preview__remove';
-      removeBtn.style.position = 'static';
-      removeBtn.style.marginLeft = 'auto';
-      removeBtn.textContent = '\u00D7';
-      removeBtn.setAttribute('aria-label', 'Remove ' + selectedFile.name);
-      removeBtn.addEventListener('click', function() {
-        selectedFile = null;
-        preview.innerHTML = '';
-        try {
-          var dt = new DataTransfer();
-          fileInput.files = dt.files;
-        } catch (e) { fileInput.value = ''; }
-        clearError();
-        updateProgress();
+      // Filter accepted file types (PDF, DOC, DOCX)
+      incoming = incoming.filter(function(f) {
+        return /^application\/(pdf|msword|vnd\.openxmlformats-officedocument\.wordprocessingml\.document)$/i.test(f.type)
+          || /\.(pdf|doc|docx)$/i.test(f.name);
+      });
+      if (incoming.length === 0) {
+        showError('Accepted formats: PDF, DOC, DOCX.');
+        return;
+      }
+
+      // Size check
+      var oversized = incoming.filter(function(f) { return f.size > MAX_SIZE; });
+      if (oversized.length) {
+        showError(oversized.length === 1
+          ? '"' + oversized[0].name + '" exceeds the 10 MB limit.'
+          : oversized.length + ' files exceed the 10 MB limit.');
+        incoming = incoming.filter(function(f) { return f.size <= MAX_SIZE; });
+      }
+
+      // Count check
+      var spaceLeft = MAX_FILES - selectedFiles.length;
+      if (incoming.length > spaceLeft) {
+        showError('You can attach up to ' + MAX_FILES + ' files total. ' + (incoming.length - spaceLeft) + ' file(s) skipped.');
+        incoming = incoming.slice(0, Math.max(0, spaceLeft));
+      }
+
+      incoming.forEach(function(file) {
+        selectedFiles.push({ file: file });
       });
 
-      item.appendChild(icon);
-      item.appendChild(name);
-      item.appendChild(size);
-      item.appendChild(removeBtn);
-      preview.appendChild(item);
+      syncFileInput();
+      renderCards();
+      toggleDropzone();
+      updateProgress();
     }
 
-    fileInput.addEventListener('change', function() {
-      clearError();
-      var files = Array.from(this.files);
-      if (files.length === 0) return;
+    function toggleDropzone() {
+      dropzone.style.display = selectedFiles.length >= MAX_FILES ? 'none' : '';
+    }
 
-      var file = files[0];
-
-      if (!ALLOWED_EXT.test(file.name)) {
-        showError('Please upload a PDF or Word document (.pdf, .doc, .docx).');
-        try { var dt = new DataTransfer(); fileInput.files = dt.files; } catch (e) { fileInput.value = ''; }
-        return;
-      }
-
-      if (file.size > MAX_SIZE) {
-        showError('"' + file.name + '" exceeds the 10 MB limit.');
-        try { var dt = new DataTransfer(); fileInput.files = dt.files; } catch (e) { fileInput.value = ''; }
-        return;
-      }
-
-      selectedFile = file;
+    function syncFileInput() {
       try {
         var dt = new DataTransfer();
-        dt.items.add(file);
+        selectedFiles.forEach(function(entry) { dt.items.add(entry.file); });
         fileInput.files = dt.files;
-      } catch (e) { /* native input already has it */ }
+      } catch (e) { /* older browsers */ }
+    }
 
-      renderPreview();
-      updateProgress();
-    });
+    function renderCards() {
+      listEl.innerHTML = '';
+
+      selectedFiles.forEach(function(entry, idx) {
+        var card = document.createElement('div');
+        card.className = 'attachment-card';
+
+        // Thumbnail (document icon for all resume files)
+        var thumb = document.createElement('div');
+        thumb.className = 'attachment-card__thumb attachment-card__thumb--pdf';
+        var ext = entry.file.name.split('.').pop().toUpperCase();
+        thumb.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="18" x2="13" y2="18"/></svg><span>' + ext + '</span>';
+
+        // Body (name + size)
+        var body = document.createElement('div');
+        body.className = 'attachment-card__body';
+
+        var nameEl = document.createElement('div');
+        nameEl.className = 'attachment-card__name';
+        nameEl.textContent = entry.file.name;
+
+        var sizeEl = document.createElement('div');
+        sizeEl.className = 'attachment-card__size';
+        sizeEl.textContent = (entry.file.size / (1024 * 1024)).toFixed(1) + ' MB';
+
+        body.appendChild(nameEl);
+        body.appendChild(sizeEl);
+
+        // Remove button
+        var removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.className = 'attachment-card__remove';
+        removeBtn.innerHTML = '\u00D7';
+        removeBtn.setAttribute('aria-label', 'Remove ' + entry.file.name);
+        removeBtn.addEventListener('click', function() {
+          selectedFiles.splice(idx, 1);
+          syncFileInput();
+          renderCards();
+          toggleDropzone();
+          clearError();
+          updateProgress();
+        });
+
+        card.appendChild(thumb);
+        card.appendChild(body);
+        card.appendChild(removeBtn);
+        listEl.appendChild(card);
+      });
+    }
   })();
 
   // ── Progress Bar ──

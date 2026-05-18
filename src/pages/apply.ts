@@ -230,11 +230,17 @@ export function applyPage(): string {
             </div>
 
             <div class="field-group">
-              <label class="field-label" for="f-resume">Resume &amp; Cover Letter (optional)</label>
-              <input type="file" id="f-resume" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" multiple>
-              <span class="field-hint">Upload your resume. A cover letter is optional but welcome. Max 2 files.</span>
-              <p class="field-hint">PDF or Word document, 10 MB max.</p>
-              <div id="resume-preview" class="attachment-preview"></div>
+              <label class="field-label">Resume &amp; Cover Letter (optional)</label>
+              <p class="field-hint" style="margin-top:0;margin-bottom:.5rem;">Upload your resume. A cover letter is optional but welcome.</p>
+              <div class="dropzone" id="resume-dropzone" role="button" tabindex="0" aria-label="Drag and drop files or tap to upload">
+                <input type="file" id="f-resume" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" multiple class="dropzone__input">
+                <div class="dropzone__content">
+                  <svg class="dropzone__icon" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  <span class="dropzone__label">Drag &amp; drop files here, or <span class="dropzone__browse">browse</span></span>
+                  <span class="dropzone__hint">Up to 2 files, 10 MB each &middot; PDF, DOC, DOCX</span>
+                </div>
+              </div>
+              <div id="resume-list" class="attachment-list"></div>
             </div>
 
             <div class="field-group" style="margin-top:1.25rem;">
