@@ -45,7 +45,7 @@ export function careersPage(): string {
         <p>We value our people. From competitive pay and benefits to a commitment to safety and professional development, Keeley is a place where electricians and construction professionals can build lasting careers.</p>
       </div>
       <div class="two-col__image">
-        <div class="image-placeholder image-placeholder--lg"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Team Working Together</span></div>
+        <img src="/static/commercial-rooftop-solar-installation-electrician.jpg" alt="Electrician walking through commercial rooftop solar panel installation" width="1024" height="683" loading="lazy" style="width:100%;height:auto;border-radius:var(--radius);display:block;">
       </div>
     </div>
   </div>
