@@ -341,7 +341,7 @@ export function contactPage(): string {
                   <div class="dropzone__content">
                     <svg class="dropzone__icon" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
                     <span class="dropzone__label">Drag &amp; drop images here, or <span class="dropzone__browse">browse</span></span>
-                    <span class="dropzone__hint">Up to 5 images, 10 MB each &middot; JPEG, PNG, WebP, HEIC</span>
+                    <span class="dropzone__hint">Up to 10 images, 25 MB each &middot; JPEG, PNG, WebP, HEIC</span>
                   </div>
                 </div>
                 <div id="attachment-list" class="attachment-list"></div>

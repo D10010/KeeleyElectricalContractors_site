@@ -501,8 +501,8 @@
     var listEl     = document.getElementById('attachment-list');
     if (!dropzone || !fileInput || !listEl) return;
 
-    var MAX_FILES = 5;
-    var MAX_SIZE  = 10 * 1024 * 1024; // 10 MB
+    var MAX_FILES = 10;
+    var MAX_SIZE  = 25 * 1024 * 1024; // 25 MB
     var selectedFiles = []; // { file: File, note: string, objectUrl: string }
 
     function showError(msg) {
@@ -574,8 +574,8 @@
       var oversized = incoming.filter(function(f) { return f.size > MAX_SIZE; });
       if (oversized.length) {
         showError(oversized.length === 1
-          ? '"' + oversized[0].name + '" exceeds the 10 MB limit.'
-          : oversized.length + ' files exceed the 10 MB limit.');
+          ? '"' + oversized[0].name + '" exceeds the 25 MB limit.'
+          : oversized.length + ' files exceed the 25 MB limit.');
         incoming = incoming.filter(function(f) { return f.size <= MAX_SIZE; });
       }
 
