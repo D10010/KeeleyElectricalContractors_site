@@ -98,6 +98,7 @@ ${breadcrumbLd}
       <div class="nav__dropdown">
         <a href="/services" class="nav__link">Services <svg class="nav__chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5 5 6 7.5 3.5"/></svg></a>
         <div class="nav__dropdown-menu">
+          <a href="/services" class="nav__dropdown-item">What We Build</a>
           <a href="/services/electrical" class="nav__dropdown-item">Electrical</a>
           <a href="/services/site-work" class="nav__dropdown-item">Site Work</a>
           <a href="/services/utility" class="nav__dropdown-item">Utility</a>
@@ -150,7 +151,7 @@ ${breadcrumbLd}
     <div class="mobile-drawer__group">
       <button class="mobile-drawer__toggle">Services <svg class="mobile-drawer__chevron" width="12" height="12" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5 5 6 7.5 3.5"/></svg></button>
       <div class="mobile-drawer__sub">
-        <a href="/services">All Services</a>
+        <a href="/services">What We Build</a>
         <a href="/services/electrical">Electrical</a>
         <a href="/services/site-work">Site Work</a>
         <a href="/services/utility">Utility</a>
