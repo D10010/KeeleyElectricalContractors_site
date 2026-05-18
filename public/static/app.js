@@ -561,12 +561,14 @@
     function processIncoming(incoming) {
       clearError();
 
-      // Filter images only
+      // Filter accepted file types (images + PDF)
       incoming = incoming.filter(function(f) {
-        return /^image\/(jpeg|png|heic|heif|webp)$/i.test(f.type) || /\.(jpe?g|png|heic|heif|webp)$/i.test(f.name);
+        return /^image\/(jpeg|png|heic|heif|webp)$/i.test(f.type)
+          || /^application\/pdf$/i.test(f.type)
+          || /\.(jpe?g|png|heic|heif|webp|pdf)$/i.test(f.name);
       });
       if (incoming.length === 0) {
-        showError('Only image files are accepted (JPEG, PNG, WebP, HEIC).');
+        showError('Accepted formats: JPEG, PNG, WebP, HEIC, PDF.');
         return;
       }
 
@@ -582,12 +584,13 @@
       // Count check
       var spaceLeft = MAX_FILES - selectedFiles.length;
       if (incoming.length > spaceLeft) {
-        showError('You can attach up to ' + MAX_FILES + ' images total. ' + (incoming.length - spaceLeft) + ' file(s) skipped.');
+        showError('You can attach up to ' + MAX_FILES + ' files total. ' + (incoming.length - spaceLeft) + ' file(s) skipped.');
         incoming = incoming.slice(0, Math.max(0, spaceLeft));
       }
 
       incoming.forEach(function(file) {
-        selectedFiles.push({ file: file, note: '', objectUrl: URL.createObjectURL(file) });
+        var isPdf = /^application\/pdf$/i.test(file.type) || /\.pdf$/i.test(file.name);
+        selectedFiles.push({ file: file, note: '', objectUrl: isPdf ? null : URL.createObjectURL(file), isPdf: isPdf });
       });
 
       syncFileInput();
@@ -615,10 +618,17 @@
         card.className = 'attachment-card';
 
         // Thumbnail
-        var thumb = document.createElement('img');
-        thumb.className = 'attachment-card__thumb';
-        thumb.src = entry.objectUrl;
-        thumb.alt = entry.file.name;
+        var thumb;
+        if (entry.isPdf) {
+          thumb = document.createElement('div');
+          thumb.className = 'attachment-card__thumb attachment-card__thumb--pdf';
+          thumb.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="18" x2="13" y2="18"/></svg><span>PDF</span>';
+        } else {
+          thumb = document.createElement('img');
+          thumb.className = 'attachment-card__thumb';
+          thumb.src = entry.objectUrl;
+          thumb.alt = entry.file.name;
+        }
 
         // Body (name + size + note input)
         var body = document.createElement('div');
@@ -653,7 +663,7 @@
         removeBtn.innerHTML = '\u00D7';
         removeBtn.setAttribute('aria-label', 'Remove ' + entry.file.name);
         removeBtn.addEventListener('click', function() {
-          URL.revokeObjectURL(entry.objectUrl);
+          if (entry.objectUrl) URL.revokeObjectURL(entry.objectUrl);
           selectedFiles.splice(idx, 1);
           syncFileInput();
           renderCards();

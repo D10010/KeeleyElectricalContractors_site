@@ -403,6 +403,7 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .attachment-list { display: flex; flex-direction: column; gap: .65rem; margin-top: .75rem; }
 .attachment-card { display: grid; grid-template-columns: 72px 1fr auto; gap: .75rem; align-items: start; padding: .75rem; background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius); animation: slideIn .2s ease; }
 .attachment-card__thumb { width: 72px; height: 72px; border-radius: 4px; object-fit: cover; display: block; background: var(--surface); }
+.attachment-card__thumb--pdf { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .25rem; color: var(--accent-2); font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; object-fit: unset; }
 .attachment-card__body { min-width: 0; display: flex; flex-direction: column; gap: .35rem; }
 .attachment-card__name { font-size: .8rem; font-weight: 600; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .attachment-card__size { font-size: .7rem; color: var(--ink-3); }
