@@ -29,7 +29,7 @@ export function contactPage(): string {
     </nav>
     <span class="eyebrow eyebrow--light">Project Inquiry</span>
     <h1 class="page-header__title">Start a Conversation.</h1>
-    <p class="page-header__desc">Tell us what you're working on. We'll route your inquiry to the right person and follow up within one business day.</p>
+    <p class="page-header__desc">Tell us what you're working on. We'll route your inquiry to the right person and follow up within three business days.</p>
   </div>
 </section>
 
@@ -277,19 +277,19 @@ export function contactPage(): string {
                 </select>
               </div>
               <div class="field-group">
-                <label class="field-label" for="f-gc">General contractor already involved?</label>
-                <select id="f-gc" name="gc_involved">
+                <label class="field-label" for="f-gc">General contractor already involved?<span class="required">*</span></label>
+                <select id="f-gc" name="gc_involved" required>
                   <option value="">Select</option>
-                  <option value="yes">Yes</option>
-                  <option value="no">No &mdash; Keeley would be prime</option>
-                  <option value="tbd">TBD</option>
+                  <option value="yes">Yes &mdash; a GC is involved</option>
+                  <option value="no">No &mdash; I am the project owner / facility manager</option>
+                  <option value="tbd">Not yet determined</option>
                 </select>
               </div>
             </div>
             <div class="field-row">
               <div class="field-group">
-                <label class="field-label" for="f-contract">Preferred contract type</label>
-                <select id="f-contract" name="contract_type">
+                <label class="field-label" for="f-contract">Preferred contract type<span class="required">*</span></label>
+                <select id="f-contract" name="contract_type" required>
                   <option value="">Select</option>
                   <option value="fixed">Fixed price</option>
                   <option value="tm">Time and materials (T&amp;M)</option>
@@ -307,22 +307,21 @@ export function contactPage(): string {
             </div>
             <div class="field-row field-row--full">
               <div class="field-group">
-                <label class="field-label" for="f-description">Project description</label>
-                <textarea id="f-description" name="description" rows="5" placeholder="Scope, location, timeline, and any context that helps us understand the project..."></textarea>
-                <p class="field-hint">The more context you share, the faster we can respond with something useful.</p>
+                <label class="field-label" for="f-description">Project description<span class="required">*</span></label>
+                <textarea id="f-description" name="description" rows="5" placeholder="Scope, location, timeline, and any context that helps us understand the project..." required minlength="50"></textarea>
+                <p class="field-hint">Briefly describe the scope of work, location, and timeline if known.</p>
               </div>
             </div>
             <div class="field-row field-row--full">
               <div class="field-group">
-                <label class="field-label" for="f-financing">Financing status</label>
-                <select id="f-financing" name="financing">
+                <label class="field-label" for="f-financing">Financing status<span class="required">*</span></label>
+                <select id="f-financing" name="financing" required>
                   <option value="">Select</option>
                   <option value="secured">Financing secured &mdash; ready to proceed</option>
                   <option value="inprogress">Financing in progress</option>
                   <option value="budgeting">Still in budgeting or estimating phase</option>
                   <option value="na">Not applicable</option>
                 </select>
-                <p class="field-hint">Optional &mdash; helps us scope our response appropriately.</p>
               </div>
             </div>
             <div class="field-row field-row--full">
@@ -369,14 +368,14 @@ export function contactPage(): string {
           <button type="submit" class="btn btn--primary btn--lg form-submit-btn" id="btn-submit">
             Submit Project Inquiry <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </button>
-          <p class="form-disclaimer">We review every submission. No inquiry is automatically declined.<br>Response within one business day &mdash; often same day.</p>
+          <p class="form-disclaimer">We review every submission. No inquiry is automatically declined.<br>Response within three business days.</p>
         </form>
 
         <!-- Thank You -->
         <div id="thank-you" class="thank-you" style="display:none;">
           <div class="thank-you__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></div>
           <h2 class="h2">Inquiry Received.</h2>
-          <p>Your project inquiry has been submitted. We review every submission personally and will follow up within one business day &mdash; often same day.</p>
+          <p>Your project inquiry has been submitted. We review every submission personally and will follow up within three business days.</p>
           <div class="thank-you__steps">
             <div class="thank-you__step">
               <span class="thank-you__step-num">1</span>
@@ -389,7 +388,7 @@ export function contactPage(): string {
               <span class="thank-you__step-num">2</span>
               <div>
                 <strong>Follow-up</strong>
-                <p>We'll reach out directly &mdash; typically within one business day &mdash; to discuss your project and next steps.</p>
+                <p>We'll reach out directly &mdash; typically within three business days &mdash; to discuss your project and next steps.</p>
               </div>
             </div>
             <div class="thank-you__step">
@@ -425,7 +424,7 @@ export function contactPage(): string {
             <div class="trust-item">
               <div class="trust-icon-wrap"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
               <div>
-                <span class="trust-label">One business day response</span>
+                <span class="trust-label">Response within three business days</span>
                 <span class="trust-detail">Every submission is reviewed &mdash; no inquiry automatically declined</span>
               </div>
             </div>
@@ -491,7 +490,7 @@ export function contactPage(): string {
 `
   return layout({
     title: 'Start a Project | Keeley Electrical Contractors',
-    description: 'Start your commercial or industrial electrical project. Contact Keeley Electrical Contractors in Portland, Maine. Licensed in ME, NH, MA. One business day response.',
+    description: 'Start your commercial or industrial electrical project. Contact Keeley Electrical Contractors in Portland, Maine. Licensed in ME, NH, MA. Response within three business days.',
     canonical: 'https://keeleyelectric.com/contact',
     jsonLd: jsonLd,
     breadcrumbs: [

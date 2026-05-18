@@ -9,7 +9,7 @@ export function aboutPage(): string {
       <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">About</span>
     </nav>
     <span class="eyebrow eyebrow--light">Since 1978</span>
-    <h1 class="page-header__title">About Keeley Electrical Contractors</h1>
+    <h1 class="page-header__title">About Keeley</h1>
     <p class="page-header__desc">Family-owned. Third generation. Maine-based. Trusted by commercial and industrial clients across New England for over 45 years.</p>
   </div>
 </section>
@@ -65,19 +65,19 @@ export function aboutPage(): string {
     <h2 class="h2">What Drives Us</h2>
     <div class="values-grid">
       <div class="value-card">
-        <div class="value-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 4.37 10.08"/><path d="M5.63 16.08A6 6 0 0 1 10 6"/><path d="M2 20h20"/><path d="M4 16h16"/></svg></div>
-        <h3>Safety First</h3>
-        <p>Zero OSHA recordable incidents for three consecutive years. ISN certified. Safety isn't a policy — it's how we work.</p>
+        <div class="value-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <h3>Meticulous Quality</h3>
+        <p>We don't pass inspections — we exceed them. Every termination, every conduit run, every panel schedule is done to a standard that doesn't require callbacks. Forty-five years of repeat clients didn't happen by accident.</p>
       </div>
       <div class="value-card">
-        <div class="value-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        <h3>Quality Craftsmanship</h3>
-        <p>We self-perform the majority of our work with experienced, in-house crews who take pride in the finished product.</p>
+        <div class="value-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Clear Communication</h3>
+        <p>You'll know where your project stands without having to ask. We provide scheduled updates, flag issues early, and handle change orders transparently. No surprises on the invoice or the timeline.</p>
       </div>
       <div class="value-card">
         <div class="value-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88"/><path d="m16 16 3.13 3.13a1 1 0 0 1-1.42 1.42L13 15.76"/><path d="m18 13-1.42-1.42"/><path d="M2 15h2"/><path d="M5 11.5h2"/><path d="M2 7h2"/><path d="M20 15h2"/><path d="M17 11.5h2"/><path d="M20 7h2"/></svg></div>
-        <h3>Lasting Relationships</h3>
-        <p>Most of our work comes from repeat clients. We earn that trust through reliable execution and honest communication.</p>
+        <h3>Exceeding Expectations</h3>
+        <p>We finish what we start, and we finish it right. Punchlist items are addressed before you have to ask. The goal isn't to meet the spec — it's to hand over a project you're proud to put your name on.</p>
       </div>
     </div>
   </div>
@@ -139,7 +139,7 @@ export function aboutPage(): string {
 </section>
 `
   return layout({
-    title: 'About Us | Keeley Electrical Contractors - Since 1978',
+    title: 'About Keeley | Electrical Contractors Since 1978',
     description: 'Family-owned, third-generation electrical contractor based in Portland, Maine. Serving commercial and industrial clients across ME, NH, and MA since 1978.',
     canonical: 'https://keeleyelectric.com/about',
     breadcrumbs: [

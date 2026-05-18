@@ -28,7 +28,7 @@ export function careersPage(): string {
       <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">Careers</span>
     </nav>
     <span class="eyebrow eyebrow--light">Join Our Team</span>
-    <h1 class="page-header__title">Build Your Career at Keeley Electrical</h1>
+    <h1 class="page-header__title">Join Keeley</h1>
     <p class="page-header__desc">We're always looking for skilled electricians, project managers, and construction professionals to join our growing team.</p>
   </div>
 </section>
@@ -57,19 +57,29 @@ export function careersPage(): string {
     <h2 class="h2">What We Offer</h2>
     <div class="values-grid">
       <div class="value-card">
-        <div class="value-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 4.37 10.08"/><path d="M5.63 16.08A6 6 0 0 1 10 6"/><path d="M2 20h20"/><path d="M4 16h16"/></svg></div>
-        <h3>Safety First Culture</h3>
-        <p>Zero OSHA recordable incidents for three consecutive years. Your safety is our top priority on every job.</p>
+        <div class="value-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Competitive Wages</h3>
+        <p>Market-rate pay for licensed electricians and operators in northern New England. We retain people because we pay fairly from day one.</p>
       </div>
       <div class="value-card">
         <div class="value-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg></div>
-        <h3>Career Growth</h3>
-        <p>Opportunities for advancement from apprentice to journeyman to foreman and project management roles.</p>
+        <h3>Consistent Work Volume</h3>
+        <p>45 years of backlog and repeat clients mean steady hours year-round. No seasonal layoffs, no scrambling for the next job.</p>
       </div>
       <div class="value-card">
-        <div class="value-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h3>Competitive Benefits</h3>
-        <p>Health insurance, retirement plan, paid time off, and competitive pay scales for all positions.</p>
+        <div class="value-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Small Crew, Real Accountability</h3>
+        <p>A 35-person outfit where your work is seen and your input matters. Third-generation ownership that knows every employee by name.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 4.37 10.08"/><path d="M5.63 16.08A6 6 0 0 1 10 6"/><path d="M2 20h20"/><path d="M4 16h16"/></svg></div>
+        <h3>Field Stability &amp; Safety</h3>
+        <p>Zero OSHA recordable incidents for three consecutive years. ISN certified. We invest in equipment, training, and conditions that keep people safe.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg></div>
+        <h3>Benefits &amp; Longevity</h3>
+        <p>Health insurance, retirement plan, and paid time off. Average employee tenure here is measured in decades, not months.</p>
       </div>
     </div>
   </div>
@@ -125,7 +135,7 @@ export function careersPage(): string {
 <section class="cta-band">
   <div class="cta-band__inner" style="text-align:center;flex-direction:column;align-items:center;">
     <h2 class="h2 h2--light">Interested in Joining Keeley?</h2>
-    <p class="cta-band__desc" style="max-width:560px;">Send us your resume and a brief description of your experience. We'll follow up within one business day.</p>
+    <p class="cta-band__desc" style="max-width:560px;">Send us your resume and a brief description of your experience. We'll follow up within three business days.</p>
     <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
       <a href="/careers/apply" class="btn btn--primary btn--lg">Apply Now <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       <a href="${PHONE_HREF}" class="btn btn--ghost btn--lg"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> ${PHONE}</a>
@@ -134,8 +144,8 @@ export function careersPage(): string {
 </section>
 `
   return layout({
-    title: 'Careers | Keeley Electrical Contractors - Join Our Team',
-    description: 'Build your career at Keeley Electrical Contractors. We hire licensed electricians, apprentices, and project managers in Maine, New Hampshire, and Massachusetts.',
+    title: 'Join Keeley | Careers at Keeley Electrical Contractors',
+    description: 'Build your career at Keeley Contractors. We hire licensed electricians, apprentices, and project managers in Maine, New Hampshire, and Massachusetts.',
     canonical: 'https://keeleyelectric.com/careers',
     breadcrumbs: [
       { name: 'Home', url: 'https://keeleyelectric.com/' },

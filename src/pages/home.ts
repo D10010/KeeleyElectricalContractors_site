@@ -31,8 +31,8 @@ export function homePage(): string {
   <div class="hero__overlay"></div>
   <div class="hero__content">
     <span class="eyebrow">Maine &middot; New Hampshire &middot; Massachusetts</span>
-    <h1 class="hero__title">New England's Electrical, Site, and <em>Utility</em> Contractor</h1>
-    <p class="hero__sub">Full-service electrical, site work, and utility contractor. Licensed in three states. Trusted by general contractors, facility owners, and utilities since 1978.</p>
+    <h1 class="hero__title">Electrical. Site Work. Utility.</h1>
+    <p class="hero__sub">Licensed across New England. Trusted by general contractors, facility owners, and utilities since 1978.</p>
     <div class="hero__btns">
       <a href="/contact" class="btn btn--primary">Start a Project</a>
       <a href="/services" class="btn btn--ghost">View Our Work <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
@@ -139,7 +139,7 @@ export function homePage(): string {
       <div class="process-step">
         <span class="process-step__num">01</span>
         <h3 class="process-step__title">Inquiry</h3>
-        <p>Tell us about your project. We respond to all inquiries within one business day.</p>
+        <p>Tell us about your project. We respond within three business days with next steps.</p>
       </div>
       <div class="process-step">
         <span class="process-step__num">02</span>
@@ -148,8 +148,23 @@ export function homePage(): string {
       </div>
       <div class="process-step">
         <span class="process-step__num">03</span>
-        <h3 class="process-step__title">Build</h3>
-        <p>Our self-performing crews deliver your project safely, on budget, and on schedule.</p>
+        <h3 class="process-step__title">Mobilization</h3>
+        <p>Crews are assigned, materials ordered, and a project schedule is locked with your team.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-step__num">04</span>
+        <h3 class="process-step__title">Milestone Updates</h3>
+        <p>Your project manager receives scheduled progress reports at each phase gate. No surprises.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-step__num">05</span>
+        <h3 class="process-step__title">Change Orders</h3>
+        <p>Scope changes are documented, priced, and approved before any additional work begins.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-step__num">06</span>
+        <h3 class="process-step__title">Completion</h3>
+        <p>Final walkthrough, punch list resolution, and closeout documentation delivered on schedule.</p>
       </div>
     </div>
   </div>
@@ -160,14 +175,14 @@ export function homePage(): string {
   <div class="cta-band__inner">
     <div class="cta-band__text">
       <span class="eyebrow eyebrow--light">Start Your Project</span>
-      <h2 class="h2 h2--light">Ready to Work Together?</h2>
-      <p class="cta-band__desc">Whether you're a general contractor, facility owner, or property manager, we're ready to discuss your next project.</p>
+      <h2 class="h2 h2--light">Let's Talk Scope</h2>
+      <p class="cta-band__desc">You know what your project needs. We know how to build it. Start the conversation.</p>
       <div class="cta-band__phone">
         <a href="${PHONE_HREF}"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> ${PHONE}</a>
       </div>
     </div>
     <div class="cta-band__actions">
-      <a href="/contact" class="btn btn--primary btn--lg">Get a Free Quote</a>
+      <a href="/contact" class="btn btn--primary btn--lg">Contact Us</a>
       <a href="/services" class="btn btn--ghost btn--lg">Explore Services</a>
     </div>
   </div>

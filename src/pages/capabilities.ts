@@ -10,7 +10,7 @@ export function capabilitiesPage(): string {
     </nav>
     <span class="eyebrow eyebrow--light">Procurement &amp; Qualification Resource</span>
     <h1 class="page-header__title">Licensing, Certifications &amp; Capabilities</h1>
-    <p class="page-header__desc">Everything your procurement team needs to qualify Keeley Electrical for your next project.</p>
+    <p class="page-header__desc">Everything your procurement team needs to qualify Keeley for your next project.</p>
   </div>
 </section>
 
@@ -110,7 +110,7 @@ export function capabilitiesPage(): string {
   <div class="container" style="text-align:center;">
     <span class="eyebrow">Coverage Area</span>
     <h2 class="h2">Service Territory</h2>
-    <p style="max-width:600px;margin:0 auto 2rem;">Keeley Electrical is headquartered in Portland, Maine and serves commercial and industrial clients throughout the three-state region.</p>
+    <p style="max-width:600px;margin:0 auto 2rem;">Keeley is headquartered in Portland, Maine and serves commercial and industrial clients throughout the three-state region.</p>
     <div class="territory-map">
       <div class="territory-map__states">
         <div class="territory-map__state territory-map__state--active">

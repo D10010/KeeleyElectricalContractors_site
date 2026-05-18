@@ -10,7 +10,7 @@ export function applyPage(): string {
     </nav>
     <span class="eyebrow eyebrow--light">Join the Team</span>
     <h1 class="page-header__title">Apply to Keeley</h1>
-    <p class="page-header__desc">Tell us about your trade background and what you&rsquo;re looking for. We review every application and respond within five business days.</p>
+    <p class="page-header__desc">Tell us about your trade background and what you&rsquo;re looking for. We review every application and respond within three business days.</p>
   </div>
 </section>
 
@@ -204,12 +204,12 @@ export function applyPage(): string {
             </div>
             <div class="field-row">
               <div class="field-group">
-                <label class="field-label" for="f-apply-city">City / Town</label>
-                <input type="text" id="f-apply-city" name="city">
+                <label class="field-label" for="f-apply-city">City / Town<span class="required">*</span></label>
+                <input type="text" id="f-apply-city" name="city" required>
               </div>
               <div class="field-group">
-                <label class="field-label" for="f-apply-state">State</label>
-                <select id="f-apply-state" name="state">
+                <label class="field-label" for="f-apply-state">State<span class="required">*</span></label>
+                <select id="f-apply-state" name="state" required>
                   <option value="">Select</option>
                   <option value="ME">Maine</option>
                   <option value="NH">New Hampshire</option>
@@ -230,8 +230,9 @@ export function applyPage(): string {
             </div>
 
             <div class="field-group">
-              <label class="field-label" for="f-resume">Upload resume<span class="required">*</span></label>
-              <input type="file" id="f-resume" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
+              <label class="field-label" for="f-resume">Resume &amp; Cover Letter (optional)</label>
+              <input type="file" id="f-resume" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" multiple>
+              <span class="field-hint">Upload your resume. A cover letter is optional but welcome. Max 2 files.</span>
               <p class="field-hint">PDF or Word document, 10 MB max.</p>
               <div id="resume-preview" class="attachment-preview"></div>
             </div>
@@ -257,14 +258,14 @@ export function applyPage(): string {
           <button type="submit" class="btn btn--primary btn--lg form-submit-btn" id="apply-btn-submit">
             Submit Application <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </button>
-          <p class="form-disclaimer">We review every application. Confidential review by our hiring manager.<br>Response within five business days.</p>
+          <p class="form-disclaimer">We review every application. Confidential review by our hiring manager.<br>Response within three business days.</p>
         </form>
 
         <!-- Thank You -->
         <div id="apply-thank-you" class="thank-you" style="display:none;">
           <div class="thank-you__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></div>
           <h2 class="h2">Thanks for Applying.</h2>
-          <p>Our hiring manager will review your application and follow up within five business days. If your background is a strong match for current openings, expect a call or email at the contact info you provided.</p>
+          <p>Our hiring manager will review your application and follow up within three business days. If your background is a strong match for current openings, expect a call or email at the contact info you provided.</p>
           <div class="thank-you__steps">
             <div class="thank-you__step">
               <span class="thank-you__step-num">1</span>
@@ -277,7 +278,7 @@ export function applyPage(): string {
               <span class="thank-you__step-num">2</span>
               <div>
                 <strong>Follow-up</strong>
-                <p>If your background is a match, we&rsquo;ll reach out within five business days to discuss the role and next steps.</p>
+                <p>If your background is a match, we&rsquo;ll reach out within three business days to discuss the role and next steps.</p>
               </div>
             </div>
             <div class="thank-you__step">

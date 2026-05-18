@@ -10,7 +10,7 @@ export function servicesPage(): string {
     </nav>
     <span class="eyebrow eyebrow--light">Full Scope Capabilities</span>
     <h1 class="page-header__title">What We Build</h1>
-    <p class="page-header__desc">From underground conduit to medium-voltage distribution, Keeley Electrical delivers full-scope electrical, site work, and utility services across Maine, New Hampshire, and Massachusetts.</p>
+    <p class="page-header__desc">Keeley delivers electrical, site work, and utility services for residential, commercial, and industrial projects across Maine, New Hampshire, and Massachusetts.</p>
   </div>
 </section>
 
@@ -94,7 +94,7 @@ export function servicesPage(): string {
 <section class="cta-band">
   <div class="cta-band__inner" style="text-align:center;flex-direction:column;align-items:center;">
     <h2 class="h2 h2--light">Not Sure Which Service Fits?</h2>
-    <p class="cta-band__desc" style="max-width:560px;">Tell us about your project and we'll connect you with the right team. We respond to all inquiries within one business day.</p>
+    <p class="cta-band__desc" style="max-width:560px;">Tell us about your project and we'll connect you with the right team. We respond to all inquiries within three business days.</p>
     <a href="/contact" class="btn btn--primary btn--lg">Contact Us</a>
   </div>
 </section>

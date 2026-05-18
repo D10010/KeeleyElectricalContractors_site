@@ -339,7 +339,7 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .form-divider { border: none; border-top: 1px solid var(--rule); margin: 1.5rem 0; }
 
 /* Service Cards */
-.service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .65rem; margin-bottom: .75rem; }
+.service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin-bottom: .75rem; }
 .service-card { border: 1.5px solid var(--rule); border-radius: var(--radius); padding: 1rem .9rem; cursor: pointer; background: var(--white); text-align: left; transition: all .15s; position: relative; overflow: hidden; user-select: none; }
 .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transition: transform .2s; transform-origin: left; }
 .service-card:hover { border-color: var(--accent-2); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(6,96,182,.10), 0 2px 6px rgba(6,96,182,.06); }
