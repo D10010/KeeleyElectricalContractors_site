@@ -85,9 +85,10 @@ ${breadcrumbLd}
       <img src="/static/logo-full.png" alt="Keeley Electrical Contractors" class="nav__logo-img">
     </a>
     <div class="nav__links" id="nav-links">
+      <a href="/" class="nav__link">Home</a>
+      <a href="/about" class="nav__link">About</a>
       <a href="/services" class="nav__link">Services</a>
       <a href="/capabilities" class="nav__link">Capabilities</a>
-      <a href="/about" class="nav__link">About</a>
       <a href="/careers" class="nav__link">Careers</a>
       <a href="/contact" class="nav__link">Contact</a>
     </div>
@@ -103,9 +104,10 @@ ${breadcrumbLd}
 <!-- Mobile Drawer -->
 <div class="mobile-drawer" id="mobile-drawer">
   <div class="mobile-drawer__links">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
     <a href="/services">Services</a>
     <a href="/capabilities">Capabilities</a>
-    <a href="/about">About</a>
     <a href="/careers">Careers</a>
     <a href="/contact">Contact</a>
   </div>
