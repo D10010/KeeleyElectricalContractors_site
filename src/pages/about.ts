@@ -27,7 +27,7 @@ export function aboutPage(): string {
         <p>Our growth has been deliberate — built on repeat relationships with general contractors, facility owners, and utilities who value reliability, safety, and quality craftsmanship.</p>
       </div>
       <div class="two-col__image">
-        <div class="image-placeholder image-placeholder--lg"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg><span>Company Headquarters</span></div>
+        <img src="/static/about-portland-maine-skyline-sunset.jpg" alt="Portland, Maine skyline at sunset — home of Keeley Electrical Contractors headquarters" width="1024" height="683" loading="lazy" style="width:100%;height:auto;border-radius:8px;">
       </div>
     </div>
   </div>
