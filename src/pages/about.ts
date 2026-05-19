@@ -116,19 +116,6 @@ export function aboutPage(): string {
   </div>
 </section>
 
-<!-- Photos -->
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">Our Work</span>
-    <h2 class="h2">In the Field</h2>
-    <div class="photo-grid">
-      <div class="photo-grid__item"><img src="/static/commercial-electrical-conduit-installation.jpg" alt="Commercial electrical conduit installation by Keeley Electrical Contractors" width="800" height="533" loading="lazy"></div>
-      <div class="image-placeholder"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="16" width="18" height="4" rx="1"/><rect x="4" y="12" width="8" height="4" rx="1"/><path d="M10 12V9l6-5"/><path d="M16 4l4 3-3 2"/><circle cx="3" cy="22" r="1"/><circle cx="17" cy="22" r="1"/></svg><span>Equipment at Work</span></div>
-      <div class="image-placeholder"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 4.37 10.08"/><path d="M5.63 16.08A6 6 0 0 1 10 6"/><path d="M2 20h20"/><path d="M4 16h16"/></svg><span>Crew Photo</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- CTA -->
 <section class="cta-band">
   <div class="cta-band__inner" style="text-align:center;flex-direction:column;align-items:center;">
