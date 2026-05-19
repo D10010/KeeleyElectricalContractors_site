@@ -3,7 +3,8 @@ import { layout } from '../components/layout'
 export function aboutPage(): string {
   const body = `
 <!-- Page Header -->
-<section class="page-header page-header--blue">
+<section class="page-header page-header--blue page-header--has-hero">
+  <img src="/static/about-hero-electrical-panel-wiring-closeup.jpg" alt="Close-up of electrical panel with labeled terminal blocks, blue cables, and color-coded wiring" class="page-header__hero" width="1024" height="683" loading="eager">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">About</span>
