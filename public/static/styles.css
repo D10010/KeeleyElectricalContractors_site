@@ -303,7 +303,7 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 
 /* About */
 .about-services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.about-service { background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius); padding: 1.5rem; }
+.about-service { background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius); padding: 1.5rem; display: flex; flex-direction: column; }
 .about-service__icon { width: 48px; height: 48px; background: rgba(48,174,103,.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
 .about-service__icon i { color: var(--accent); font-size: 1.25rem; }
 .about-service h3 { font-family: var(--ff-head); font-size: 1.1rem; font-weight: 700; margin-bottom: .5rem; }
