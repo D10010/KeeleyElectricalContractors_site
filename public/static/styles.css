@@ -190,12 +190,17 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 .cert-badge__icon--green { background: #dcfce7; border: 1px solid #86efac; color: #16a34a; }
 
 /* Process */
-.process-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 1.5rem; }
-.process-step { padding: 2rem 1.5rem; border-right: 1px solid var(--rule); }
-.process-step:last-child { border-right: none; }
-.process-step__num { font-family: var(--ff-head); font-size: 3rem; font-weight: 800; color: var(--rule); line-height: 1; margin-bottom: .5rem; }
-.process-step__title { font-family: var(--ff-head); font-size: 1.25rem; font-weight: 700; margin-bottom: .5rem; }
+.process-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
+.process-step { padding: 2rem 1.5rem; background: var(--white); border-radius: var(--radius); border: 1px solid var(--rule); position: relative; transition: transform .25s, box-shadow .25s, border-color .25s; }
+.process-step:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.1); border-color: var(--accent); }
+.process-step:hover .process-step__num { color: var(--accent); }
+.process-step__num { font-family: var(--ff-head); font-size: 2.5rem; font-weight: 800; color: var(--rule); line-height: 1; margin-bottom: .5rem; transition: color .25s; }
+.process-step__title { font-family: var(--ff-head); font-size: 1.1rem; font-weight: 700; margin-bottom: .5rem; }
 .process-step p { color: var(--ink-2); font-size: .9rem; }
+/* Arrow connectors between steps */
+.process-step::after { content: ''; position: absolute; top: 50%; right: -0.85rem; transform: translateY(-50%); width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 10px solid var(--accent); opacity: .6; transition: opacity .25s; }
+.process-step:nth-child(3n)::after, .process-step:last-child::after { display: none; }
+.process-step:hover::after { opacity: 1; }
 
 /* CTA Band */
 .cta-band { background: var(--ink); padding: 4rem 0; }
@@ -738,8 +743,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .service-cards, .service-detail-grid, .about-services, .values-grid, .cert-detail-grid, .license-grid, .territory-map__states { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr 1fr; }
   .process-strip { grid-template-columns: 1fr; }
-  .process-step { border-right: none; border-bottom: 1px solid var(--rule); }
-  .process-step:last-child { border-bottom: none; }
+  .process-step::after { display: none; }
+  .process-step { border-right: none; }
   .stats-bar__inner { grid-template-columns: 1fr 1fr; }
   .footer__grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .footer__bottom { flex-direction: column; gap: .75rem; text-align: center; }

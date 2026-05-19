@@ -131,7 +131,7 @@ export function homePage(): string {
 </section>
 
 <!-- Process Strip -->
-<section class="section">
+<section class="section section--surface">
   <div class="container">
     <span class="eyebrow">How We Work</span>
     <h2 class="h2">Our Process</h2>
