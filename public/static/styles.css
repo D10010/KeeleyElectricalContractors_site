@@ -605,7 +605,7 @@ input, select, textarea { font-family: var(--ff-body); font-size: 15px; }
 /* Featured Project */
 .featured-project { display: grid; grid-template-columns: 2fr 3fr; gap: 2.5rem; align-items: center; margin-top: 1.5rem; }
 .featured-project__image { min-width: 0; }
-.featured-project__image img { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.08); }
+.featured-project__image img { width: 100%; aspect-ratio: 5/4; object-fit: cover; display: block; border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.08); }
 .featured-project__info .pill { margin-bottom: 1rem; }
 .featured-project__title { font-family: var(--ff-head); font-size: 1.75rem; font-weight: 800; margin-bottom: .75rem; }
 .featured-project__desc { color: var(--ink-2); margin-bottom: 1.5rem; }
