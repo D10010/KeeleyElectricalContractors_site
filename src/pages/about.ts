@@ -44,6 +44,7 @@ export function aboutPage(): string {
         <div class="about-service__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
         <h3>Electrical</h3>
         <p>Commercial construction, renovation, design-build, generators, fire alarm, medium voltage, service upgrades, lighting, and power distribution.</p>
+        <p><br></p>
         <a href="/services/electrical" class="btn btn--primary" style="margin-top:auto;">Learn More <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
       <div class="about-service">
