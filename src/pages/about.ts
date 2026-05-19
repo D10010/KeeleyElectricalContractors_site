@@ -22,9 +22,10 @@ export function aboutPage(): string {
       <div class="two-col__text">
         <span class="eyebrow">Our Story</span>
         <h2 class="h2">Built on Family, Driven by Craft</h2>
-        <p>Keeley Electrical Contractors was founded in 1978 in Portland, Maine. What started as a small family operation has grown into one of the region's most respected commercial and industrial electrical contractors.</p>
+        <p>Keeley was founded in 1978 in Portland, Maine. What started as a small family operation has grown into one of the region's most respected commercial and industrial electrical contractors.</p>
+        <p><br></p>
         <p>Now in its third generation of family ownership, Keeley combines decades of field experience with modern project management to deliver electrical, site work, and utility services across Maine, New Hampshire, and Massachusetts.</p>
-        <p>Our growth has been deliberate — built on repeat relationships with general contractors, facility owners, and utilities who value reliability, safety, and quality craftsmanship.</p>
+        <p>Our growth has been deliberate, built on repeat relationships with general contractors, facility owners, and utilities who value reliability, safety, and quality craftsmanship.</p>
       </div>
       <div class="two-col__image">
         <img src="/static/about-portland-maine-skyline-sunset.jpg" alt="Portland, Maine skyline at sunset — home of Keeley Electrical Contractors headquarters" width="1024" height="683" loading="lazy" style="width:100%;height:auto;border-radius:8px;">
