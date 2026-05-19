@@ -32,37 +32,6 @@ export function aboutPage(): string {
   </div>
 </section>
 
-<!-- What We Do -->
-<section class="section section--surface">
-  <div class="container">
-    <span class="eyebrow">What We Do</span>
-<div id="capabilities"></div>
-    <h2 class="h2">Full-Service Capabilities</h2>
-    <p style="max-width:640px;margin-bottom:2rem;">Keeley provides three core service categories across the commercial and industrial sector:</p>
-    <div class="about-services">
-      <div class="about-service">
-        <div class="about-service__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-        <h3>Electrical</h3>
-        <p>Commercial construction, renovation, design-build, generators, fire alarm, medium voltage, service upgrades, lighting, and power distribution.</p>
-        <p><br></p>
-        <a href="/services/electrical" class="btn btn--primary" style="margin-top:auto;">Learn More <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-      </div>
-      <div class="about-service">
-        <div class="about-service__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="16" width="18" height="4" rx="1"/><rect x="4" y="12" width="8" height="4" rx="1"/><path d="M10 12V9l6-5"/><path d="M16 4l4 3-3 2"/><circle cx="3" cy="22" r="1"/><circle cx="17" cy="22" r="1"/></svg></div>
-        <h3>Site Work</h3>
-        <p>Excavation, grading, underground conduit, parking lot and perimeter lighting, roadway lighting, and civil earthwork.</p>
-        <a href="/services/site-work" class="btn btn--primary" style="margin-top:auto;">Learn More <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-      </div>
-      <div class="about-service">
-        <div class="about-service__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></div>
-        <h3>Utility</h3>
-        <p>Private line extensions, aerial and underground, de-energized and energized line work, utility coordination, and CIAC guidance.</p>
-        <a href="/services/utility" class="btn btn--primary" style="margin-top:auto;">Learn More <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Values -->
 <section class="section">
   <div class="container">
@@ -115,6 +84,37 @@ export function aboutPage(): string {
         <div class="team-card__photo"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
         <h3 class="team-card__name">Safety Director</h3>
         <p class="team-card__title">Director of Safety &amp; Compliance</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What We Do -->
+<section class="section section--surface">
+  <div class="container">
+    <span class="eyebrow">What We Do</span>
+<div id="capabilities"></div>
+    <h2 class="h2">Full-Service Capabilities</h2>
+    <p style="max-width:640px;margin-bottom:2rem;">Keeley provides three core service categories across the commercial and industrial sector:</p>
+    <div class="about-services">
+      <div class="about-service">
+        <div class="about-service__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Electrical</h3>
+        <p>Commercial construction, renovation, design-build, generators, fire alarm, medium voltage, service upgrades, lighting, and power distribution.</p>
+        <p><br></p>
+        <a href="/services/electrical" class="btn btn--primary" style="margin-top:auto;">Learn More <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+      <div class="about-service">
+        <div class="about-service__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="16" width="18" height="4" rx="1"/><rect x="4" y="12" width="8" height="4" rx="1"/><path d="M10 12V9l6-5"/><path d="M16 4l4 3-3 2"/><circle cx="3" cy="22" r="1"/><circle cx="17" cy="22" r="1"/></svg></div>
+        <h3>Site Work</h3>
+        <p>Excavation, grading, underground conduit, parking lot and perimeter lighting, roadway lighting, and civil earthwork.</p>
+        <a href="/services/site-work" class="btn btn--primary" style="margin-top:auto;">Learn More <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+      <div class="about-service">
+        <div class="about-service__icon"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></div>
+        <h3>Utility</h3>
+        <p>Private line extensions, aerial and underground, de-energized and energized line work, utility coordination, and CIAC guidance.</p>
+        <a href="/services/utility" class="btn btn--primary" style="margin-top:auto;">Learn More <svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
     </div>
   </div>
