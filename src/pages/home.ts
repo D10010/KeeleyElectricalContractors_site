@@ -89,7 +89,7 @@ export function homePage(): string {
         <a href="/about" class="btn btn--secondary">About Keeley</a>
       </div>
       <div class="two-col__image">
-        <div class="image-placeholder"><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 4.37 10.08"/><path d="M5.63 16.08A6 6 0 0 1 10 6"/><path d="M2 20h20"/><path d="M4 16h16"/></svg><span>Team at Work</span></div>
+        <img src="/static/home-team-linemen-bucket-truck-sunset.jpg" alt="Utility linemen working from bucket trucks on power lines at sunset" width="1024" height="576" loading="lazy" style="width:100%;height:auto;border-radius:8px;">
       </div>
     </div>
   </div>
