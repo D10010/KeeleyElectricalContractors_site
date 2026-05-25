@@ -29,7 +29,7 @@ export function contactPage(): string {
       <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">Contact</span>
     </nav>
     <span class="eyebrow eyebrow--light">Project Inquiry</span>
-    <h1 class="page-header__title">Start a Conversation.</h1>
+    <h1 class="page-header__title">Start A Conversation</h1>
     <p class="page-header__desc">Tell us what you're working on. We'll route your inquiry to the right person and follow up within three business days.</p>
   </div>
 </section>
