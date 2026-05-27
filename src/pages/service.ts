@@ -230,7 +230,7 @@ export function servicePage(slug: string): string {
 <section class="cta-band">
   <div class="cta-band__inner" style="text-align:center;flex-direction:column;align-items:center;">
     <h2 class="h2 h2--light">Ready to Discuss Your Project?</h2>
-    <p class="cta-band__desc" style="max-width:560px;">If you're evaluating contractors for ${svc.name.toLowerCase()} work, we'd like to hear what you're planning. One conversation is usually enough to determine fit.</p>
+    <p class="cta-band__desc" style="max-width:560px;">If you're evaluating contractors for ${svc.name.toLowerCase().includes('work') ? svc.name.toLowerCase() : svc.name.toLowerCase() + ' work'}, we'd like to hear what you're planning. One conversation is usually enough to determine fit.</p>
     <a href="/contact" class="btn btn--primary btn--lg">Contact Us</a>
   </div>
 </section>
