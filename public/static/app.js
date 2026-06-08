@@ -144,10 +144,9 @@
     });
   }
 
-  // ── Hero Video: deferred, conditional playback ──
-  // Poster shows immediately (preload="none" keeps the video idle).
-  // After the page has fully loaded + 800 ms we start the video ONLY on
-  // desktop-sized viewports that haven't opted into reduced motion.
+  // ── Hero Video: autoplay on all devices ──
+  // Video plays on all viewports (desktop and mobile) unless the user
+  // has opted into reduced motion via OS accessibility settings.
   var heroVideo = document.querySelector('.hero__video');
   if (heroVideo) {
     heroVideo.muted = true;
@@ -156,14 +155,12 @@
 
     function maybePlayHero() {
       var prefersMotion = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
-      var isDesktop = window.innerWidth >= 768;
 
-      if (prefersMotion && isDesktop) {
+      if (prefersMotion) {
         heroVideo.play().catch(function() {
           // Silently fail — poster stays visible
         });
       }
-      // Otherwise the poster image remains on screen (no video download)
     }
 
     // Wait for full page load, then an extra 800 ms so the poster can
