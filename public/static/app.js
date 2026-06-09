@@ -144,33 +144,46 @@
     });
   }
 
-  // ── Hero Video: autoplay on all devices ──
-  // Video plays on all viewports (desktop and mobile) unless the user
-  // has opted into reduced motion via OS accessibility settings.
+  // ── Hero Video: autoplay on all devices including mobile ──
   var heroVideo = document.querySelector('.hero__video');
   if (heroVideo) {
+    // Ensure attributes are set for iOS autoplay policy
     heroVideo.muted = true;
     heroVideo.setAttribute('muted', '');
     heroVideo.setAttribute('playsinline', '');
+    heroVideo.setAttribute('webkit-playsinline', '');
 
-    function maybePlayHero() {
-      var prefersMotion = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+    var prefersMotion = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
 
-      if (prefersMotion) {
-        heroVideo.play().catch(function() {
-          // Silently fail — poster stays visible
-        });
+    if (prefersMotion) {
+      // Attempt play immediately — don't wait for load event
+      function tryPlay() {
+        var playPromise = heroVideo.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(function() {
+            // If autoplay blocked, retry on first user interaction
+            function playOnInteraction() {
+              heroVideo.play();
+              document.removeEventListener('touchstart', playOnInteraction);
+              document.removeEventListener('scroll', playOnInteraction);
+              document.removeEventListener('click', playOnInteraction);
+            }
+            document.addEventListener('touchstart', playOnInteraction, { once: true, passive: true });
+            document.addEventListener('scroll', playOnInteraction, { once: true, passive: true });
+            document.addEventListener('click', playOnInteraction, { once: true });
+          });
+        }
       }
-    }
 
-    // Wait for full page load, then an extra 800 ms so the poster can
-    // serve as the LCP element before we swap in the video stream.
-    if (document.readyState === 'complete') {
-      setTimeout(maybePlayHero, 800);
-    } else {
-      window.addEventListener('load', function() {
-        setTimeout(maybePlayHero, 800);
-      });
+      // Try immediately if data is available
+      if (heroVideo.readyState >= 2) {
+        tryPlay();
+      } else {
+        // Try as soon as any data loads
+        heroVideo.addEventListener('loadeddata', tryPlay, { once: true });
+        // Also try on canplay as fallback
+        heroVideo.addEventListener('canplay', tryPlay, { once: true });
+      }
     }
 
     // If video fails to load, keep the poster visible
