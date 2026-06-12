@@ -4,9 +4,6 @@ export function termsPage(): string {
   const body = `
 <section class="page-header page-header--blue">
   <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">Terms &amp; Conditions</span>
-    </nav>
     <h1 class="page-header__title">Terms &amp; Conditions</h1>
     <p class="page-header__desc">Last updated: April 22, 2026</p>
   </div>
@@ -75,9 +72,6 @@ export function termsPage(): string {
     title: 'Terms & Conditions | Keeley Electrical Contractors',
     description: 'Terms and Conditions for Keeley Electrical Contractors, Inc. Includes workmanship guarantee, liability terms, and governing law.',
     canonical: 'https://keeleyelectric.com/terms',
-    breadcrumbs: [
-      { name: 'Home', url: 'https://keeleyelectric.com/' },
-      { name: 'Terms & Conditions', url: 'https://keeleyelectric.com/terms' }
-    ]
+
   }, body)
 }

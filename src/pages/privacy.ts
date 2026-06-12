@@ -4,9 +4,6 @@ export function privacyPage(): string {
   const body = `
 <section class="page-header page-header--blue">
   <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">Privacy Policy</span>
-    </nav>
     <h1 class="page-header__title">Privacy Policy</h1>
     <p class="page-header__desc">Last updated: April 22, 2026</p>
   </div>
@@ -89,9 +86,6 @@ export function privacyPage(): string {
     title: 'Privacy Policy | Keeley Electrical Contractors',
     description: 'Privacy Policy for Keeley Electrical Contractors, Inc. Learn how we collect, use, and protect your personal information.',
     canonical: 'https://keeleyelectric.com/privacy',
-    breadcrumbs: [
-      { name: 'Home', url: 'https://keeleyelectric.com/' },
-      { name: 'Privacy Policy', url: 'https://keeleyelectric.com/privacy' }
-    ]
+
   }, body)
 }

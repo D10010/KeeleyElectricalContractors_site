@@ -21,23 +21,11 @@ interface PageMeta {
   canonical: string
   h1?: string
   jsonLd?: string
-  breadcrumbs?: { name: string; url: string }[]
   ogImage?: string
   ogType?: string
 }
 
 export function layout(meta: PageMeta, body: string): string {
-  const breadcrumbLd = meta.breadcrumbs ? `<script type="application/ld+json">${JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": meta.breadcrumbs.map((b, i) => ({
-      "@type": "ListItem",
-      "position": i + 1,
-      "name": b.name,
-      "item": b.url
-    }))
-  })}</script>` : ''
-
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +51,6 @@ export function layout(meta: PageMeta, body: string): string {
 <link href="/static/styles.css" rel="stylesheet">
 <noscript><style>.reveal-init{opacity:1!important;transform:none!important}</style></noscript>
 ${meta.jsonLd || ''}
-${breadcrumbLd}
 </head>
 <body>
 

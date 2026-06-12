@@ -25,9 +25,6 @@ export function contactPage(): string {
 <section class="page-header page-header--blue page-header--has-hero">
   <img src="/static/contact-hero-electrical-workers-handshake-power-lines.jpg" alt="Two electrical workers in safety vests shaking hands in front of power transmission towers" class="page-header__hero" width="1024" height="683" loading="eager">
   <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">Contact</span>
-    </nav>
     <span class="eyebrow eyebrow--light">Project Inquiry</span>
     <h1 class="page-header__title">Start A Conversation</h1>
     <p class="page-header__desc">Tell us what you're working on. We'll route your inquiry to the right person and follow up within three business days.</p>
@@ -503,9 +500,6 @@ export function contactPage(): string {
     description: 'Start your commercial or industrial electrical project. Contact Keeley Electrical Contractors in Portland, Maine. Licensed in ME, NH, MA. Response within three business days.',
     canonical: 'https://keeleyelectric.com/contact',
     jsonLd: jsonLd,
-    breadcrumbs: [
-      { name: 'Home', url: 'https://keeleyelectric.com/' },
-      { name: 'Contact', url: 'https://keeleyelectric.com/contact' }
-    ]
+
   }, body)
 }

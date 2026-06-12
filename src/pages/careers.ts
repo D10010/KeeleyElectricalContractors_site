@@ -25,9 +25,6 @@ export function careersPage(): string {
 <section class="page-header page-header--blue page-header--has-hero">
   <img src="/static/careers-hero-solar-panel-electrician-aerial.jpg" alt="Electrician inspecting commercial solar panel array from aerial view" class="page-header__hero" width="1024" height="576" loading="eager">
   <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">Careers</span>
-    </nav>
     <span class="eyebrow eyebrow--light">Join Our Team</span>
     <h1 class="page-header__title">Join Keeley</h1>
     <p class="page-header__desc">We're always looking for skilled electricians, project managers, and construction professionals to join our growing team.</p>
@@ -148,9 +145,6 @@ export function careersPage(): string {
     title: 'Join Keeley | Careers at Keeley Electrical Contractors',
     description: 'Build your career at Keeley Contractors. We hire licensed electricians, apprentices, and project managers in Maine, New Hampshire, and Massachusetts.',
     canonical: 'https://keeleyelectric.com/careers',
-    breadcrumbs: [
-      { name: 'Home', url: 'https://keeleyelectric.com/' },
-      { name: 'Careers', url: 'https://keeleyelectric.com/careers' }
-    ]
+
   }, body)
 }

@@ -5,9 +5,6 @@ export function applyPage(): string {
 <!-- Page Header -->
 <section class="page-header page-header--blue">
   <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><a href="/careers">Careers</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">Apply</span>
-    </nav>
     <span class="eyebrow eyebrow--light">Join the Team</span>
     <h1 class="page-header__title">Apply to Keeley</h1>
     <p class="page-header__desc">Tell us about your trade background and what you&rsquo;re looking for. We review every application and respond within three business days.</p>
@@ -368,10 +365,6 @@ export function applyPage(): string {
     title: 'Apply to Keeley | Careers',
     description: 'Apply for opportunities at Keeley Electrical Contractors. Trades, site work, utility, and project management roles across Maine, New Hampshire, and Massachusetts.',
     canonical: 'https://keeleyelectric.com/careers/apply',
-    breadcrumbs: [
-      { name: 'Home', url: 'https://keeleyelectric.com/' },
-      { name: 'Careers', url: 'https://keeleyelectric.com/careers' },
-      { name: 'Apply', url: 'https://keeleyelectric.com/careers/apply' }
-    ]
+
   }, body)
 }

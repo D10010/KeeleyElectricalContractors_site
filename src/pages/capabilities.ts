@@ -6,9 +6,6 @@ export function capabilitiesPage(): string {
 <section class="page-header page-header--blue page-header--has-hero">
   <img src="/static/capabilities-hero-commercial-solar-rooftop-aerial.jpg" alt="Aerial view of commercial rooftop solar panel installation on large industrial building" class="page-header__hero" width="1024" height="768" loading="eager">
   <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">Capabilities</span>
-    </nav>
     <span class="eyebrow eyebrow--light">Procurement &amp; Qualification Resource</span>
     <h1 class="page-header__title">Licensing, Certifications &amp; Capabilities</h1>
     <p class="page-header__desc">Everything your procurement team needs to qualify Keeley for your next project.</p>
@@ -151,9 +148,6 @@ export function capabilitiesPage(): string {
     title: 'Capabilities & Licensing | Keeley Electrical Contractors',
     description: 'Licensed in Maine, New Hampshire, and Massachusetts. ISN certified, TWIC authorized, zero OSHA recordables. Download our capabilities statement.',
     canonical: 'https://keeleyelectric.com/capabilities',
-    breadcrumbs: [
-      { name: 'Home', url: 'https://keeleyelectric.com/' },
-      { name: 'Capabilities', url: 'https://keeleyelectric.com/capabilities' }
-    ]
+
   }, body)
 }

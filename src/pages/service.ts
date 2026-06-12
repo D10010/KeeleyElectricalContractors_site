@@ -149,9 +149,6 @@ export function servicePage(slug: string): string {
 <!-- Page Header -->
 <section class="page-header page-header--blue${svc.heroImage ? ' page-header--has-hero' : ''}">
   <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Home</a><span class="breadcrumb__sep" aria-hidden="true"></span><a href="/services">Services</a><span class="breadcrumb__sep" aria-hidden="true"></span><span class="breadcrumb__current">${svc.name}</span>
-    </nav>
     <h1 class="page-header__title">${svc.h1}</h1>
     <div class="page-header__tags">
       <span class="pill">Licensed ME &middot; NH &middot; MA</span>
@@ -240,10 +237,6 @@ export function servicePage(slug: string): string {
     title: svc.title,
     description: svc.metaDesc,
     canonical: `https://keeleyelectric.com/services/${slug}`,
-    breadcrumbs: [
-      { name: 'Home', url: 'https://keeleyelectric.com/' },
-      { name: 'Services', url: 'https://keeleyelectric.com/services' },
-      { name: svc.name, url: `https://keeleyelectric.com/services/${slug}` }
-    ]
+
   }, body)
 }
